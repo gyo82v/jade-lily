@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import {EB_Garamond, Dancing_Script} from "next/font/google"
+import type { RootLayoutProps } from "@/types";
 
 const ebGaramond = EB_Garamond({
   subsets: ["latin"],
@@ -13,17 +14,12 @@ const dancingScript = Dancing_Script({
   variable: "--font-dancing-script"
 })
 
-
 export const metadata: Metadata = {
   title: "JadeLily",
   description: "restaurant app",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}:RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`min-h-screen flex flex-col antialiased ${ebGaramond.className} ${dancingScript.variable}`}>
@@ -36,5 +32,3 @@ export default function RootLayout({
   );
 }
 
-
-// ${ebGaramond.className}
