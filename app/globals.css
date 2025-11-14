@@ -20,7 +20,7 @@
 
   /* Apply custom styles to html, body, and the root element */
   html, body, #__next {
-    @apply min-h-screen m-0 p-0 bg-orange-50;
+    @apply m-0 p-0 bg-orange-50;
     line-height: 1.5;
     font-weight: 400;
     scroll-behavior: smooth;
@@ -54,7 +54,9 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
+.font-dancing {
+    font-family: var(--font-dancing-script), ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
+}
 
 }
 
