@@ -5,7 +5,7 @@ export default function Header(){
                 bg-gradient-to-br from-orange-950 via-orange-600 to-orange-950`
     return(
         <header className={header}>
-            <h1 className={h1}>Jade lily</h1>
+            <h1 className={h1}>JadeLily</h1>
             <section className="flex">
                 <p>About</p>
                 <p>menu</p>

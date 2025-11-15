@@ -24,7 +24,8 @@ export const metadata: Metadata = {
 export default function RootLayout({children}:RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`min-h-screen flex flex-col antialiased ${ebGaramond.className} ${dancingScript.variable}`}>
+      <body className={`min-h-screen flex flex-col antialiased text-orange-800
+                       ${ebGaramond.className} ${dancingScript.variable}`}>
         <a href="#content" className="sr-only focus:not-sr-only p-2">Skip to content</a>
         <Header />
           <main id="content" className="flex-1 container mx-auto py-8 px-4">
