@@ -7,7 +7,7 @@ export default function Navlink({href, isActive, children}:Navlink){
                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded `
     return(
         <li>
-          <Link href={href} className={style}>
+          <Link href={href} className={style} aria-current={isActive ? "page" : undefined}>
             {children}
           </Link>
         </li>

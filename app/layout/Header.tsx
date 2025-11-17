@@ -1,3 +1,5 @@
+import Navbar from "./Navbar"
+
 export default function Header(){
     const header = `flex items-center justify-between px-4 py-6`
     const h1 = `text-3xl font-bold 
@@ -6,12 +8,7 @@ export default function Header(){
     return(
         <header className={header}>
             <h1 className={h1}>JadeLily</h1>
-            <section className="flex">
-                <p>About</p>
-                <p>menu</p>
-                <p>order</p>
-                <p>log in</p>
-            </section>
+            <Navbar />
         </header>
     )
 }
