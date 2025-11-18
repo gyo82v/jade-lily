@@ -1,7 +1,8 @@
 import type { ReactNode } from "react"
 
-export type Navlink = {
+export type NavlinkProps = {
     href : string
     isActive? : boolean
     children : ReactNode
+    className? : string
 }
