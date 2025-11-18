@@ -12,13 +12,23 @@ export default function Navbar(){
     return(
         <nav className={nav}>
             <ul className={ul}>
-                <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
-                <Navlink href="/about" isActive={pathname.startsWith("/about")}>About</Navlink>
-                <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
+                <li>
+                    <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
+                </li>
+                <li>
+                    <Navlink href="/about" isActive={pathname.startsWith("/about")}>About</Navlink>
+                </li>
+                <li>
+                    <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
+                </li>
             </ul>
             <ul className={div}>
-                <Navlink href="/account" isActive={pathname.startsWith("/account")}>Account</Navlink>
-                <Navlink href="/login" isActive={pathname.startsWith("/login")}>log in</Navlink>
+                <li>
+                    <Navlink href="/account" isActive={pathname.startsWith("/account")}>Account</Navlink>
+                </li>
+                <li>
+                    <Navlink href="/login" isActive={pathname.startsWith("/login")}>log in</Navlink>
+                </li>
             </ul>
         </nav>
     )

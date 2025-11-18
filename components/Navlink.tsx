@@ -7,14 +7,12 @@ export default function Navlink({href, isActive, className, children}:NavlinkPro
     const defaultStyle = `font-semibold px-4 py-2 hover:underline hover:scale-105
                           ${isActive ? "underline" : ""}`
     return(
-        <li>
-          <Link 
-            href={href} 
-            className={`${style} ${className || defaultStyle}`} 
-            aria-current={isActive ? "page" : undefined}
-          >
-            {children}
-          </Link>
-        </li>
+      <Link 
+        href={href} 
+        className={`${style} ${className || defaultStyle}`} 
+        aria-current={isActive ? "page" : undefined}
+      >
+        {children}
+      </Link>
     )
 }
