@@ -11,4 +11,5 @@ export type ReviewProps = {
     author : string
     rating : number
     children : string
+    date? : Date | string 
 }
