@@ -9,5 +9,6 @@ export type NavlinkProps = {
 
 export type ReviewProps = {
     author : string
+    rating : number
     children : string
 }

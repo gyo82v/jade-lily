@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Navlink from "@/components/Navlink"
+import Review from "@/components/Review"
 
 export default function AboutPage(){
     const imageStyle = ``
@@ -53,6 +54,43 @@ export default function AboutPage(){
                     </div>
                 </div>
                 <div>
+                    <ul className="flex flex-col gap-3">
+                        <li>
+                            <Review rating={5} author="Sarah Thompson">
+                                Jade Lily is a hidden gem! The avocado salad was fresh and flavorful,
+                                and the salmon steak was cooked to perfection. The ambiance is cozy
+                                and inviting. I’ll definitely be coming back soon!
+                            </Review>
+                        </li>
+                        <li>
+                            <Review rating={5} author="Mark Jenkins">
+                                This restaurant is simply amazing. The blueberry cheesecake was a dream,
+                                and the tiramisu was the best I’ve ever had. The staff is so friendly
+                                and attentive—it truly enhances the experience!
+                            </Review>
+                        </li>
+                        <li>
+                            <Review rating={5} author="Emily Rivera">
+                                An unforgettable dining experience! The pasta pesto had a perfect balance
+                                of flavors, and the beef steak melted in my mouth. Highly recommend
+                                for anyone who loves great food!
+                            </Review>
+                        </li>
+                        <li>
+                            <Review rating={5} author="James Carter">
+                                I’ve visited Jade Lily several times, and it never disappoints.
+                                The chicken wings are always juicy and delicious, and the cherry
+                                ice cream is an absolute must-try. They pay attention to every detail!
+                            </Review>
+                        </li>
+                        <li>
+                            <Review rating={5} author="Olivia Martinez">
+                                The perfect spot for foodies! The salad was fresh and vibrant,
+                                and the beef burger was packed with flavor. The decor is stylish
+                                yet comfortable—it’s my new favorite place to eat!
+                            </Review>
+                        </li>
+                    </ul>
 
                 </div>
             </section>
