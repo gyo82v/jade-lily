@@ -5,7 +5,7 @@ export default function Home() {
   const container = `flex-1 bg-[url('/homepage-bg.jpg')] bg-cover bg-center bg-no-repeat
                      `
   const wrapper = `flex flex-col gap-10 items-center w-11/12 mx-auto mt-20`
-  const link = `text-orange-50  `
+  const link = `text-orange-50 block  `
   const li = `w-full border border-orange-50 rounded-lg p-2`
   return (
     <section className={container}>

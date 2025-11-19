@@ -6,3 +6,8 @@ export type NavlinkProps = {
     children : ReactNode
     className? : string
 }
+
+export type ReviewProps = {
+    author : string
+    children : string
+}
