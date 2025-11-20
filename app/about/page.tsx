@@ -8,17 +8,20 @@ export default function AboutPage(){
 
     const section1 = ``
 
-    const section2 = ``
-    const h1 = ``
-    const div1Sec2 = ``
-    const div2Sec2 = ``
+    const section2 = `p-4`
+    const div1Sec2 = `my-6`
+    const div2Sec2 = `bg-gradient-to-br from-orange-100 to-orange-50 px-4 py-8 shadow-lg rounded-lg 
+                      my-4 flex flex-col gap-6 text-orange-800`
     const pSec2 = ``
 
-    const section3 = ``
+    const section3 = `p-4 `
+    const divSec3 = `bg-gradient-to-br from-orange-100 to-orange-50 shadow-lg rounded-lg px-4 py-6 
+                     flex flex-col gap-6`
     const div1Sec3 = ``
-    const div2sec3 = ``
-    const psec3 = ``
-    const links = ``
+    const psec3 = `font-bold text-lg`
+    const li = `text-center border-2 border-orange-800 rounded-lg shadow-lg p-2 text-lg font-semibold 
+                flex-1 hover:scale-105 active:scale-95 hover:shadow-xl hover:bg-orange-100
+                transition-transform transition-shadow transition-colors duration-300 ease-in-out`
 
 
 
@@ -36,7 +39,7 @@ export default function AboutPage(){
             </section>
             <section className={section2}>
                 <div className={div1Sec2}>
-                    <h1 className={h1}>Why settle for ordinary when you can dine at Jade Lily?</h1>
+                    <h1 className="font-bold text-2xl text-center">Why settle for ordinary when you can dine at Jade Lily?</h1>
                     <div className={div2Sec2}>
                         <p className={pSec2}>
                             Jade Lily began with a passion for creating exceptional dining experiences.
@@ -95,13 +98,21 @@ export default function AboutPage(){
                 </div>
             </section>
             <section className={section3}>
-                <div className={div1Sec3}>
-                    <p className={psec3}>Your table is waiting,</p>
-                    <p className={psec3}>Your meal is ready.</p>
-                </div>
-                <div className={div2sec3}>
-                    <Navlink href="/" className={links}>Join us</Navlink>
-                    <Navlink href="/" className={links}>contact us</Navlink>
+                <div className={divSec3}>
+                    <div className={div1Sec3}>
+                        <p className={psec3}>Your table is waiting,</p>
+                        <p className={psec3}>Your meal is ready.</p>
+                    </div>
+                    <div className="w-full">
+                        <ul className="flex gap-6 w-full">
+                            <li className={li}>
+                                <Navlink href="/" className="block">Join us</Navlink>
+                            </li>
+                            <li className={li}>
+                                <Navlink href="/" className="block">Contact us</Navlink>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
         </div>
