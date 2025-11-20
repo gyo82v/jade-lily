@@ -9,7 +9,7 @@ export default function Navlink({href, isActive, className, children}:NavlinkPro
     return(
       <Link 
         href={href} 
-        className={`${style} ${className || defaultStyle}`} 
+        className={`${style} ${className ?? defaultStyle}`} 
         aria-current={isActive ? "page" : undefined}
       >
         {children}
