@@ -1,5 +1,4 @@
-import Navlink from "@/components/Navlink";
-
+import { Navlink } from "@/components"
 
 export default function Home() {
   const container = `flex-1 bg-[url('/homepage-bg.jpg')] bg-cover bg-center bg-no-repeat
