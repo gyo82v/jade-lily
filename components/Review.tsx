@@ -1,7 +1,7 @@
 import type { ReviewProps } from "@/types"
 import { FaStar, FaRegStar, FaStarHalfAlt} from "react-icons/fa";
 
-export default function Review({author, rating, children, date = "2025-11-12"}:ReviewProps){
+export function Review({author, rating, children, date = "2025-11-12"}:ReviewProps){
 
     const stars = []
 

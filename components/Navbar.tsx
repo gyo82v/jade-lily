@@ -1,6 +1,6 @@
 import type { NavBarProps } from "@/types"
 
-export default function Navbar({children}:NavBarProps){
+export function Navbar({children}:NavBarProps){
     const nav = ``
     const ul = ``
     return(

@@ -1,6 +1,5 @@
 import Image from "next/image"
-import Navlink from "@/components/Navlink"
-import Review from "@/components/Review"
+import { Review, Navlink } from "@/components"
 
 export default function AboutPage(){
     const bgStyle = `bg-gradient-to-br from-orange-100 to-orange-50 shadow-lg rounded-lg`
