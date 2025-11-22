@@ -13,3 +13,7 @@ export type ReviewProps = {
     children : string
     date? : Date | string 
 }
+
+export type NavBarProps = {
+    children : ReactNode
+}
