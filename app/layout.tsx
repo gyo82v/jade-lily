@@ -28,7 +28,7 @@ export default function RootLayout({children}:RootLayoutProps) {
                        ${ebGaramond.className} ${dancingScript.variable}`}>
         <a href="#content" className="sr-only focus:not-sr-only p-2">Skip to content</a>
         <Header />
-          <main id="content" className="flex-1 flex">
+          <main id="content" className="flex-1 flex min-w-0">
             {children}
           </main>
         <Footer />

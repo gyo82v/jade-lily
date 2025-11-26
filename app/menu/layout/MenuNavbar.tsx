@@ -23,6 +23,5 @@ export default function MenuNavbar(){
                 <Navlink href="/menu/drinks">Drinks</Navlink>
             </li>
         </Navbar>
-
     )
 }

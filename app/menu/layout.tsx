@@ -1,9 +1,9 @@
 import type { PageLayout } from "@/types"
 import MenuNavbar from "./layout/MenuNavbar"
 
-export default function ManuLayout({children}:PageLayout){
+export default function MenuLayout({children}:PageLayout){
     return(
-        <div>
+        <div className="min-w-0 w-full">
             <MenuNavbar />
             {children}
         </div>

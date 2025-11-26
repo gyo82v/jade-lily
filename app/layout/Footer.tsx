@@ -1,6 +1,6 @@
 export default function Footer(){
     const footer = `flex items-center justify-center bg-neutral-800 text-neutral-300 
-                    border-t-4 border-neutral-700 text-lg  py-4 `
+                    border-t-4 border-neutral-700 text-lg py-4 w-full `
                 
     return(
         <footer className={footer}>

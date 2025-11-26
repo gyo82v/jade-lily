@@ -1,8 +1,8 @@
 import type { NavBarProps } from "@/types"
 
 export function Navbar({children}:NavBarProps){
-    const nav = ``
-    const ul = `flex gap-2 overflow-x-auto  whitespace-nowrap scrollbar-hide`
+    const nav = ` w-full max-w-full overflow-x-auto overflow-y-hidden scrollbar-hide`
+    const ul = `inline-flex gap-2 whitespace-nowrap min-w-max `
     return(
         <nav className={nav}>
             <ul className={ul}>

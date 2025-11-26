@@ -44,8 +44,8 @@
   }
 }
 
-@layer utilities {
 
+@layer utilities {
   /* hide horizontal scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

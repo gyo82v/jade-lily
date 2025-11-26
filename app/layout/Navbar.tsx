@@ -5,9 +5,9 @@ import { Navlink } from "@/components";
 
 export default function Navbar(){
     const pathname = usePathname()
-    const nav = `flex`
+    const nav = `flex `
     const ul = `flex`
-    const div = `flex`
+    const div = `flex hidden md:block`
     const p = `px-4`
     return(
         <nav className={nav}>
