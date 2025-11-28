@@ -1,12 +1,13 @@
 import { getItems } from "@/firebase/dishCollectionAdmin"
 import { DishList } from "@/components/dishes"
+import type { DishProps } from "@/types"
 
 export default async function DessertsPage(){
-    let data = []
+    let data:DishProps[] = []
     try {
-        const data = await getItems("category", "desserts")
+        data = await getItems("category", "desserts")
     }catch(err){
-        console.error("there wae an error in getItems: ", err)
+        console.error("there was an error in getItems: ", err)
     }
 
     return(
