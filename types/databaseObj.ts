@@ -13,5 +13,6 @@ export type DishProps = {
     rating : number
     slug : string
     tags : string[]
+    type : string
     id : string
 }

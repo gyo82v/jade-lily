@@ -1,3 +1,4 @@
+import { DishCard } from "./DishCard"
 import type { DishProps } from "@/types"
 
 type Props = {
@@ -5,9 +6,11 @@ type Props = {
 }
 
 export function DishList({data}:Props){
+   
+    const dishArray = data.map(dish => <DishCard key={dish.id} data={dish} /> )
   return(
     <div>
-        <h1>hello</h1>
+        {dishArray}
     </div>
   )
 }
