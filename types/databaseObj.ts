@@ -4,7 +4,8 @@ export type DishProps = {
     category : string 
     createdAt : string 
     description : string
-    imageUrl : string 
+    imageUrlThumb : string 
+    imageUrlFull : string
     ingredients : string 
     name : string 
     origin : string
