@@ -27,7 +27,7 @@ export function DishCard({data}:Props){
         <article className={article}>
             <figure className={figure}>
                 <Image 
-                  src={data.imageUrl} 
+                  src={data.imageUrlThumb} 
                   width={300} 
                   height={200} 
                   alt={data.description} 
