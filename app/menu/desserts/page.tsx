@@ -5,13 +5,13 @@ import type { DishProps } from "@/types"
 export default async function DessertsPage(){
     let data:DishProps[] = []
     try {
-        data = await getItems("category", "desserts")
+        data = await getItems("category", "desserts") as DishProps[]
     }catch(err){
         console.error("there was an error in getItems: ", err)
     }
 
     return(
-        <div>
+        <div className="p-2">
             <section>
                 <p>Filters here</p>
             </section>

@@ -6,11 +6,12 @@ type Props = {
 }
 
 export function DishList({data}:Props){
+  const div = `grid grid-cols-2 gap-2 my-5`
    
     const dishArray = data.map(dish => <DishCard key={dish.id} data={dish} /> )
   return(
-    <div>
+    <section className={div}>
         {dishArray}
-    </div>
+    </section>
   )
 }

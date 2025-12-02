@@ -57,7 +57,9 @@
 .font-dancing {
     font-family: var(--font-dancing-script), ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
 }
-
+.custom-shadow {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+}
 }
 
 @layer components {
