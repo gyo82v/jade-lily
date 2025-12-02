@@ -3,7 +3,6 @@ import { getItems } from "@/firebase/dishCollectionAdmin"
 
 export async function getFilteredItems(value:string, key:string) {
    let data:DishProps[] = []
-
    try{
     data = await getItems(value, key) as DishProps[]
     return data

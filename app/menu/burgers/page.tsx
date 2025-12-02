@@ -1,7 +1,7 @@
+import MenuPage from "../components/MenuPage"
+
 export default function BurgersPage(){
     return(
-        <div>
-            <p>burgers here</p>
-        </div>
+        <MenuPage value="burgers" />
     )
 }

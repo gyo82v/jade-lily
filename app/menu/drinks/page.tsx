@@ -1,7 +1,7 @@
-export default function DrinksPage(){
+import MenuPage from "../components/MenuPage"
+
+export default async function DrinksPage(){
     return(
-        <div>
-            <p>Drinks here</p>
-        </div>
+        <MenuPage value="drinks" />
     )
 }
