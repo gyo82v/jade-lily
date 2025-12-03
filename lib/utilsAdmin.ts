@@ -11,3 +11,7 @@ export async function getFilteredItems(value:string, key:string) {
     return []
    }
 }
+
+export function getFilterArray(dishesArr:DishProps[]){
+   return [...new Set(dishesArr.map(dish => dish.type).filter(Boolean))]
+}
