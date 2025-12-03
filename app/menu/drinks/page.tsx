@@ -1,6 +1,6 @@
 import MenuPage from "../components/MenuPage"
 
-export default async function DrinksPage(){
+export default function DrinksPage(){
     return(
         <MenuPage value="drinks" />
     )

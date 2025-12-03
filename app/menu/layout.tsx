@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import type { PageLayout } from "@/types"
 import MenuNavbar from "./layout/MenuNavbar"
 

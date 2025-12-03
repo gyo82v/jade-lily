@@ -1,11 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { FaPepperHot, FaLeaf, FaUtensils, FaRegStar } from 'react-icons/fa';
-import { 
-         GiGrapes, GiFrenchFries, GiCarrot,
-         GiWineGlass, GiGlassShot, GiChocolateBar,
-} from 'react-icons/gi';
-
+import {FaPepperHot, FaLeaf, FaUtensils, FaRegStar} from 'react-icons/fa';
+import {GiGrapes, GiFrenchFries, GiCarrot, GiWineGlass, GiGlassShot, GiChocolateBar} from 'react-icons/gi';
 import type { DishProps } from "@/types"
 
 type Props = {
@@ -20,13 +16,8 @@ export function DishCard({data}:Props){
      const article = `p-2 rounded-lg text-orange-800 custom-shadow 
                       bg-gradient-to-br from-orange-50 to-orange-100`
     const link = `flex flex-col gap-2`
-     const figure = ``
      const imgStyle = `rounded-lg w-full shadow-lg`
-
-     const section = ``
      const div = `flex justify-between font-bold text-lg mb-2`
-     const h1 = `font-dancing`
-     const p = ``
      const iconTypeContainer = `bg-gradient-to-br flex items-center justify-center rounded-lg py-1 w-1/2
                                 ${type === "Vegetarian" ? "from-green-200 via-green-300 to-green-500 text-green-800":
                                   type === "Spicy" ? "from-red-200 via-red-300 to-red-500 text-red-900":
@@ -55,7 +46,7 @@ export function DishCard({data}:Props){
     return(
         <article className={article}>
             <Link href={`/menu/desserts/${slug}`} className={link}>
-                <figure className={figure}>
+                <figure>
                     <Image 
                       src={imageUrlThumb} 
                       width={300} 
@@ -64,10 +55,10 @@ export function DishCard({data}:Props){
                       className={imgStyle} 
                     />
                 </figure>
-                <section className={section}>
+                <section>
                     <div className={div}>
-                        <h1 className={h1}>{name}</h1>
-                        <p className={p}>£{price}</p>
+                        <h1 className="font-dancing">{name}</h1>
+                        <p>£{price}</p>
                     </div>
                     <div className={iconTypeContainer}>
                         {iconType}
