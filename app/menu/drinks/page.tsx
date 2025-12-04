@@ -1,7 +1,9 @@
 import MenuPage from "../components/MenuPage"
+import type { SearchParamsProp } from "@/types"
 
-export default function DrinksPage(){
+export default async function DrinksPage({searchParams}:SearchParamsProp){
+    const params = await searchParams
     return(
-        <MenuPage value="drinks" />
+        <MenuPage value="drinks" pathname="/menu/drinks"  params={params} />
     )
 }
