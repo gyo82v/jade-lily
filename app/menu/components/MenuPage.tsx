@@ -4,17 +4,20 @@ import { MenuFilter } from "@/components/filters"
 
 type Props = {
     value : string
+    pathname : string
+    params : Record<string, string | string[] | undefined>
 }
 
-export default async function MenuPage({value}:Props){
+export default async function MenuPage({value, pathname, params}:Props){
     const data = await getFilteredItems("category", value)
+    const activeType = params?.type
+    const filteredDishes = activeType ? data.filter(dish => dish.type === activeType) : data
     const filtersArr = getFilterArray(data)
-    console.log("filter array: ", filtersArr)
 
     return(
         <div className="p-2">
-            <MenuFilter array={filtersArr} />
-            <DishList data={data} />
+            <MenuFilter array={filtersArr} pathname={pathname} params={activeType} />
+            <DishList data={filteredDishes} /> 
         </div>
     )
 
