@@ -10,7 +10,6 @@ type Props = {
 
 export function DishCard({data}:Props){
     const {slug, imageUrlThumb, description, name, type, price} = data
-    console.log("card data: ", data)
 
     //tailwind
      const article = `p-2 rounded-lg text-orange-800 custom-shadow 

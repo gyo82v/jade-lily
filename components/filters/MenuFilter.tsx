@@ -43,21 +43,3 @@ export function MenuFilter({array, pathname, params}:Props){
         </section>
     )
 }
-
-
-
-/*
-
-<li className={`${li} from-sky-200 via-sky-300 to-sky-500 text-sky-900`}>
-                            <Link className={linkStl} href={pathname}>
-                              {renderIcon()}
-                            </Link>
-</li>
-
-
-
-
-
-
-
-*/
