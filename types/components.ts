@@ -17,3 +17,9 @@ export type ReviewProps = {
 export type NavBarProps = {
     children : ReactNode
 }
+
+export type IconWrapperProps = {
+    className : string 
+    type? : string
+    children : ReactNode
+}
