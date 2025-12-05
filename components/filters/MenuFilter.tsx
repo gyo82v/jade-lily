@@ -11,7 +11,7 @@ export function MenuFilter({array, pathname, params}:Props){
     const container = ``
     const nav = ``
     const ul = `flex gap-2`
-    const li = `bg-gradient-to-br p-1 shadow-lg rounded-full`
+    const li = `bg-gradient-to-br p-2 shadow-lg rounded-full`
     const linkStl = ``
 
     const filtersArr = array.map((filter, i) => (
