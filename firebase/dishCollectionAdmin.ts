@@ -1,5 +1,6 @@
 import { adminDb } from "./firebaseAdmin";
 import { CollectionReference, Query, DocumentData } from "firebase-admin/firestore";
+import type { DishProps } from "@/types";
 
 const collectionRef = adminDb.collection("jade-lily");
 
@@ -13,9 +14,13 @@ export async function getItems(key?: string, value?: string) {
   return snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 }
 
-// Fetch single item
-export async function getItemById(id: string) {
-  const docRef = collectionRef.doc(id);
-  const docSnap = await docRef.get();
-  return { ...docSnap.data(), id: docSnap.id };
+// Fetch single item by slug
+export async function getItemBySlug(slug:string){
+  const normalized= slug.toLowerCase()
+  const q:CollectionReference<DocumentData> | Query<DocumentData> = 
+     collectionRef.where("slug", "==", normalized).limit(1)
+  const snapshot = await q.get()
+  if(snapshot.empty) return null
+  const doc = snapshot.docs[0]
+  return {...doc.data(), id: doc.id} as DishProps
 }
