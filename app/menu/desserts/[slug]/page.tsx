@@ -1,7 +1,14 @@
-export default function detailsDessertspage(){
+import { DishDetails } from "@/components/dishes"
+import { getItemBySlug } from "@/firebase/dishCollectionAdmin"
+import type { DishDetailPageProps } from "@/types"
+
+export default async function detailsDessertspage({params}:DishDetailPageProps){
+    const {slug} = await params
+    const data = await getItemBySlug(slug)
+
     return(
         <div>
-            <p>desserts page here</p>
+            <DishDetails data={data} />
         </div>
     )
 }
