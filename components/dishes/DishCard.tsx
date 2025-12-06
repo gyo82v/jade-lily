@@ -9,7 +9,7 @@ type Props = {
 }
 
 export function DishCard({data}:Props){
-    const {slug, imageUrlThumb, description, name, type, price} = data
+    const {slug, imageUrlThumb, description, name, type, price, category} = data
 
     //tailwind
      const article = `p-2 rounded-lg text-orange-800 custom-shadow 
@@ -21,7 +21,7 @@ export function DishCard({data}:Props){
            
     return(
         <article className={article}>
-            <Link href={`/menu/desserts/${slug}`} className={link}>
+            <Link href={`/menu/${category}/${slug}`} className={link}>
                 <figure>
                     <Image 
                       src={imageUrlThumb} 
