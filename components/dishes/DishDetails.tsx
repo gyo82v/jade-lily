@@ -1,10 +1,8 @@
 import type { DishProps } from "@/types"
-import { auth } from "firebase-admin"
-import { Autour_One } from "next/font/google"
 import Image from "next/image"
 
 type Props = {
-    data: DishProps
+    data: DishProps | null
 }
 
 export function DishDetails({data}:Props){
@@ -16,16 +14,16 @@ export function DishDetails({data}:Props){
             <section>
                 <figure>
                     <Image 
-                      src={data.imageUrlFull} 
-                      alt={data?.description} 
+                      src={data?.imageUrlFull || "default img here"} 
+                      alt={data?.description || "img not available"} 
                       width={1024} 
                       height={768} 
                       className={imgStyl} 
                     />
                 </figure>
                 <div>
-                    <h1>{data.name}</h1>
-                    <p>{data.price}</p>
+                    <h1>{data?.name}</h1>
+                    <p>{data?.price}</p>
                 </div>
             </section>
            

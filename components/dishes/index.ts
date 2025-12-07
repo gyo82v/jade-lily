@@ -1,3 +1,5 @@
 export * from "./DishCard"
 export * from "./DishList"
 export * from "./DishDetails"
+export * from "./DishDetailsHeader"
+export * from "./DishdetailsFooter"
