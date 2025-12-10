@@ -1,4 +1,3 @@
-
 import { DishDetailsHeader, DishDetailsFooter } from "@/components/dishes"
 import { getItemBySlug } from "@/firebase/dishCollectionAdmin"
 
@@ -11,10 +10,10 @@ export default async function DishDetailsLayout({params, children}:Props){
     const {slug} = await params
     const data = await getItemBySlug(slug)
     return(
-        <div>
-            <article>
+        <div className="p-4 flex flex-col items-center">
+            <article className="rounded-lg custom-shadow p-4 bg-gradient-to-br from-orange-40 to-orange-100">
                 <DishDetailsHeader data={data} />
-                {children}
+                  {children}
                 <DishDetailsFooter />
             </article>
         </div>
