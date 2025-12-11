@@ -1,33 +1,35 @@
 import type { DishProps } from "@/types"
-import Image from "next/image"
+import { renderStars, renderPopularityIcon } from "@/lib/utilsIcons"
+import { renderTags } from "@/lib/utils"
 
 type Props = {
-    data: DishProps | null
+    data : DishProps | null
 }
 
 export function DishDetails({data}:Props){
-    console.log("data: ", data)
-    const imgStyl = ``
-   
-    return(
-        <article>
-            <section>
-                <figure>
-                    <Image 
-                      src={data?.imageUrlFull || "default img here"} 
-                      alt={data?.description || "img not available"} 
-                      width={1024} 
-                      height={768} 
-                      className={imgStyl} 
-                    />
-                </figure>
-                <div>
-                    <h1>{data?.name}</h1>
-                    <p>{data?.price}</p>
-                </div>
-            </section>
-           
+    if(!data) return <p>Data not available</p>
 
-        </article>
+    const {rating, description, popularity, tags, } = data
+
+    //tawilwind
+
+    const container = `my-4 bg-orange-50  rounded-lg shadow-lg shadow-orange-300/30 p-4 
+                       flex flex-col gap-5`
+    const descriptionStl = `italic text-lg`
+    const tagsStl =  ``
+    const ratingContainer = `flex justify-between items-center text-xl`
+    const popularityStl = ``
+
+    //
+
+    return(
+        <section className={container}>
+            <p className={descriptionStl}>{description}</p>
+            <p className={tagsStl}>{renderTags(tags)}</p>
+            <div className={ratingContainer}>
+                {renderStars(rating)}
+                <p className={popularityStl}>{renderPopularityIcon(popularity)}</p>
+            </div>
+        </section>
     )
 }

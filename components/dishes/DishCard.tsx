@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { renderIcon } from "@/lib/utilsAdmin";
+import { renderIcon } from "@/lib/utilsIcons";
 import type { DishProps } from "@/types"
 import { IconWrapper } from "../IconWrapper";
 
