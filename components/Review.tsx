@@ -1,29 +1,12 @@
 import type { ReviewProps } from "@/types"
-import { FaStar, FaRegStar, FaStarHalfAlt} from "react-icons/fa";
+import { renderStars } from "@/lib/utilsIcons";
 
 export function Review({author, rating, children, date = "2025-11-12"}:ReviewProps){
-
-    const stars = []
-
-    for(let i = 1; i <= 5; i++){
-        if(rating >=i){
-            stars.push(<FaStar key={i} className="text-yellow-500" />)
-        }else if(rating >= i -0.5){
-            stars.push(<FaStarHalfAlt key={i} className="text-yellow-500" />)
-        }else{
-            stars.push(<FaRegStar key={i} className="text-yellow-500" />)
-        }            
-    }
-
-    const ratingText = `${rating} out of 5 stars`
 
     return(
         <article className="bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg shadow-lg 
                             p-4 flex flex-col gap-5 max-w-140">
-            <header>
-                <div className="flex items-center" aria-hidden={true}>{stars}</div>
-                <span className="sr-only">{ratingText}</span>
-            </header>
+            <header>{renderStars(rating)}</header>
             <p className="italic text-sm">
               <span className="mr-1">&ldquo;</span>
                 {children}
