@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { renderIcon } from "@/lib/utilsAdmin";
+import { renderIcon } from "@/lib/utilsIcons";
 import { IconWrapper } from "../IconWrapper";
 
 type Props = {
