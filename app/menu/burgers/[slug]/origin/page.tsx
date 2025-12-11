@@ -1,4 +1,5 @@
 import { getItemBySlug } from "@/firebase/dishCollectionAdmin"
+import { DishDetailsOrigin } from "@/components/dishes"
 
 type Props = {
     params : Promise<{slug : string}>
@@ -9,8 +10,6 @@ export default async function OriginPage({params}:Props){
     const data = await getItemBySlug(slug)
 
     return(
-        <section>
-            <p>{data?.origin}</p>
-        </section>
+        <DishDetailsOrigin />
     )
 }

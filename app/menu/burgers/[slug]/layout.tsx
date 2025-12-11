@@ -13,8 +13,10 @@ export default async function DishDetailsLayout({params, children}:Props){
         <div className="p-4 flex flex-col items-center">
             <article className="rounded-lg custom-shadow p-4 bg-gradient-to-br from-orange-40 to-orange-100">
                 <DishDetailsHeader data={data} />
-                  {children}
-                <DishDetailsFooter />
+                <section className="flex flex-col">
+                    {children}
+                </section>
+                <DishDetailsFooter available={data?.available} />
             </article>
         </div>
     )
