@@ -9,6 +9,6 @@ export default async function IngredientsPage({params}:Props){
     const {slug} = await params
     const data = await getItemBySlug(slug)
     return(
-        <DishDetailsIngredients />
+        <DishDetailsIngredients ingredients={data?.ingredients} allergies={data?.allergies} />
     )
 }

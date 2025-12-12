@@ -10,6 +10,6 @@ export default async function OriginPage({params}:Props){
     const data = await getItemBySlug(slug)
 
     return(
-        <DishDetailsOrigin />
+        <DishDetailsOrigin origin={data?.origin} />
     )
 }
