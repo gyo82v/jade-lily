@@ -5,3 +5,8 @@ export type SearchParamsProp = {
 export type DishDetailPageProps = {
   params: Promise<{slug : string}>
 }
+
+export type DishDetailsLayoutProps = {
+    params : Promise<{slug : string}>
+    children : React.ReactNode;
+}
