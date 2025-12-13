@@ -1,14 +1,7 @@
-import { getItemBySlug } from "@/firebase/dishCollectionAdmin"
-import { DishDetailsIngredients } from "@/components/dishes"
+import SlugIngredients from "@/app/menu/components/SlugIngredients"
+import type { DishDetailPageProps } from "@/types"
 
-type Props = {
-    params : Promise<{slug : string}>
-}
-
-export default async function IngredientsPage({params}:Props){
+export default async function IngredientsPage({params}:DishDetailPageProps){
     const {slug} = await params
-    const data = await getItemBySlug(slug)
-    return(
-        <DishDetailsIngredients ingredients={data?.ingredients} allergies={data?.allergies} />
-    )
+    return <SlugIngredients slug={slug} />
 }
