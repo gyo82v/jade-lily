@@ -1,9 +1,7 @@
-import type { MenuDetailsLayout } from "@/types"
+import SlugLayout from "../../components/SlugLayout"
+import type { DishDetailsLayoutProps } from "@/types"
 
-export default function DishDetailsLayout({children}:MenuDetailsLayout){
-    return(
-        <div>
-            {children}
-        </div>
-    )
+export default async function DishDetailsLayout({params, children}:DishDetailsLayoutProps){
+    const {slug} = await params
+    return <SlugLayout slug={slug}>{children}</SlugLayout> 
 }
