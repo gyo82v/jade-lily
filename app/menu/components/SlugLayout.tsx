@@ -11,7 +11,7 @@ export default async function SlugLayout({slug, children}:Props){
     const data = await getItemBySlug(slug)
 
     return(
-        <div className="px-4 py-4 flex flex-col items-center">
+        <div className="p-4 flex flex-col items-center">
             <Link href={``}>back to the menu</Link>
             <article className="rounded-lg custom-shadow p-4 bg-gradient-to-br from-orange-50 to-orange-100">
                 <DishDetailsHeader data={data} />

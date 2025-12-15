@@ -8,7 +8,7 @@ type Props = {
 export function DishDetailsHeader({data}:Props){
     if(!data) return <p>No data available at the moment.</p>
 
-    const {slug, name, price, imageUrlFull, category} = data
+    const {slug, name, price, imageUrlFull, category, imageUrlThumb} = data
     console.log("data header:", data)
     //tailwind
 
@@ -20,7 +20,7 @@ export function DishDetailsHeader({data}:Props){
             <div>
                 <figure>
                     <Image
-                      src={imageUrlFull || "default img here"}
+                      src={imageUrlThumb || "default img here"}
                       alt=""
                       width="1024"
                       height="768"
