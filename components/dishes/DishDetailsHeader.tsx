@@ -6,7 +6,7 @@ type Props = {
 }
 
 export function DishDetailsHeader({data}:Props){
-    if(!data) return <p>No data available at the moment.</p>
+    if(!data) return <p>No data available</p>
 
     const {slug, name, price, imageUrlFull, category, imageUrlThumb} = data
     console.log("data header:", data)
