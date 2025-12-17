@@ -1,5 +1,5 @@
 import type { DishProps } from "@/types"
-import { renderStars, renderPopularityIcon } from "@/lib/utilsIcons"
+import { renderStars} from "@/lib/utilsIcons"
 import { renderTags } from "@/lib/utils"
 
 type Props = {
