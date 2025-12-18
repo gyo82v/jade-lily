@@ -8,7 +8,11 @@ export interface UserProfile {
     email : string | null
     displayName : string | null
     createdAt : any
-    projects? : []
+    jadeLilyCredit : number
+    jadeLilyTotalOrders : number 
+    jadeLilyCart : []
+    jadeLilyPastOrders : []
+    jadeLilyCreditUsed : number
 }
 
 
@@ -54,7 +58,12 @@ export async function createUserProfileIfNotExists(user:FirebaseUser){
             uid : user.uid ?? null,
             email : user.email ?? null,
             displayName : user.displayName ?? null,
-            createdAt : serverTimestamp()
+            createdAt : serverTimestamp(),
+            jadeLilyCredit : 0,
+            jadeLilyTotalOrders : 0, 
+            jadeLilyCart : [],
+            jadeLilyPastOrders : [],
+            jadeLilyCreditUsed : 0
         }
         await setDoc(ref, profile)
         return profile
@@ -98,7 +107,6 @@ export function onAuthStateChangedListener(onChange: (user: FirebaseUser | null,
 
     return unsubscribe
 }
-
 
 
 ////SMALL HELPERS////
