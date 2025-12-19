@@ -1,5 +1,5 @@
 import {auth, db} from "./firebase"
-import { signInWithEmailAndPassword, onAuthStateChanged as fbOnAuthStateChanged, signOut as fbSignOut, getIdToken as fbGetIdToken, User as FirebaseUser } from "firebase/auth"
+import { signInWithEmailAndPassword, onAuthStateChanged as fbOnAuthStateChanged, signOut as fbSignOut, getIdToken as fbGetIdToken, User as FirebaseUser, createUserWithEmailAndPassword as createFbUser } from "firebase/auth"
 import {doc, getDoc, setDoc, onSnapshot, updateDoc, serverTimestamp, DocumentData, DocumentReference} from "firebase/firestore"
 
 
@@ -29,6 +29,12 @@ export async function signIn(email:string, password:string){
 
 export async function signOut(){
     await fbSignOut(auth)
+}
+
+// create new user
+
+export async function createUser(email:string, password:string){
+  await createFbUser(auth, email, password)
 }
 
 // return the current user ID token

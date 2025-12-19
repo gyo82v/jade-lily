@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
 import { createContext, useEffect, useState, useContext } from "react"
 import type { User as FirebaseUser } from "firebase/auth"
 import { useRouter } from "next/navigation"
-import {onAuthStateChangedListener, subscribeToUserProfile, signIn as fbSignIn, signOut as fbSignOut, getIdToken, UserProfile} from "./authClient"
+import {onAuthStateChangedListener, subscribeToUserProfile, signIn as fbSignIn, signOut as fbSignOut, createUser as createFbUser, getIdToken, UserProfile} from "./authClient"
 
 type AuthContextValue = {
     user : FirebaseUser | null
@@ -12,13 +12,14 @@ type AuthContextValue = {
     signIn : (email:string, password:string) => Promise<FirebaseUser>
     signOut : () => Promise<void>
     getIdToken : (force?: boolean) => Promise<string | null>
+    createUser : (email:string, password:string) => void
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 
 export function useAuth(){
     const ctx = useContext(AuthContext)
-    if(!ctx) throw new Error("useAuth must be used within an AuthProvide")
+    if(!ctx) throw new Error("useAuth must be used within an AuthProvider")
     return ctx
 }
 
@@ -82,13 +83,23 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         }
     }
 
+    async function createUser(email:string, password:string){
+        setLoading(true)
+        try {
+            await createFbUser(email, password)
+        }finally{
+            setLoading(false)
+        }
+    }
+
     const value: AuthContextValue = {
         user,
         profile,
         loading,
         signIn,
         signOut,
-        getIdToken
+        getIdToken,
+        createUser
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
