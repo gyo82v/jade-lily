@@ -34,7 +34,10 @@ export async function signOut(){
 // create new user
 
 export async function createUser(email:string, password:string){
-  await createFbUser(auth, email, password)
+  const credential =  await createFbUser(auth, email, password)
+  const user = credential.user
+  await createUserProfileIfNotExists(user)
+  return user
 }
 
 // return the current user ID token
