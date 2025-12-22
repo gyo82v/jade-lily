@@ -21,7 +21,6 @@ export interface UserProfile {
 export async function signIn(email:string, password:string){
     const credential = await signInWithEmailAndPassword(auth, email, password)
     const user = credential.user
-    await createUserProfileIfNotExists(user)
     return user
 }
 
@@ -33,10 +32,10 @@ export async function signOut(){
 
 // create new user
 
-export async function createUser(email:string, password:string){
+export async function createUser(email:string, password:string, name:string){
   const credential =  await createFbUser(auth, email, password)
   const user = credential.user
-  await createUserProfileIfNotExists(user)
+  await createUserProfileIfNotExists(user, name)
   return user
 }
 
@@ -58,15 +57,15 @@ export function getCurrentUser(){
 
 // create a user doc if it doesnt exists
 
-export async function createUserProfileIfNotExists(user:FirebaseUser){
+export async function createUserProfileIfNotExists(user:FirebaseUser, name:string){
     if(!user || !user.uid) throw new Error("Invalid user for profile creation.")
     const ref = doc(db, "users", user.uid)
     const snap = await getDoc(ref)
-    if(snap.exists()){
+    if(!snap.exists()){
         const profile:UserProfile = {
             uid : user.uid ?? null,
             email : user.email ?? null,
-            displayName : user.displayName ?? null,
+            displayName : name ?? null,
             createdAt : serverTimestamp(),
             jadeLilyCredit : 0,
             jadeLilyTotalOrders : 0, 
