@@ -12,7 +12,7 @@ type AuthContextValue = {
     signIn : (email:string, password:string) => Promise<FirebaseUser>
     signOut : () => Promise<void>
     getIdToken : (force?: boolean) => Promise<string | null>
-    createUser : (email:string, password:string) => void
+    createUser : (email:string, password:string, name:string) => void
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
@@ -83,10 +83,11 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         }
     }
 
-    async function createUser(email:string, password:string){
+    async function createUser(email:string, password:string, name:string){
         setLoading(true)
         try {
-            await createFbUser(email, password)
+            const u = await createFbUser(email, password, name)
+            return u
         }finally{
             setLoading(false)
         }
