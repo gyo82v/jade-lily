@@ -1,4 +1,5 @@
 import Navbar from "./Navbar"
+import ClientProviders from "@/firebase/ClientProviders"
 
 export default function Header(){
     const header = `flex items-center justify-between px-4 py-6 w-full`
@@ -8,7 +9,9 @@ export default function Header(){
     return(
         <header className={header}>
             <h1 className={h1}>JadeLily</h1>
-            <Navbar />
+            <ClientProviders>
+                <Navbar />
+            </ClientProviders>
         </header>
     )
 }

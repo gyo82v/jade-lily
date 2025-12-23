@@ -2,8 +2,10 @@
 
 import { usePathname } from "next/navigation";
 import { Navlink } from "@/components";
+import { useAuth } from "@/firebase/authProvider";
 
 export default function Navbar(){
+    const {user, profile} = useAuth()
     const pathname = usePathname()
     const nav = `flex `
     const ul = `flex`
@@ -22,7 +24,16 @@ export default function Navbar(){
                     <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
                 </li>
             </ul>
-            <ul className={div}>
+            {
+                user ? 
+
+                <ul className={div}>
+                    <Navlink href="/account">{profile?.displayName}</Navlink>
+                    <p>log out</p>
+                </ul>
+                :
+
+                 <ul className={div}>
                 <li>
                     <Navlink href="/account" isActive={pathname.startsWith("/account")}>Account</Navlink>
                 </li>
@@ -30,7 +41,7 @@ export default function Navbar(){
                     <Navlink href="/login" isActive={pathname.startsWith("/login")}>log in</Navlink>
                 </li>
             </ul>
+            }
         </nav>
     )
-
 }
