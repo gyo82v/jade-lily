@@ -29,7 +29,7 @@ export default function Navbar(){
 
                 <ul className={div}>
                     <Navlink href="/account">{profile?.displayName}</Navlink>
-                    <p className={p}>log out</p>
+                    <p className={p}>log out here</p>
                 </ul>
                 :
 
