@@ -5,7 +5,7 @@ export default function SignupPage() {
   return (
     <ClientProviders>
         <section>
-            <h1>Sign up</h1>
+            <h1>Sign up here</h1>
             <SignupForm />
         </section>
     </ClientProviders>
