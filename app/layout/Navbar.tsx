@@ -48,8 +48,8 @@ export default function Navbar(){
                    </ul>
                 }
             </div>
-            <div>
-              <button onClick={() => setIsOpen(!isOpen)}><HiMenu /></button>
+            <div className="md:hidden">
+              <button onClick={() => setIsOpen(!isOpen)}><HiMenu className="h-6 w-6" /></button>
               {
                 isOpen && 
                   (
@@ -64,6 +64,16 @@ export default function Navbar(){
                         <li>
                             <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
                         </li>
+                        {
+                            user ? 
+                            <li>
+                                <Navlink href="/account">{profile?.displayName}</Navlink>
+                            </li>
+                            :
+                            <li>
+                                <Navlink href="/login" isActive={pathname.startsWith("/login")}>Log in</Navlink>
+                            </li>
+                        }
                     </ul>
                   </div>
                 )
@@ -73,22 +83,3 @@ export default function Navbar(){
         </nav>
     )
 }
-
-
-/*
- <div className="md:hidden">
-                <button onClick={() => setIsOpen(!isOpen)}><HiMenu /></button>
-                { isOpen && 
-                    <div className="absolute right-4 bg-white shadow-md rounded-md mt-2">
-                        <ul className="flex flex-col p-4">
-                            <li>hello</li>
-                        </ul>
-                }
-            </div>
-
-
-
-
-
-
-*/ 
