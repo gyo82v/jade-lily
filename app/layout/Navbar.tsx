@@ -4,11 +4,14 @@ import { usePathname } from "next/navigation";
 import { Navlink } from "@/components";
 import { useAuth } from "@/firebase/authProvider";
 import { HiMenu } from "react-icons/hi";
+import { useState } from "react";
 
 
 export default function Navbar(){
     const {user, profile} = useAuth()
+    const [isOpen, setIsOpen] = useState(false)
     const pathname = usePathname()
+
     const nav = `flex `
     const ul = `flex`
     const div = `flex hidden md:block`
@@ -45,9 +48,47 @@ export default function Navbar(){
                    </ul>
                 }
             </div>
-            <div className="md:hidden">
-                <HiMenu />
+            <div>
+              <button onClick={() => setIsOpen(!isOpen)}><HiMenu /></button>
+              {
+                isOpen && 
+                  (
+                  <div className="absolute right-4 bg-white shadow-md rounded-md mt-2">
+                    <ul>
+                        <li>
+                            <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
+                        </li>
+                        <li>
+                            <Navlink href="/about" isActive={pathname.startsWith("/about")}>About</Navlink>
+                        </li>
+                        <li>
+                            <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
+                        </li>
+                    </ul>
+                  </div>
+                )
+              }
             </div>
+          
         </nav>
     )
 }
+
+
+/*
+ <div className="md:hidden">
+                <button onClick={() => setIsOpen(!isOpen)}><HiMenu /></button>
+                { isOpen && 
+                    <div className="absolute right-4 bg-white shadow-md rounded-md mt-2">
+                        <ul className="flex flex-col p-4">
+                            <li>hello</li>
+                        </ul>
+                }
+            </div>
+
+
+
+
+
+
+*/ 
