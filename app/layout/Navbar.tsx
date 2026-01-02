@@ -18,7 +18,7 @@ export default function Navbar(){
     const p = `px-4`
     return(
         <nav className={nav}>
-            <div className="hidden md:block">
+            <div className="hidden md:flex ">
                 <ul className={ul}>
                    <li>
                        <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
@@ -39,9 +39,6 @@ export default function Navbar(){
                    </ul>
                    :
                    <ul className={div}>
-                      <li>
-                        <Navlink href="/account" isActive={pathname.startsWith("/account")}>Account</Navlink>
-                     </li>
                      <li>
                         <Navlink href="/login" isActive={pathname.startsWith("/login")}>log in</Navlink>
                      </li>
