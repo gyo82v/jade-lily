@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Navlink } from "@/components";
 import { useAuth } from "@/firebase/authProvider";
 import { HiMenu } from "react-icons/hi";
+import { HiOutlineLogout } from "react-icons/hi";
 import { useState } from "react";
 
 
@@ -13,9 +14,8 @@ export default function Navbar(){
     const pathname = usePathname()
 
     const nav = `flex items-center `
-    const ul = `flex`
-    const div = `flex hidden md:block`
-    const p = `px-4`
+    const ul = `flex `
+
     return(
         <nav className={nav}>
             <div className="hidden md:flex md:items-center ">
@@ -29,21 +29,23 @@ export default function Navbar(){
                    <li>
                        <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
                    </li>
-               </ul>
-               {
-                  user ? 
-
-                   <ul className={div}>
-                       <Navlink href="/account">{profile?.displayName}</Navlink>
-                       <p className={p}>log out here</p>
-                   </ul>
+                   { user ? 
+                   <>
+                      <li>
+                        <Navlink href="/account">{profile?.displayName}</Navlink>
+                      </li>
+                      <li>
+                        <Navlink href="/logout" className="inline-flex items-center justify-center h-full"><HiOutlineLogout className="h-5 w-5" /></Navlink>
+                      </li>
+                   </>
                    :
-                   <ul className={div}>
+                   <>
                      <li>
                         <Navlink href="/login" isActive={pathname.startsWith("/login")}>log in</Navlink>
                      </li>
-                   </ul>
-                }
+                   </>
+                   }
+                </ul>
             </div>
             <div className="md:hidden flex items-center">
               <button className="mr-4" onClick={() => setIsOpen(!isOpen)}>
@@ -52,7 +54,7 @@ export default function Navbar(){
               {
                 isOpen && 
                   (
-                  <div className="absolute right-4 bg-white shadow-md rounded-md mt-2">
+                  <div className="absolute right-20 top-20 bg-white shadow-md rounded-md mt-2">
                     <ul>
                         <li>
                             <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
@@ -65,9 +67,14 @@ export default function Navbar(){
                         </li>
                         {
                             user ? 
-                            <li>
+                            <>
+                              <li>
                                 <Navlink href="/account">{profile?.displayName}</Navlink>
-                            </li>
+                              </li>
+                              <li>
+                                <Navlink href="/logout" className="inline-flex items-center justify-center w-full"><HiOutlineLogout className="h-5 w-5" /></Navlink>
+                              </li>
+                            </>
                             :
                             <li>
                                 <Navlink href="/login" isActive={pathname.startsWith("/login")}>Log in</Navlink>
@@ -78,7 +85,6 @@ export default function Navbar(){
                 )
               }
             </div>
-          
         </nav>
     )
 }
