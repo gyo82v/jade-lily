@@ -12,13 +12,13 @@ export default function Navbar(){
     const [isOpen, setIsOpen] = useState(false)
     const pathname = usePathname()
 
-    const nav = `flex `
+    const nav = `flex items-center `
     const ul = `flex`
     const div = `flex hidden md:block`
     const p = `px-4`
     return(
         <nav className={nav}>
-            <div className="hidden md:flex ">
+            <div className="hidden md:flex md:items-center ">
                 <ul className={ul}>
                    <li>
                        <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
@@ -45,8 +45,10 @@ export default function Navbar(){
                    </ul>
                 }
             </div>
-            <div className="md:hidden">
-              <button onClick={() => setIsOpen(!isOpen)}><HiMenu className="h-6 w-6" /></button>
+            <div className="md:hidden flex items-center">
+              <button className="mr-4" onClick={() => setIsOpen(!isOpen)}>
+                <HiMenu className="h-7 w-7" />
+              </button>
               {
                 isOpen && 
                   (
