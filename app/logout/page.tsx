@@ -11,7 +11,7 @@ export default function LogoutPage(){
         setIsLoggedOut(true)
     }
     return(
-        <section>
+        <section className="p-4">
             {isLoggedOut ?
              (<div>
                 <p>You have been logged out.</p>
