@@ -46,7 +46,7 @@ export function LoginForm() {
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
       <label>
-        Email
+        Email :
         <input name="email" type="email" required className="block w-full" />
       </label>
 
