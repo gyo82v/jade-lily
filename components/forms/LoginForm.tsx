@@ -31,14 +31,8 @@ export function LoginForm() {
       try {
         await signIn(email, password); // client-side Firebase signIn
         router.push("/account");
-      } catch (err: any) {
-        const message =
-          err?.code === "auth/user-not-found"
-            ? "No account found for this email."
-            : err?.code === "auth/wrong-password"
-            ? "Wrong password."
-            : err?.message ?? "Sign-in failed.";
-        setError(message);
+      } catch(err) {
+        setError(`login failed: ${err}`);
       }
     });
   }
@@ -46,7 +40,7 @@ export function LoginForm() {
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
       <label>
-        Email :
+        Email 
         <input name="email" type="email" required className="block w-full" />
       </label>
 
