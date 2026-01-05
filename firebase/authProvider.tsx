@@ -12,7 +12,7 @@ type AuthContextValue = {
     signIn : (email:string, password:string) => Promise<FirebaseUser>
     signOut : () => Promise<void>
     getIdToken : (force?: boolean) => Promise<string | null>
-    createUser : (email:string, password:string, name:string) => void
+    createUser : (email:string, password:string, name:string) => Promise<FirebaseUser>
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
