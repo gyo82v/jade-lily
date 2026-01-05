@@ -1,44 +1,28 @@
 "use client";
 
-import React, { useRef, useState, useTransition } from "react";
+import { useActionState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../../firebase/authProvider";
 
 export function LoginForm() {
-  const formRef = useRef<HTMLFormElement | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isPending, startTransition] = useTransition();
   const { signIn } = useAuth();
   const router = useRouter();
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError(null);
-
-    const form = formRef.current;
-    if (!form) return;
-
-    const fd = new FormData(form);
-    const email = String(fd.get("email") ?? "").trim();
-    const password = String(fd.get("password") ?? "");
-
-    if (!email || !password) {
-      setError("Please enter both email and password.");
-      return;
+  const [error, submitAction, isPending] = useActionState(async (prev:unknown, formData:FormData) => {
+    try {
+      const email = formData.get("email") as string;
+      const password = formData.get("password") as string;
+      if(!email || !password) throw new Error("Email and password are required.")
+      await signIn(email, password);
+      router.replace("/account");
+      return
+    }catch (err:unknown){
+      if(err instanceof Error) return err.message
+      return "Something went wrong."
     }
-
-    startTransition(async () => {
-      try {
-        await signIn(email, password); // client-side Firebase signIn
-        router.push("/account");
-      } catch(err) {
-        setError(`login failed: ${err}`);
-      }
-    });
-  }
+  },null)
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+    <form action={submitAction} className="space-y-4">
       <label>
         Email 
         <input name="email" type="email" required className="block w-full" />
