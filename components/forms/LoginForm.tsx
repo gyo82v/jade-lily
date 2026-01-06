@@ -3,6 +3,8 @@
 import { useActionState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../../firebase/authProvider";
+import { LabelEl } from "../LabelEl";
+
 
 export function LoginForm() {
   const { signIn } = useAuth();
@@ -23,16 +25,8 @@ export function LoginForm() {
 
   return (
     <form action={submitAction} className="space-y-4">
-      <label>
-        Email 
-        <input name="email" type="email" required className="block w-full" />
-      </label>
-
-      <label>
-        Password
-        <input name="password" type="password" required className="block w-full" />
-      </label>
-
+      <LabelEl label="Email:" type="email" name="email" id="email-input" />
+      <LabelEl label="Password:" type="password" name="password" id="password-input" />
       {error && <div role="alert" className="text-red-600">{error}</div>}
 
       <button type="submit" disabled={isPending}>

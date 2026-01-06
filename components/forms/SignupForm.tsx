@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { useAuth } from "../../firebase/authProvider";
 import { useRouter } from "next/navigation";
+import { LabelEl } from "../LabelEl";
 
 export function SignupForm() {
   const {createUser} = useAuth();
@@ -26,42 +27,13 @@ export function SignupForm() {
   );
 
   const formStl = "";
-  const inputStl = "";
 
   return (
     <section>
-      <h1>Create new account</h1>
-
       <form action={submitAction} className={formStl}>
-        <label htmlFor="name-input">Name:</label>
-        <input
-          name="name"
-          id="name-input"
-          type="text"
-          placeholder="Jennifer"
-          className={inputStl}
-          required
-        />
-
-        <label htmlFor="email-input">Email:</label>
-        <input
-          name="email"
-          id="email-input"
-          type="email"
-          placeholder="example@gmail.com"
-          className={inputStl}
-          required
-        />
-
-        <label htmlFor="password-input">Password:</label>
-        <input
-          name="password"
-          id="password-input"
-          type="password"
-          className={inputStl}
-          required
-        />
-
+        <LabelEl label="Name:" type="text" name="name" id="name-input" />
+        <LabelEl label="Email:" type="email" name="email" id="email-input" />
+        <LabelEl label="Password:" type="password" name="password" id="password-input" />
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         <button type="submit" disabled={isPending}>
