@@ -5,12 +5,13 @@ import ClientProviders from "@/firebase/ClientProviders";
 import Link from "next/link";
 
 export default function LoginPage(){
-    const link = `text-orange-700 font-bold`
+    const link = `text-orange-700 font-bold ml-1`
+    const section = `p-4`
  
     return(
         <ClientProviders>
-            <section>
-                <h1>log in to your account</h1>
+            <section className={section}>
+                <h1  className="text-xl font-bold">Log in to your account</h1>
                 <LoginForm />
                 <p>Dont have an account?<Link href="/signup" className={link}>Create one now</Link></p>
             </section>
