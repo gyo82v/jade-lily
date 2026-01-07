@@ -35,13 +35,13 @@ export default function Navbar(){
                         <Navlink href="/account">{profile?.displayName}</Navlink>
                       </li>
                       <li>
-                        <Navlink href="/logout" className="inline-flex items-center justify-center h-full"><HiOutlineLogout className="h-5 w-5" /></Navlink>
+                        <Navlink href="/sign-out" className="inline-flex items-center justify-center h-full"><HiOutlineLogout className="h-5 w-5" /></Navlink>
                       </li>
                    </>
                    :
                    <>
                      <li>
-                        <Navlink href="/login" isActive={pathname.startsWith("/login")}>log in</Navlink>
+                        <Navlink href="/sign-in" isActive={pathname.startsWith("/sign-in")}>Sign in</Navlink>
                      </li>
                    </>
                    }
@@ -72,12 +72,12 @@ export default function Navbar(){
                                 <Navlink href="/account">{profile?.displayName}</Navlink>
                               </li>
                               <li>
-                                <Navlink href="/logout" className="inline-flex items-center justify-center w-full"><HiOutlineLogout className="h-5 w-5" /></Navlink>
+                                <Navlink href="/sign-out" className="inline-flex items-center justify-center w-full"><HiOutlineLogout className="h-5 w-5" /></Navlink>
                               </li>
                             </>
                             :
                             <li>
-                                <Navlink href="/login" isActive={pathname.startsWith("/login")}>Log in</Navlink>
+                                <Navlink href="/sign-in" isActive={pathname.startsWith("/sign-in")}>Sign in</Navlink>
                             </li>
                         }
                     </ul>
