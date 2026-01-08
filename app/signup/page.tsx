@@ -7,7 +7,7 @@ export default function SignupPage() {
 
   return (
     <ClientProviders>
-        <section className="p-4 mx-auto max-w-lg md:mt-14">
+        <section className="p-4 mx-auto max-w-lg mt-14 flex flex-col w-full">
             <h1 className="text-xl font-bold">Create new account</h1>
             <SignupForm />
             <p className="text-center">
