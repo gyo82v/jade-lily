@@ -7,7 +7,7 @@ export default function LoginPage(){
 
     return(
         <ClientProviders>
-            <section className="p-4 mx-auto max-w-lg md:mt-14">
+            <section className="p-4 mx-auto max-w-lg mt-14 flex flex-col w-full">
                 <h1  className="text-xl font-bold">Sign in to your account</h1>
                 <LoginForm />
                 <p className="text-center">
