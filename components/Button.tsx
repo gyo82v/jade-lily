@@ -2,13 +2,9 @@
 
 import { Spinner } from "./ui";
 
-type Props = {
-    children: React.ReactNode;
-    disabled?: boolean;
-    type?: "button" | "submit" | "reset";
-    className?: string;
-    isLoading?: boolean;
-}       
+type Props = React.ComponentPropsWithoutRef<"button"> & {
+  isLoading?: boolean;
+};     
 
 export function Button({children, disabled, type="button", className="", isLoading=false, ...rest}: Props){
     const style = `bg-gradient-to-br from-pink-100 via-orange-200 to-rose-300 
