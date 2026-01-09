@@ -1,9 +1,10 @@
 "use client"
 
 import { signOut } from "@/firebase/authClient"
-import { Navlink } from "@/components"
 import { useState } from "react"
 import { Button } from "@/components"
+import { primaryButtonStyles } from "@/components/styles"
+import Link from "next/link"
 
 export default function LogoutPage(){
     const [isLoggedOut, setIsLoggedOut] = useState(false)
@@ -11,21 +12,19 @@ export default function LogoutPage(){
         await signOut()
         setIsLoggedOut(true)
     }
-    const link = `bg-gradient-to-br from-rose-100 via-orange-200 to-pink-300 
-                  font-bold flex items-center justify-center text-lg px-4 
-                  rounded-lg shadow-lg`
+
     return(
-        <section className="p-4 flex flex-col items-center">
+        <section className="p-4 flex flex-col items-center w-full">
             {isLoggedOut ?
              (<div>
-                <p>You have signed out.</p>
+                <p className="text-2xl font-bold mt-20">You have signed out.</p>
              </div>)  :
             (
-            <div className="flex flex-col items-center mx-auto">
-              <p className="text-lg font-bold">Are you sure ?</p>
-              <div className="flex">
-                   <Button onClick={handleLogout}>Yes</Button>
-                   <Navlink href="/" className={link}>No</Navlink>
+            <div className="flex flex-col items-center gap-8 mx-auto mt-20 w-10/12 ">
+              <p className="text-2xl font-bold text-center">Are you sure you want to sign out?</p>
+              <div className="flex gap-4 w-full ">
+                   <Button onClick={handleLogout} className="flex-1">Yes</Button>
+                   <Link href="/" className={`${primaryButtonStyles} flex-1`}>No</Link>
               </div>
             </div>
         ) 
