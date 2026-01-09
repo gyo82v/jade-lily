@@ -3,7 +3,7 @@
 import { useActionState } from "react";
 import { useAuth } from "../../firebase/authProvider";
 import { useRouter } from "next/navigation";
-import { LabelEl } from "../LabelEl";
+import { InputEl } from "../InputEl";
 import { Button } from "../Button";
 
 export function SignupForm() {
@@ -30,9 +30,9 @@ export function SignupForm() {
   return (
     <form action={submitAction} className="my-4 flex flex-col gap-8 w-full">
       <div className="flex flex-col gap-3 w-full">
-        <LabelEl label="Name:" type="text" name="name" id="name-input" />
-        <LabelEl label="Email:" type="email" name="email" id="email-input" />
-        <LabelEl label="Password:" type="password" name="password" id="password-input" />
+        <InputEl label="Name:" type="text" name="name" id="name-input" />
+        <InputEl label="Email:" type="email" name="email" id="email-input" />
+        <InputEl label="Password:" type="password" name="password" id="password-input" /> 
       </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <Button type="submit" isLoading={isPending} className="">
