@@ -9,9 +9,9 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
     return (
         <ClientProviders>
             <AuthGuard>
-                <div>
+                <div className="flex flex-col items-center mx-auto w-full">
                     <AccountNavbar />
-                    <div>
+                    <div className="flex flex-col flex-1 items-center w-full ">
                         {children}
                     </div>
                 </div>
