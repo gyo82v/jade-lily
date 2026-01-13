@@ -10,6 +10,10 @@ export default function AccountPage(){
     console.log("user auth:", user);
     console.log("loading auth state:", loading);
 
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     const containerStyle = `flex flex-col h-full justify-evenly gap-4 p-4 w-full mt-6 
                             md:grid md:grid-cols-2 md:gap-10 md:mt-12 md:px-18`;
 
