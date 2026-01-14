@@ -3,7 +3,16 @@
 import { createContext, useEffect, useState, useContext } from "react"
 import type { User as FirebaseUser } from "firebase/auth"
 import { useRouter } from "next/navigation"
-import {onAuthStateChangedListener, subscribeToUserProfile, signIn as fbSignIn, signOut as fbSignOut, createUser as createFbUser, getIdToken, UserProfile} from "./authClient"
+import {
+        onAuthStateChangedListener,
+        subscribeToUserProfile, 
+        signIn as fbSignIn, 
+        signOut as fbSignOut, 
+        createUser as createFbUser, 
+        getIdToken, 
+        UserProfile,
+        deleteAccountWithPassword
+    } from "./authClient"
 
 type AuthContextValue = {
     user : FirebaseUser | null
@@ -13,6 +22,7 @@ type AuthContextValue = {
     signOut : () => Promise<void>
     getIdToken : (force?: boolean) => Promise<string | null>
     createUser : (email:string, password:string, name:string) => Promise<FirebaseUser>
+    deleteAccount : (password: string) => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
@@ -93,6 +103,18 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         }
     }
 
+    async function deleteAccount(password: string) {
+        setLoading(true);
+        try {
+            await deleteAccountWithPassword(password);
+        } catch (error: unknown) {
+            console.error("Error deleting account:", error);
+            throw error;
+        } finally {
+            setLoading(false);
+        }
+    }
+
     const value: AuthContextValue = {
         user,
         profile,
@@ -100,7 +122,8 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         signIn,
         signOut,
         getIdToken,
-        createUser
+        createUser,
+        deleteAccount
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

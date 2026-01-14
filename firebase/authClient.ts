@@ -1,6 +1,26 @@
 import {auth, db} from "./firebase"
-import { signInWithEmailAndPassword, onAuthStateChanged as fbOnAuthStateChanged, signOut as fbSignOut, getIdToken as fbGetIdToken, User as FirebaseUser, createUserWithEmailAndPassword as createFbUser } from "firebase/auth"
-import {doc, getDoc, setDoc, onSnapshot, updateDoc, serverTimestamp, DocumentData, DocumentReference} from "firebase/firestore"
+import { 
+        signInWithEmailAndPassword, 
+        onAuthStateChanged as fbOnAuthStateChanged, 
+        signOut as fbSignOut, 
+        getIdToken as fbGetIdToken, 
+        User as FirebaseUser, 
+        createUserWithEmailAndPassword as createFbUser,
+        EmailAuthProvider,
+        reauthenticateWithCredential,
+        deleteUser 
+    } from "firebase/auth"
+import {
+        doc, 
+        getDoc, 
+        setDoc, 
+        onSnapshot, 
+        updateDoc, 
+        serverTimestamp, 
+        DocumentData, 
+        DocumentReference, 
+        deleteDoc
+    } from "firebase/firestore"
 
 
 export interface UserProfile {
@@ -51,6 +71,36 @@ export async function getIdToken(force = false):Promise<string | null> {
 
 export function getCurrentUser(){
     return auth.currentUser //null if user is not logged in
+}
+
+// delete account with password
+
+export async function deleteAccountWithPassword(password: string) {
+  const user = auth.currentUser;
+
+  if (!user) throw new Error("No authenticated user.");
+
+  if (!user.email) throw new Error("User email not available.");
+
+  try {
+    // ✅ 1. Re-authenticate (required by Firebase)
+    const credential = EmailAuthProvider.credential(user.email, password);
+
+    await reauthenticateWithCredential(user, credential);
+
+    const uid = user.uid;
+
+    // ✅ 2. Delete user profile document
+    await deleteDoc(doc(db, "users", uid));
+
+    // ✅ 3. Delete auth account
+    await deleteUser(user);
+
+    return { success: true };
+  } catch (error: unknown) {
+    console.error("Delete account error:", error);
+    throw error;
+  }
 }
 
 /////FIRESTORE/////
