@@ -1,5 +1,5 @@
 
-export function renderTags(tags:String[]){
+export function renderTags(tags:string[]){
    return tags.map((tag, i) => (
     <span key={i} className="">
         <span className="italic font-semibold">{tag}</span>
@@ -8,4 +8,12 @@ export function renderTags(tags:String[]){
       )}
     </span>
    ))
+}
+
+export function formatDate(date: Date){
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(date);
 }

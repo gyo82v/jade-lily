@@ -3,7 +3,7 @@ import {GiGrapes, GiFrenchFries, GiCarrot, GiWineGlass, GiGlassShot, GiChocolate
 import { FiRefreshCw } from 'react-icons/fi';
 
 export function renderStars(rating:number){
-    let stars = []
+    const stars = []
 
     for(let i = 1; i <= 5; i++){
         if(rating >=i){
