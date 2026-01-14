@@ -1,40 +1,40 @@
 "use client"
 
 import { useAuth } from "@/firebase/authProvider"
+import Link from "next/link";
+import { primaryButtonStyles } from "@/components/styles";
+import { formatDate } from "@/lib/utils";
 
 export default function SettingsPage() {
     const { user, profile, loading } = useAuth();
     let memberSince = "";
     console.log("user profile:", profile);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    if(loading) return <div>Loading...</div>;
 
-    if(profile?.createdAt){
-        const date = profile.createdAt.toDate();
-        const datetime = date.toISOString();
-        console.log("ISO date:", datetime);
-        memberSince = new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  }).format(date);
-    }
+    if(profile?.createdAt) memberSince = formatDate(profile.createdAt.toDate())
 
-    const containerStyle = `flex flex-col h-full p-4 w-full 
+    const containerStyle = `flex flex-col px-4 py-10 w-11/12 
                             bg-gradient-to-br from-orange-100 to-orange-50 
                             rounded-lg shadow-md mx-6 my-8
                             `;
 
     return (
     <section className={containerStyle}>
-        <h1>{profile?.displayName || "User"}&apos;s Settings</h1>
-        <p>Email: {user?.email}</p>
-        <p>Member since: {memberSince || "Unknown"}</p>
-        <p>Orders amount: {profile?.jadeLilyTotalOrders || 0}</p>
-        <p>Credit spent: {profile?.jadeLilyCreditUsed || 0}</p>
-        <p>Current credit: {profile?.jadeLilyCredit || 0}</p>
+        <h1 className="text-xl font-bold text-center">
+            <span className="font-dancing text-2xl">{profile?.displayName || "User"}</span>&apos;s Settings
+        </h1>
+        <div className="flex flex-col gap-2 my-14 text-lg">
+            <p><span className="font-bold mr-1">Email:</span> {user?.email}</p>
+            <p><span className="font-bold mr-1">Member since:</span> {memberSince || "Unknown"}</p>
+            <p><span className="font-bold mr-1">Orders amount:</span> {profile?.jadeLilyTotalOrders || 0}</p>
+            <p><span className="font-bold mr-1">Credit spent:</span> {profile?.jadeLilyCreditUsed || 0}</p>
+            <p><span className="font-bold mr-1">Current credit:</span> {profile?.jadeLilyCredit || 0}</p>
+        </div>
+        <div className="flex flex-col gap-2">
+            <Link href="/account/add-credit" className={primaryButtonStyles}>Add credit</Link>
+            <Link href="/account/delete-account" className={primaryButtonStyles}>delete account</Link>
+        </div>
     </section>
 )
 }
