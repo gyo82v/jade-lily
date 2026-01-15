@@ -5,11 +5,16 @@ import React from "react";
 type InputElProps = React.ComponentPropsWithoutRef<"input"> & {
   label?: string;
   error?: string;
+  describedby?: string;
 };
 
-export function InputEl({label, error, className = "", id, ...rest}: InputElProps) {
+export function InputEl({label, error, describedby, className = "", id, ...rest}: InputElProps) {
   const generatedId = React.useId();
   const inputId = id ?? generatedId;
+  const describeByIds = [
+    error ? `${inputId}-error` : null,
+    describedby ?? null,
+  ].filter(Boolean).join(" ") || undefined;
 
   const baseStyle = `
     w-full rounded-md border border-orange-300 bg-orange-50 px-3 py-2
@@ -40,7 +45,7 @@ export function InputEl({label, error, className = "", id, ...rest}: InputElProp
         id={inputId}
         className={`${baseStyle} ${errorStyle} ${className}`}
         aria-invalid={!!error}
-        aria-describedby={error ? `${inputId}-error` : undefined}
+        aria-describedby={describeByIds || undefined}
         {...rest}
       />
 
