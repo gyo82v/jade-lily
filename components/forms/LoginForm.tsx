@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useState, useActionState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../../firebase/authProvider";
 import { InputEl } from "../InputEl";
@@ -9,6 +9,7 @@ import { Button } from "../Button";
 export function LoginForm() {
   const { signIn } = useAuth();
   const router = useRouter();
+  const [showDeleted, setShowDeleted] = useState(false);
   const [error, submitAction, isPending] = useActionState(async (prev:unknown, formData:FormData) => {
     try {
       const email = formData.get("email") as string;
@@ -23,13 +24,30 @@ export function LoginForm() {
     }
   },null)
 
+  useEffect(() => {
+    const deleted = sessionStorage.getItem("account-deleted");
+    if(deleted){
+      setShowDeleted(true);
+      sessionStorage.removeItem("account-deleted");   
+      }  
+  },[])
+
   return (
     <form action={submitAction} className="my-4 flex flex-col gap-8 w-full">
       <div className="flex flex-col gap-3 w-full">
         <InputEl label="Email:" type="email" name="email" id="email-input" />
         <InputEl label="Password:" type="password" name="password" id="password-input" />
       </div>
-      {error && <div role="alert" className="text-red-600">{error}</div>}
+      {error && 
+      <div role="alert" className="text-red-600 text-lg font-semibold">
+        {error}
+      </div>
+      }
+      {showDeleted && 
+      <div role="status" className="text-green-600 text-lg font-semibold">
+        Your account has been successfully deleted.
+      </div>
+      }
 
       <Button type="submit" isLoading={isPending} className="mt-4">
         {isPending ? "Sign in..." : "Sign In"}
