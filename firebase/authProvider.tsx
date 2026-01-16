@@ -13,6 +13,7 @@ import {
         UserProfile,
         deleteAccountWithPassword
     } from "./authClient"
+import { addUserCredit } from "./usersCollectionClient";
 
 type AuthContextValue = {
     user : FirebaseUser | null
@@ -23,6 +24,7 @@ type AuthContextValue = {
     getIdToken : (force?: boolean) => Promise<string | null>
     createUser : (email:string, password:string, name:string) => Promise<FirebaseUser>
     deleteAccount : (password: string) => Promise<void>
+    addCredit : (userId:string, amount: number) => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
@@ -115,6 +117,18 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         }
     }
 
+    async function addCredit(userId:string, amount: number){
+        setLoading(true);
+        try {
+            await addUserCredit(userId, amount);
+        } catch (error: unknown) {
+            console.error("Error adding credit:", error);
+            throw error;
+        } finally {
+            setLoading(false);
+        }
+    }
+
     const value: AuthContextValue = {
         user,
         profile,
@@ -123,7 +137,8 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         signOut,
         getIdToken,
         createUser,
-        deleteAccount
+        deleteAccount,
+        addCredit
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
