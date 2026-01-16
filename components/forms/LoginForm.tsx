@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useActionState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "../../firebase/authProvider";
 import { InputEl } from "../InputEl";
 import { Button } from "../Button"; 
@@ -9,6 +9,8 @@ import { Button } from "../Button";
 export function LoginForm() {
   const { signIn } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const isSignedOut = searchParams.get("signed-out") === "1";
   const [showDeleted, setShowDeleted] = useState(false);
   const [error, submitAction, isPending] = useActionState(async (prev:unknown, formData:FormData) => {
     try {
@@ -46,6 +48,11 @@ export function LoginForm() {
       {showDeleted && 
       <div role="status" className="text-green-600 text-lg font-semibold">
         Your account has been successfully deleted.
+      </div>
+      }
+      {isSignedOut && 
+      <div role="status" className="text-green-600 text-lg font-semibold">
+        You have been successfully signed out.
       </div>
       }
 
