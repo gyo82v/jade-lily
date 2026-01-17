@@ -22,10 +22,10 @@ export default function Home() {
               <Navlink href="/menu" className={link}>Discover our menu</Navlink>
             </li>
             <li className={li}>
-              <Navlink href="/account" className={link}>Order online</Navlink>
+              <Navlink href="/account/menu" className={link}>Order online</Navlink>
             </li>
             <li className={li}>
-              <Navlink href="/account" className={link}>Book a table</Navlink>
+              <Navlink href="/account/reservations" className={link}>Book a table</Navlink>
             </li>
           </ul>
         </section>

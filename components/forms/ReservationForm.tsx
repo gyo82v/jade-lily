@@ -28,10 +28,9 @@ export function ReservationForm(){
     const formStyle = `bg-gradient-to-br from-orange-100 to-orange-50 shadow-md rounded-lg 
                        px-4 py-8 mt-10 `
     function todayString() {
-  const d = new Date();
-  // yyyy-mm-dd
-  return d.toISOString().split("T")[0];
-}
+        const d = new Date();
+        return d.toISOString().split("T")[0];
+    }
     return(
         <form className={formStyle} action={submitAction}>
             <div className="flex flex-col gap-2">
