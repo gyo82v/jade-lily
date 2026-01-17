@@ -4,9 +4,12 @@ import { useAuth } from "@/firebase/authProvider"
 import Link from "next/link";
 import { primaryButtonStyles } from "@/components/styles";
 import { formatDate } from "@/lib/utils";
+import { useSearchParams } from "next/navigation";
 
 export default function SettingsPage() {
     const { user, profile, loading } = useAuth();
+    const searchParams = useSearchParams();
+    const creditAdded = searchParams.get("credit-added") === "1";
     let memberSince = "";
     console.log("user profile:", profile);
 
@@ -24,7 +27,12 @@ export default function SettingsPage() {
         <h1 className="text-xl font-bold text-center">
             <span className="font-dancing text-2xl">{profile?.displayName || "User"}</span>&apos;s Settings
         </h1>
-        <div className="flex flex-col gap-2 my-14 text-lg">
+        {creditAdded && (
+            <p className="text-green-600 font-semibold text-center mt-2">
+                Credit added successfully!
+            </p>
+        )}
+        <div className="flex flex-col gap-2 my-10 text-lg">
             <p><span className="font-bold mr-1">Email:</span> {user?.email}</p>
             <p><span className="font-bold mr-1">Member since:</span> {memberSince || "Unknown"}</p>
             <p><span className="font-bold mr-1">Orders amount:</span> {profile?.jadeLilyTotalOrders || 0}</p>
