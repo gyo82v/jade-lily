@@ -91,10 +91,10 @@ export default function AboutPage(){
                     <div className="w-full">
                         <ul className="flex gap-6 w-full">
                             <li className={liWrapLink}>
-                                <Navlink href="/" className="block">Join us</Navlink>
+                                <Navlink href="/sign-in" className="block">Join us</Navlink>
                             </li>
                             <li className={liWrapLink}>
-                                <Navlink href="/" className="block">Contact us</Navlink>
+                                <Navlink href="/contact-us" className="block">Contact us</Navlink>
                             </li>
                         </ul>
                     </div>
