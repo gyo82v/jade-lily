@@ -60,7 +60,7 @@ export default function AccountPage(){
                 </p>
             </Link>
             <Link href="/account/reservations" className={sectionStyle}>
-                <p>Book a table</p>
+                <p>Reserve a table</p>
                 <p className={linkStyle}>
                     Details 
                     <span>
