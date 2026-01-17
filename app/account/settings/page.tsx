@@ -10,6 +10,9 @@ export default function SettingsPage() {
     const { user, profile, loading } = useAuth();
     const searchParams = useSearchParams();
     const creditAdded = searchParams.get("credit-added") === "1";
+    const tableReserved = searchParams.get("reserved") === "1"
+    const reservationDate = searchParams.get("date")
+    const reservationTime = searchParams.get("time")
     let memberSince = "";
     console.log("user profile:", profile);
 
@@ -30,6 +33,11 @@ export default function SettingsPage() {
         {creditAdded && (
             <p className="text-green-600 font-semibold text-center mt-2">
                 Credit added successfully!
+            </p>
+        )}
+        {tableReserved && reservationDate && reservationTime && (
+            <p className="text-green-600 font-semibold text-center mt-2">
+                Table successfully reserved: {formatDate(new Date(reservationDate))} / {reservationTime}
             </p>
         )}
         <div className="flex flex-col gap-2 my-10 text-lg">
