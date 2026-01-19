@@ -5,9 +5,9 @@ import {FaXTwitter} from "react-icons/fa6";
 export default function SocialsNavbar(){
     const aStyle = `transition-transform transition-colors duration-300 ease-in-out 
                     hover:scale-105 active:scale-95 hover:text-stone-400 
-                    rounded-full p-2`
+                    rounded-full `
     return(
-        <nav>
+        <nav className="flex ">
             <ul className="flex gap-4">
                 <li>
                     <a 
