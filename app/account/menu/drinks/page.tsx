@@ -1,7 +1,7 @@
+import AccountMenuPage from "../../components/AccountMenuPage"
+
 export default function DrinksPage(){
     return(
-        <section>
-            <p>drinks page here</p>
-        </section>
+        <AccountMenuPage category="drinks" />
     )
 }

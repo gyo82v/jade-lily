@@ -1,7 +1,7 @@
+import AccountMenuPage from "../../components/AccountMenuPage"
+
 export default function DessertsPage(){
     return(
-        <section>
-            <p>desserts here</p>
-        </section>
+        <AccountMenuPage category="desserts" />
     )
 }
