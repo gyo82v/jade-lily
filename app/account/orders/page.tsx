@@ -1,3 +1,7 @@
 export default function OrdersPage() {
-    return <div>Orders Page</div>
+    return (
+        <section>
+            <h1>order here</h1>
+        </section>
+    )
 }
