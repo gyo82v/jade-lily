@@ -1,3 +1,10 @@
+import AccountCartPage from "../components/AccountCartPage"
+
 export default function CartPage() {
-    return <h1>Account Cart Page</h1>
+    return (
+        <section>
+            <h1>Your cart</h1>
+            <AccountCartPage />
+        </section>
+    )
 }
