@@ -13,7 +13,21 @@ import {
         UserProfile,
         deleteAccountWithPassword
     } from "./authClient"
-import { addUserCredit } from "./usersCollectionClient";
+import { addUserCredit, addToJadeLilyCart, removeFromJadeLilyCart } from "./usersCollectionClient";
+
+type DishForCart = {
+  dishId: string;
+  name: string;
+  price: number;
+};
+
+type CartItem = {
+  cartItemId: string;
+  dishId: string;
+  name: string;
+  price: number;
+  qty: number;
+};
 
 type AuthContextValue = {
     user : FirebaseUser | null
@@ -25,7 +39,10 @@ type AuthContextValue = {
     createUser : (email:string, password:string, name:string) => Promise<FirebaseUser>
     deleteAccount : (password: string) => Promise<void>
     addCredit : (userId:string, amount: number) => Promise<void>
+    addToCart : (userId:string, dish:DishForCart, amount:number) => Promise<void>
+    removeItemFromCart : (userId:string, cartItemId:string) => Promise<void>
 }
+
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 
@@ -129,6 +146,30 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         }
     }
 
+    async function addToCart(useId:string, dish:DishForCart, amount:number){
+        setLoading(true)
+        try{
+            await addToJadeLilyCart(useId, dish, amount)
+        }catch(err){
+            console.error("Error adding item to the cart:", err)
+            throw err
+        }finally{
+            setLoading(false)
+        }
+    }
+
+    async function removeItemFromCart(userId:string, cartItemId:string){
+        setLoading(true)
+        try{
+            await removeFromJadeLilyCart(userId, cartItemId)
+        }catch(err){
+            console.error("Error removing item form cart:", err)
+            throw err
+        }finally{
+            setLoading(false)
+        }
+    }
+
     const value: AuthContextValue = {
         user,
         profile,
@@ -138,7 +179,9 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         getIdToken,
         createUser,
         deleteAccount,
-        addCredit
+        addCredit,
+        addToCart, 
+        removeItemFromCart
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
