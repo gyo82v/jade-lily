@@ -17,3 +17,17 @@ export type DishProps = {
     type : string
     id : string
 }
+
+export type DishForCart = {
+  dishId: string;
+  name: string;
+  price: number;
+};
+
+export type CartItem = {
+  cartItemId: string;
+  dishId: string;
+  name: string;
+  price: number;
+  qty: number;
+};

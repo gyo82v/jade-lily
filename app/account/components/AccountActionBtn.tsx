@@ -1,14 +1,17 @@
 "use client"
 
 import { primaryAccountButtonStyle, defaultTransition } from "@/components/styles";
+import {memo} from "react"
 
 type Props = React.ComponentPropsWithoutRef<"button">
 
-export default function AccountActionBtn({children ,...rest}:Props){
+function AccountActionBtn({children ,...rest}:Props){
     
     return(
-        <button className={`${primaryAccountButtonStyle} ${defaultTransition}`} {...rest} >
+        <button className={`${primaryAccountButtonStyle} ${defaultTransition} h-10 w-10 hover:scale-115`} {...rest} >
             {children}
         </button>
     )
 }
+
+export default memo(AccountActionBtn)

@@ -5,10 +5,9 @@ import { getItems } from "@/firebase/dishCollectionClient"
 import type { DishProps } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
-import { defaultTransition } from "@/components/styles"
+import { transitions, disabledEffects, focusEffects } from "@/components/styles"
 import { useAuth } from "@/firebase/authProvider"
-import { HiPlus } from "react-icons/hi";
-import AccountActionBtn from "./AccountActionBtn"
+import AddToCartBtn from "./AddToCartBtn"
 
 type Props = {
     category? : string
@@ -16,7 +15,7 @@ type Props = {
 
 export default function AccountMenuPage({category}:Props){
     const [dishes, setDishes] = useState<DishProps[]>([])
-    const {user, profile, loading, addToCart} = useAuth()
+    const {user, loading} = useAuth()
     
     useEffect(() => {
         async function fetchData(){
@@ -24,7 +23,6 @@ export default function AccountMenuPage({category}:Props){
                 const data = await getItems({available : true, category})
                 if(!data) throw new Error("no data available")
                 setDishes(data)
-                return
             }catch(err){
                console.error("failed to fetch data:", err)
             }
@@ -43,8 +41,8 @@ export default function AccountMenuPage({category}:Props){
 
     const dishesArr = dishes?.map(dish => {
         return (
-            <article key={dish.id} className={`${container} ${defaultTransition}`}>
-                <Link href={`/menu/${dish.category}/${dish.slug}`} className="flex gap-3 flex-4">
+            <article key={dish.id} className={`${container} ${transitions} ${disabledEffects} hover:shadow-xl`}>
+                <Link href={`/menu/${dish.category}/${dish.slug}`} className={`flex gap-3 flex-4 ${focusEffects}`}>
                     <figure className="flex-2">
                         <Image 
                           width={400} 
@@ -62,13 +60,11 @@ export default function AccountMenuPage({category}:Props){
                     </div>
                 </Link>
                 <div className="flex items-center justify-center flex-1">
-                    <AccountActionBtn 
-                      aria-label="Add the item to the cart" 
-                      title="Add to the cart"
-                      onClick={() => addToCart(user.uid, {name: dish.name, price : dish.price, dishId : dish.id}, 1)}
-                    >
-                        <HiPlus className="h-6 w-6" />
-                    </AccountActionBtn> 
+                    <AddToCartBtn
+                       userId={user.uid} 
+                       dish={{name: dish.name, price : dish.price, dishId : dish.id}} 
+                       amount={1} 
+                     />
                 </div>
             </article>
         )
