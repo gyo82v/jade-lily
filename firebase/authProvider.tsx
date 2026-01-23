@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useEffect, useState, useContext } from "react"
+import { createContext, useEffect, useState, useContext, useCallback } from "react"
 import type { User as FirebaseUser } from "firebase/auth"
 import { useRouter } from "next/navigation"
 import {
@@ -14,20 +14,7 @@ import {
         deleteAccountWithPassword
     } from "./authClient"
 import { addUserCredit, addToJadeLilyCart, removeFromJadeLilyCart } from "./usersCollectionClient";
-
-type DishForCart = {
-  dishId: string;
-  name: string;
-  price: number;
-};
-
-type CartItem = {
-  cartItemId: string;
-  dishId: string;
-  name: string;
-  price: number;
-  qty: number;
-};
+import type { DishForCart, CartItem } from "@/types";
 
 type AuthContextValue = {
     user : FirebaseUser | null
@@ -39,8 +26,8 @@ type AuthContextValue = {
     createUser : (email:string, password:string, name:string) => Promise<FirebaseUser>
     deleteAccount : (password: string) => Promise<void>
     addCredit : (userId:string, amount: number) => Promise<void>
-    addToCart : (userId:string, dish:DishForCart, amount:number) => Promise<void>
-    removeItemFromCart : (userId:string, cartItemId:string) => Promise<void>
+    addToCart : (userId:string, dish:DishForCart, amount:number) => Promise<CartItem[]>
+    removeItemFromCart : (userId:string, cartItemId:string) => Promise<CartItem[]>
 }
 
 
@@ -146,29 +133,23 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         }
     }
 
-    async function addToCart(useId:string, dish:DishForCart, amount:number){
-        setLoading(true)
-        try{
-            await addToJadeLilyCart(useId, dish, amount)
-        }catch(err){
-            console.error("Error adding item to the cart:", err)
-            throw err
-        }finally{
-            setLoading(false)
-        }
-    }
+    const addToCart = useCallback(async (userId: string, dish: DishForCart, amount = 1) => {
+      try {
+        return await addToJadeLilyCart(userId, dish, amount);
+      } catch (err) {
+        console.error("Error adding item to cart:", err);
+        throw err;
+      }
+    }, []);
 
-    async function removeItemFromCart(userId:string, cartItemId:string){
-        setLoading(true)
-        try{
-            await removeFromJadeLilyCart(userId, cartItemId)
-        }catch(err){
-            console.error("Error removing item form cart:", err)
-            throw err
-        }finally{
-            setLoading(false)
-        }
-    }
+    const removeItemFromCart = useCallback(async (userId: string, cartItemId: string) => {
+      try {
+        return await removeFromJadeLilyCart(userId, cartItemId);
+      } catch (err) {
+        console.error("Error removing item from cart:", err);
+        throw err;
+      }
+    }, []);
 
     const value: AuthContextValue = {
         user,
