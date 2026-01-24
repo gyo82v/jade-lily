@@ -31,3 +31,12 @@ export type CartItem = {
   price: number;
   qty: number;
 };
+
+export type PastOrder = {
+  id: string;
+  price: number;
+  date: unknown      
+  dateLabel?: string; 
+  items?: CartItem[];
+
+}

@@ -6,7 +6,7 @@ import RemoveFromCartBtn from "./RemoveFromCartBtn"
 import type { CartItem } from "@/types"
 
 export default function AccountCartPage(){
-    const {profile, user} = useAuth()
+    const {profile, user, placeOrderForUser} = useAuth()
     if(!user) return <p>Loading</p>
     const container = `flex gap-2 px-4 py-6 bg-gradient-to-br from-orange-100 to-orange-50 
                        shadow-lg rounded-lg w-full  hover:shadow-xl`
@@ -32,10 +32,16 @@ export default function AccountCartPage(){
 
     return(
         <div>
-            <section className="flex flex-col gap-5 my-6">
-                {cartItemsArr}
-            </section>
-            <Button>Order now</Button>
+            {
+                profile?.jadeLilyCart.length || 0 > 0 ?
+                <>
+                   <section className="flex flex-col gap-5 my-6">
+                     {cartItemsArr}
+                   </section>
+                   <Button onClick={() => placeOrderForUser(user.uid)}>Order now</Button>
+                </> :
+                <p>Your cart is empty</p>
+            }
         </div>
     )
 }

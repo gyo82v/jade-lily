@@ -13,8 +13,8 @@ import {
         UserProfile,
         deleteAccountWithPassword
     } from "./authClient"
-import { addUserCredit, addToJadeLilyCart, removeFromJadeLilyCart } from "./usersCollectionClient";
-import type { DishForCart, CartItem } from "@/types";
+import { addUserCredit, addToJadeLilyCart, removeFromJadeLilyCart, placeOrder, clearJadeLilyPastOrders, removeFromJadeLilyPastOrders} from "./usersCollectionClient";
+import type { DishForCart, CartItem, PastOrder } from "@/types";
 
 type AuthContextValue = {
     user : FirebaseUser | null
@@ -28,6 +28,9 @@ type AuthContextValue = {
     addCredit : (userId:string, amount: number) => Promise<void>
     addToCart : (userId:string, dish:DishForCart, amount:number) => Promise<CartItem[]>
     removeItemFromCart : (userId:string, cartItemId:string) => Promise<CartItem[]>
+    placeOrderForUser : (userId: string) => Promise<PastOrder>
+    removePastOrder: (userId: string, orderId: string) => Promise<PastOrder[]>;
+    clearPastOrders: (userId: string) => Promise<PastOrder[]>
 }
 
 
@@ -151,6 +154,35 @@ export function AuthProvider({children}:{children: React.ReactNode}){
       }
     }, []);
 
+    const removePastOrder = useCallback(async (userId: string, orderId: string) => {
+  try {
+    return await removeFromJadeLilyPastOrders(userId, orderId);
+  } catch (err) {
+    console.error("Error removing past order:", err);
+    throw err;
+  }
+}, []);
+
+const clearPastOrders = useCallback(async (userId: string) => {
+  try {
+    return await clearJadeLilyPastOrders(userId);
+  } catch (err) {
+    console.error("Error clearing past orders:", err);
+    throw err;
+  }
+}, []);
+
+    const placeOrderForUser = useCallback(async (userId: string) => {
+     try {
+       return await placeOrder(userId);
+     } catch (err) {
+       console.error("Error placing order:", err);
+       throw err;
+     }
+    }, []);
+
+
+
     const value: AuthContextValue = {
         user,
         profile,
@@ -162,7 +194,10 @@ export function AuthProvider({children}:{children: React.ReactNode}){
         deleteAccount,
         addCredit,
         addToCart, 
-        removeItemFromCart
+        removeItemFromCart, 
+        placeOrderForUser,
+        removePastOrder,
+        clearPastOrders
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

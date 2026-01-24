@@ -1,7 +1,10 @@
+import AccountOrdersPage from "../components/AccountOrdersPage"
+
 export default function OrdersPage() {
     return (
-        <section>
-            <h1>order here</h1>
+        <section className="w-11/12 my-4">
+            <h1 className="text-xl font-bold">Yours orders:</h1>
+            <AccountOrdersPage />
         </section>
     )
 }

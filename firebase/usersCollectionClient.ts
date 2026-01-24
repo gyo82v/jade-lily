@@ -1,4 +1,4 @@
-import {doc, updateDoc, increment, runTransaction, serverTimestamp} from "firebase/firestore"
+import {doc, updateDoc, increment, runTransaction, serverTimestamp, Timestamp} from "firebase/firestore"
 import { db } from "./firebase";
 import { nanoid } from "nanoid"; 
 import type { DishForCart, CartItem } from "@/types";
@@ -6,7 +6,7 @@ import type { DishForCart, CartItem } from "@/types";
 export type PastOrder = {
   id: string;
   price: number;
-  date: any;        // serverTimestamp() value (Firestore Timestamp)
+  date: unknown;        // serverTimestamp() value (Firestore Timestamp)
   dateLabel?: string; // human-friendly string (client-side formatted)
   items?: CartItem[];  // snapshot of items that composed the order
 };
@@ -87,6 +87,51 @@ export async function removeFromJadeLilyCart(userId: string, cartItemId: string)
   return finalCart;
 }
 
+export async function removeFromJadeLilyPastOrders(userId: string, orderId: string): Promise<PastOrder[]> {
+  if (!userId) throw new Error("userId required");
+  if (!orderId) throw new Error("orderId required");
+
+  const userRef = doc(db, "users", userId);
+
+  const finalPastOrders = await runTransaction(db, async (transaction) => {
+    const userSnap = await transaction.get(userRef);
+    if (!userSnap.exists()) throw new Error(`User document not found for uid=${userId}.`);
+
+    const data = userSnap.data()
+    const pastOrders: PastOrder[] = Array.isArray(data?.jadeLilyPastOrder) ? data.jadeLilyPastOrder.slice() : [];
+
+    // Remove the order matching orderId
+    const newPastOrders = pastOrders.filter(po => po?.id !== orderId);
+
+    // Update only if changed (optional)
+    if (newPastOrders.length === pastOrders.length) {
+      // nothing removed, still update to keep API consistent (could also throw)
+      return pastOrders;
+    }
+
+    transaction.update(userRef, { jadeLilyPastOrder: newPastOrders });
+    return newPastOrders;
+  });
+
+  return finalPastOrders;
+}
+
+export async function clearJadeLilyPastOrders(userId: string): Promise<PastOrder[]> {
+  if (!userId) throw new Error("userId required");
+
+  const userRef = doc(db, "users", userId);
+
+  const finalPastOrders = await runTransaction(db, async (transaction) => {
+    const userSnap = await transaction.get(userRef);
+    if (!userSnap.exists()) throw new Error(`User document not found for uid=${userId}.`);
+
+    // Set past orders to empty array
+    transaction.update(userRef, { jadeLilyPastOrder: [] });
+    return [] as PastOrder[];
+  });
+
+  return finalPastOrders;
+}
 
 export async function placeOrder(userId: string): Promise<PastOrder> {
   if (!userId) throw new Error("userId required");
@@ -100,7 +145,7 @@ export async function placeOrder(userId: string): Promise<PastOrder> {
       throw new Error(`User document not found for uid=${userId}.`);
     }
 
-    const data = userSnap.data() as any;
+    const data = userSnap.data()
 
     const cart: CartItem[] = Array.isArray(data?.jadeLilyCart) ? data.jadeLilyCart.slice() : [];
     if (!cart.length) {
@@ -127,7 +172,7 @@ export async function placeOrder(userId: string): Promise<PastOrder> {
 
     // Prepare order object
     const orderId = nanoid();
-    const serverTime = serverTimestamp(); // Firestore server timestamp
+    const serverTime = Timestamp.now(); // Firestore server timestamp
     const dateLabel = new Date().toLocaleString("en-GB", {
       timeZone: "Europe/Rome",
       day: "2-digit",
@@ -159,7 +204,7 @@ export async function placeOrder(userId: string): Promise<PastOrder> {
     // Apply writes atomically
     transaction.update(userRef, {
       jadeLilyCart: [],                  // clear cart
-      jadeLilyPastOrder: pastOrders,     // append order snapshot
+      jadeLilyPastOrders: pastOrders,     // append order snapshot
       jadeLilyCredit: newCredit,         // deduct credit
       jadeLilyCreditUsed: newCreditUsed, // cumulative credit used
       jadeLilyTotalOrders: newTotalOrders, // increment orders counter
