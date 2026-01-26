@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation";
-import { Navlink } from "@/components";
+import {Navlink} from "@/components/navbars/Navlink"
 import { useAuth } from "@/firebase/authProvider";
 import { HiMenu } from "react-icons/hi";
 import { HiOutlineLogout } from "react-icons/hi";
