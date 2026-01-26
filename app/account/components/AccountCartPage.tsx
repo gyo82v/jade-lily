@@ -3,18 +3,18 @@
 import { useAuth } from "@/firebase/authProvider"
 import { Button } from "@/components"
 import RemoveFromCartBtn from "./RemoveFromCartBtn"
-import type { CartItem } from "@/types"
 
 export default function AccountCartPage(){
     const {profile, user, placeOrderForUser} = useAuth()
     if(!user) return <p>Loading</p>
     const container = `flex gap-2 px-4 py-6 bg-gradient-to-br from-orange-100 to-orange-50 
                        shadow-lg rounded-lg w-full  hover:shadow-xl`
-   
-    const cartItemsArr = ( profile?.jadeLilyCart as CartItem[])?.map(item => { 
+
+    const cart = profile?.jadeLilyCart ?? []
+    const cartItemsArr = cart.map(item => { 
         return (
             <article key={item.dishId} className={container}>
-                <div className="flex-2">
+                <div className="flex-2 flex items-center">
                     <p className="text-xl font-dancing">{item.name}</p>
                 </div>
                 <div className="flex-1 flex items-center justify-left">
@@ -33,7 +33,7 @@ export default function AccountCartPage(){
     return(
         <div>
             {
-                profile?.jadeLilyCart.length || 0 > 0 ?
+                cart.length > 0 ?
                 <>
                    <section className="flex flex-col gap-5 my-6">
                      {cartItemsArr}

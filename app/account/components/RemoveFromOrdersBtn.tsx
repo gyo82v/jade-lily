@@ -10,7 +10,7 @@ import { MdDelete } from "react-icons/md";
 
 type Props = {
   userId: string;
-  cartItemId: string;
+  orderId: string;
   className?: string;
 };
 
