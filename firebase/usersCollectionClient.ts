@@ -98,7 +98,7 @@ export async function removeFromJadeLilyPastOrders(userId: string, orderId: stri
     if (!userSnap.exists()) throw new Error(`User document not found for uid=${userId}.`);
 
     const data = userSnap.data()
-    const pastOrders: PastOrder[] = Array.isArray(data?.jadeLilyPastOrder) ? data.jadeLilyPastOrder.slice() : [];
+    const pastOrders: PastOrder[] = Array.isArray(data?.jadeLilyPastOrders) ? data.jadeLilyPastOrders.slice() : [];
 
     // Remove the order matching orderId
     const newPastOrders = pastOrders.filter(po => po?.id !== orderId);
@@ -109,7 +109,7 @@ export async function removeFromJadeLilyPastOrders(userId: string, orderId: stri
       return pastOrders;
     }
 
-    transaction.update(userRef, { jadeLilyPastOrder: newPastOrders });
+    transaction.update(userRef, { jadeLilyPastOrders: newPastOrders });
     return newPastOrders;
   });
 
@@ -126,7 +126,7 @@ export async function clearJadeLilyPastOrders(userId: string): Promise<PastOrder
     if (!userSnap.exists()) throw new Error(`User document not found for uid=${userId}.`);
 
     // Set past orders to empty array
-    transaction.update(userRef, { jadeLilyPastOrder: [] });
+    transaction.update(userRef, { jadeLilyPastOrders: [] });
     return [] as PastOrder[];
   });
 
@@ -191,8 +191,8 @@ export async function placeOrder(userId: string): Promise<PastOrder> {
     };
 
     // Prepare updated past orders array
-    const pastOrders: PastOrder[] = Array.isArray(data?.jadeLilyPastOrder)
-      ? data.jadeLilyPastOrder.slice()
+    const pastOrders: PastOrder[] = Array.isArray(data?.jadeLilyPastOrders)
+      ? data.jadeLilyPastOrders.slice()
       : [];
     pastOrders.push(orderObj);
 

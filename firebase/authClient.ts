@@ -21,17 +21,18 @@ import {
         DocumentReference, 
         deleteDoc
     } from "firebase/firestore"
+import type { PastOrder, CartItem } from "@/types"
 
 
 export interface UserProfile {
     uid : string
     email : string | null
     displayName : string | null
-    createdAt : any
+    createdAt : unknown
     jadeLilyCredit : number
     jadeLilyTotalOrders : number 
-    jadeLilyCart : []
-    jadeLilyPastOrders : []
+    jadeLilyCart : CartItem[]
+    jadeLilyPastOrders : PastOrder[]
     jadeLilyCreditUsed : number
 }
 
@@ -171,5 +172,5 @@ export function onAuthStateChangedListener(onChange: (user: FirebaseUser | null,
 
 export async function updateUserProfile(uid:string, data: Partial<UserProfile>){
     const ref = doc(db, "users", uid)
-    await updateDoc(ref as DocumentReference<DocumentData>, data as any)
+    await updateDoc(ref as DocumentReference<DocumentData>, data)
 }

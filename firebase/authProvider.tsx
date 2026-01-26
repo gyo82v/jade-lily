@@ -2,7 +2,6 @@
 
 import { createContext, useEffect, useState, useContext, useCallback } from "react"
 import type { User as FirebaseUser } from "firebase/auth"
-import { useRouter } from "next/navigation"
 import {
         onAuthStateChangedListener,
         subscribeToUserProfile, 
@@ -46,8 +45,7 @@ export function AuthProvider({children}:{children: React.ReactNode}){
     const [user, setUser] = useState<FirebaseUser | null>(null)
     const [profile, setProfile] = useState<UserProfile | null>(null)
     const [loading, setLoading] = useState(true)
-    const router = useRouter()
-
+  
     useEffect(() => {
         let profileUnsub: (() => void) | null = null
         const unsubscribeAuth = onAuthStateChangedListener(async (fbUser, fetchedProfile) => {
