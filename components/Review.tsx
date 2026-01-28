@@ -1,7 +1,7 @@
 import type { ReviewProps } from "@/types"
 import { renderStars } from "@/lib/utilsIcons";
 
-export function Review({author, rating, children, date = "2025-11-12"}:ReviewProps){
+export function Review({author, rating, children, date=""}:ReviewProps){
 
     return(
         <article className="bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg shadow-lg 
