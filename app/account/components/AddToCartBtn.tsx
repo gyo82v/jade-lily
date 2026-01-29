@@ -14,7 +14,7 @@ type Props = {
     className? : string
 }
 
-function AddToCartBtn({userId, dish, amount = 1, className}:Props){
+function AddToCartBtn({userId, dish, amount = 1}:Props){
     const {addToCart} = useAuth()
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
