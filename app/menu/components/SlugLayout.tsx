@@ -1,5 +1,6 @@
 import { DishDetailsHeader, DishDetailsFooter } from "@/components/dishes";
 import { getItemBySlug } from "@/firebase/dishCollectionAdmin";
+import ClientProviders from "@/firebase/ClientProviders"
 import Link from "next/link";
 
 type Props = {
@@ -9,6 +10,7 @@ type Props = {
 
 export default async function SlugLayout({slug, children}:Props){
     const data = await getItemBySlug(slug)
+    if(!data) return <p>loading...</p>
 
     return(
         <div className="p-4 flex flex-col items-center">
@@ -19,7 +21,9 @@ export default async function SlugLayout({slug, children}:Props){
                                      rounded-lg shadow-lg shadow-orange-300/30 p-4`}>
                     {children}
                 </section>
-                <DishDetailsFooter available={data?.available} />
+                <ClientProviders>
+                    <DishDetailsFooter data={data} />
+                </ClientProviders>
             </article>
         </div>
     )
