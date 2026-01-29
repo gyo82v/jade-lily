@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}:RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`min-h-screen flex flex-col antialiased text-orange-800
                        ${ebGaramond.className} ${dancingScript.variable}`}>
         <a href="#content" className="sr-only focus:not-sr-only p-2">Skip to content</a>
