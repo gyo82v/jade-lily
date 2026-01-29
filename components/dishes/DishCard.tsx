@@ -6,9 +6,10 @@ import { IconWrapper } from "../IconWrapper";
 
 type Props = {
     data : DishProps
+    priority?: boolean
 }
 
-export function DishCard({data}:Props){
+export function DishCard({data, priority}:Props){
     const {slug, imageUrlThumb, description, name, type, price, category} = data
 
     //tailwind
@@ -29,6 +30,7 @@ export function DishCard({data}:Props){
                       height={400} 
                       alt={description} 
                       className={imgStyle} 
+                      priority={priority}
                     />
                 </figure>
                 <section>
