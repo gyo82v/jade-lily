@@ -23,7 +23,6 @@
     @apply m-0 p-0 bg-orange-50;
     line-height: 1.5;
     font-weight: 400;
-    scroll-behavior: smooth;
     /* Hide scrollbar (Firefox and IE) */
     scrollbar-width: none;
     -ms-overflow-style: none;
