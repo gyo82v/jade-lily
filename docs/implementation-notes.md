@@ -22,7 +22,7 @@ Jade Lily implementation list:
 - [Fix] [Menu] fix the instance when a dish does not exists. example :/menu/mains/do-not-exists.
 - [Fix] [Menu] fix the "back to the menu" link in the top of the page. it should bring the users 
         back to the previously visited page.
-- [Fix] [Menu] fix the button in the details page of each dish. if "Order now" it should add the item to
+- [✅] {fix}{menu} the button in the details page of each dish. if "Order now" it should add the item to
         the cart(if user is logged in, otherwise link to the log in page), otherwise the button should be disabled.
 - [Content] [Footer] in the copyright section add : @JadeLily -Portfolio Project. and add "Made by :" and 
             links to github, linkedin and the portfolio.
@@ -41,6 +41,7 @@ Jade Lily implementation list:
 - [Style] [Menu/details] style the dish details default section.
 - [Style] [Menu/details] Style the dish details origin section.
 - [Style] [Menu/details] Style the dish details ingredient section.
+- [Style] [Menu/details] Style the page for desktop.
 - [Images] [Menu] replace the kiwi delight images with chatgpt.
 - [Style] [Account/dashbord] improve the style of each section.
 - [Style] [Account/settings] style the settings page for desktop.
@@ -52,6 +53,7 @@ Jade Lily implementation list:
                                   add messages to encourage customer to make orders.
 - [Style] [account/menu] style the dishes section for desktop.
 - [Style] [Account/menu] style the effects for each dish, for mobile and desktop.
+- [Fix] [Account/orders] add a confirmation message when all or a single order are deleted.
 - [Fix] [Account/menu] fix the menu category navbar to use icons instead of text.
 - [Fix] [Account/menu] fix the menu category navbar to highlight the current path, the reset button should 
         be visible only when one filter is selected.it should be the most important navbar.
@@ -61,8 +63,9 @@ Jade Lily implementation list:
             navbar.
 - [Fix] [About] fix the "join-us" link. if a user is logged in it shouldnt link to the sign in page
 - [Fix] add a spinner component in every button that do an async operation
-- [Fix] fix the loaing state of each page. at the moment there is only a big spinner in the left/center
-        of the page.   
+- [Fix] fix the loading state of each page. at the moment there is only a big spinner in the left/center
+        of the page.
+- [fix] test and fix the console warning message about the "Largest Contentful Paint" detected.   
 - [Test] run the lighthouse test in google chrome.
 - [A11y] [home] check the page for accessibility
 - [A11y] [About] check the page for accessibility
@@ -73,6 +76,8 @@ Jade Lily implementation list:
 - [A11Y] [Account/cartAndOrders] check the page for accessibility.
 - [A11y] [forms] check all the forms for accessibility : sign-in, sign-up, sign-out, add-credit,
          book-table, delete-accout, contact-us
+- [Clean] Clean tailwind variables from components
+- [Clean] Clean types form components, declare the type in the types folder.
 - [Optional] [Account/orders] add a status/track of the current order. example : a bar showing :
             preparing => in transit => completed. when a user clicks on the button "order now" in the 
             cart page it should redirect the user to the order page with the tracking of the order 
