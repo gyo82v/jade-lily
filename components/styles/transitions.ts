@@ -24,3 +24,7 @@ export const disabledEffects = `
  disabled:opacity-50 disabled:pointer-events-none
  disabled:shadow-none disabled:scale-100
 `
+export const pillTransition = `
+  transition-all duration-200 ease-out
+  motion-reduce:transition-none motion-reduce:transform-none motion-reduce:duration-0
+`
