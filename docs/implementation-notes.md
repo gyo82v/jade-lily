@@ -18,9 +18,9 @@ Jade Lily implementation list:
 - [Style] [About] in the info column, add a separator element between each p tag.
 - [Style] [Header] Design the app title "jadeLily" with chatgpt.
 - [Content] Create some images with chatgpt to use as separator/placeholder/etc like and orange lily.
-- [Fix] [not-found] style the page and test if the infinite compiling happens only in development.
-- [Fix] [Menu] fix the instance when a dish does not exists. example :/menu/mains/do-not-exists.
-- [Fix] [Menu] fix the "back to the menu" link in the top of the page. it should bring the users 
+- [Style] [not-found] style the page for mobile and desktop.
+- [✅] {fix}{menu} the instance when a dish does not exists. example :/menu/mains/do-not-exists.
+- [✅] {fix}{menu} fix the "back to the menu" link in the top of the page. it should bring the users 
         back to the previously visited page.
 - [✅] {fix}{menu} the button in the details page of each dish. if "Order now" it should add the item to
         the cart(if user is logged in, otherwise link to the log in page), otherwise the button should be disabled.
@@ -67,6 +67,7 @@ Jade Lily implementation list:
         of the page.
 - [fix] test and fix the console warning message about the "Largest Contentful Paint" detected.   
 - [Test] run the lighthouse test in google chrome.
+- [Test] test the global not-found page in production mode.
 - [A11y] [home] check the page for accessibility
 - [A11y] [About] check the page for accessibility
 - [A11y] [Menu] check the page for accessibility
