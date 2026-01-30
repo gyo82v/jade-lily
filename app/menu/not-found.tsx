@@ -1,0 +1,25 @@
+// app/menu/not-found.tsx
+import Link from "next/link";
+import { pillStyle } from "../../components/styles/pill";
+
+export default function MenuNotFound() {
+  return (
+    <section className="min-h-[50vh] flex flex-col items-center mt-20 gap-6 p-6 text-center">
+      <h1 className="text-2xl font-bold text-orange-800">
+        Item not found
+      </h1>
+
+      <p className="max-w-md text-sm text-orange-700/80">
+        The item you’re looking for doesn’t exist, may have been removed,
+        or the link might be incorrect.
+      </p>
+
+      <Link
+        href="/menu"
+        className={`${pillStyle} hover:-translate-y-0.5`}
+      >
+        ← Back to menu
+      </Link>
+    </section>
+  );
+}
