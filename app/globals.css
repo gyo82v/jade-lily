@@ -59,6 +59,12 @@
 .custom-shadow {
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
 }
+.grad-primary {
+    @apply bg-gradient-to-br from-orange-100 to-orange-50;
+  }
+.grad-secondary{
+    @apply bg-gradient-to-br from-orange-50 to-orange-100;
+  }
 }
 
 @layer components {
