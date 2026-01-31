@@ -18,7 +18,7 @@ Jade Lily implementation list:
 - [Style] [About] in the info column, add a separator element between each p tag.
 - [Style] [Header] Design the app title "jadeLily" with chatgpt.
 - [Content] Create some images with chatgpt to use as separator/placeholder/etc like and orange lily.
-- [Style] [not-found] style the page for mobile and desktop.
+- [✅] {style}{not-found} style the page for mobile and desktop.
 - [✅] {fix}{menu} the instance when a dish does not exists. example :/menu/mains/do-not-exists.
 - [✅] {fix}{menu} fix the "back to the menu" link in the top of the page. it should bring the users 
         back to the previously visited page.
@@ -42,7 +42,7 @@ Jade Lily implementation list:
 - [Style] [Menu/details] Style the dish details origin section.
 - [Style] [Menu/details] Style the dish details ingredient section.
 - [Style] [Menu/details] Style the page for desktop.
-- [Images] [Menu] replace the kiwi delight images with chatgpt.
+- [✅] {images}{menu} replace the kiwi delight images with chatgpt.
 - [Style] [Account/dashbord] improve the style of each section.
 - [Style] [Account/settings] style the settings page for desktop.
 - [Style] [Account/deleteAccount] style the form for desktop.

@@ -1,10 +1,9 @@
-// app/not-found.tsx
 import Link from "next/link";
 import { pillStyle } from "../components/styles/pill";
 
 export default function GlobalNotFound() {
   return (
-    <section className="min-h-[60vh] flex flex-col items-center mt-20 gap-6 p-6 text-center">
+    <section className="min-h-[60vh] mx-auto flex flex-col items-center mt-0 md:mt-30 gap-6 p-6 text-center">
       <h1 className="text-2xl font-bold text-orange-800">
         Page not found
       </h1>

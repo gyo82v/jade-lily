@@ -1,4 +1,3 @@
-// app/menu/not-found.tsx
 import Link from "next/link";
 import { pillStyle } from "../../components/styles/pill";
 
