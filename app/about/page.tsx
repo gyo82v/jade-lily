@@ -13,9 +13,9 @@ export default function AboutPage(){
         <div className="md:w-10/12 md:mx-auto">
             <section className="">
                 <Image 
-                  src="/about.jpg"
-                  width={1920} 
-                  height={1272} 
+                  src="/jade-lily-night.png"
+                  width={1536} 
+                  height={1024} 
                   alt={`A small glass of water, lots of colored hearts on the background,
                         all surrounded by a dark warm light`} 
                   className="md:h-120" 
