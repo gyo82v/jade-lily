@@ -28,3 +28,8 @@ export const pillTransition = `
   transition-all duration-200 ease-out
   motion-reduce:transition-none motion-reduce:transform-none motion-reduce:duration-0
 `
+export const socialTransition = `
+  transition-transform transition-colors duration-200 ease-in-out
+  motion-reduce:transition-none motion-reduce:transform-none motion-reduce:duration-0
+`;
+
