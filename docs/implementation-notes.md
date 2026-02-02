@@ -10,8 +10,8 @@ Jade Lily implementation list:
             fresh igredients, friendly staff, authentic recipes etc.. each with a title and description.
 - [Content] [Home] add a "create an account section" in the bottom of the page with a title, 
             description and a link to create an account.
-- [Content] [About] in desktop screen, add an image/photo/logo in the rigth side of the 
-            existing top image.
+- [✅] {Content}{About} in desktop screen, add an image/photo/logo in the rigth side of the 
+        existing top image.
 - [Style] [About] desktop screens, fix the links section in the bottom of the page.
 - [Style] [About] desktop screens, the reviews column and the info column should be 
           horizontally aligne in the bottom.

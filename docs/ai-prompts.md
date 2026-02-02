@@ -1,18 +1,22 @@
-perfect thank you. i have generated the image.
+ok, thank you.
 
-i have replaced the odl images with the new one.
-i have given them the exact same name :
+a couple of questions to help me clarify everything.
 
-1 kiwi-salad-full.webp
-2 kiwi-salad-400.webp
+1 what is the "transform" do here : "transition-transform duration-200 ease-in-out transform"
+  is it necessary or "transition-transform" is enough ?
+  do we need transition-colors since hover will change the color ?
+  or a transition-all ?
+  i have some transition styles saved in the styles folder 
+  can i use any of this :
 
-same path as before. just deleted the old and replace with the new.
+  export const pillTransition = `
+  transition-all duration-200 ease-out
+  motion-reduce:transition-none motion-reduce:transform-none motion-reduce:duration-0
+`
 
-problem : my app is still rendering the old image even if it has beed deleted from 
-the public folder and replaced.
-i have closed and restarted the server but it keeps rendering the old image.
+export const transitions = `
+  transition-all duration-300 ease-in-out
+  motion-reduce:transition-none motion-reduce:transform-none motion-reduce:duration-0
+`
+ 
 
-note:  the images are stored locally, in the firebase database each dish ath the image link field
-have the link of each locally stored images.
-
-what do i have to to to render the new images ?
