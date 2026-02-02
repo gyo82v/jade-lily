@@ -1,8 +1,11 @@
 import Image from "next/image"
 import { Review, Navlink } from "@/components"
+import { socialPrimary } from "@/components/styles/socialLinks"
+import { FaGithub, FaLinkedin, FaEnvelope, FaBriefcase } from "react-icons/fa";
+import { Separator } from "@/components/ui";
 
 export default function AboutPage(){
-    const bgStyle = `bg-gradient-to-br from-orange-100 to-orange-50 shadow-lg rounded-lg`
+    const bgStyle = `grad-primary shadow-lg rounded-lg`
     const flex = `flex flex-col`
 
     const liWrapLink = `text-center border-2 border-orange-800 rounded-lg shadow-lg p-2 text-lg font-semibold 
@@ -11,15 +14,25 @@ export default function AboutPage(){
 
     return(
         <div className="md:w-10/12 md:mx-auto">
-            <section className="">
-                <Image 
-                  src="/jade-lily-night.png"
-                  width={1536} 
-                  height={1024} 
-                  alt={`A small glass of water, lots of colored hearts on the background,
-                        all surrounded by a dark warm light`} 
-                  className="md:h-120" 
-                />
+            <section className="lg:flex lg:gap-4 lg:items-center ">
+                <figure className="lg:flex-3">
+                    <Image 
+                       src="/jade-lily.png"
+                       width={1536} 
+                       height={1024} 
+                       alt={`Jade Lily Restaurant garden dining area with tables and chairs.`} 
+                      className="md:h-120" 
+                    />
+                </figure>
+                <figure className="hidden lg:flex lg:flex-2">
+                    <Image 
+                       src="/food.png"
+                       width={1536} 
+                       height={1024} 
+                       alt={`Assorted dishes from Jade Lily Restaurant including winde, bread and lemons.`} 
+                      className="md:h-120" 
+                    />
+                </figure>
             </section>
             <section className={`${flex} p-4 md:flex-row md:items-stretch md:gap-2`}>
                 <div className="my-6 md:flex-1 md:flex md:flex-col md:my-0">
@@ -81,12 +94,12 @@ export default function AboutPage(){
                     </ul>
                 </div>
             </section>
-            <section className="p-4">
-                <div className={`${bgStyle} ${flex} md:gap-10 md:py-10 px-4 py-6 gap-6`}>
+            <section className="p-4 flex flex-col gap-4 lg:flex-row ">
+                <div className={`${bgStyle} ${flex} md:gap-10 md:py-10 px-4 py-6 gap-6 lg:flex-1`}>
                     <div className={`${flex} md:flex-row md:items-center md:justify-center font-bold text-lg
                                              md:text-2xl md:gap-1 `}>
-                        <p>Your table is waiting,</p>
-                        <p>Your meal is ready.</p>
+                        <h2>Your table is waiting,</h2>
+                        <h2>Your meal is ready.</h2>
                     </div>
                     <div className="w-full">
                         <ul className="flex gap-6 w-full">
@@ -98,6 +111,68 @@ export default function AboutPage(){
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div className={`grad-primary shadow-lg rounded-lg p-4 flex flex-col gap-3 lg:flex-1`} aria-labelledby="about-madeby">
+                    <h2 id="about-madeby" className="text-xl font-semibold mb-2">Built by Giorgio valle</h2>
+                    <p>
+                        I’m a fullstack developer. Jade Lily is a portfolio project built
+                        to demonstrate practical skills and real-world patterns using Next.js,
+                        Tailwind CSS and Firebase.
+                    </p>
+                    <Separator />
+                    <p>
+                        This app focuses on performance, accessibility and modern React patterns
+                        — explore the source code or get in touch if you’d like to collaborate.
+                    </p>
+                    <Separator />
+                    <ul className="flex items-center gap-3 ">
+                        <li>
+                            <a 
+                              href="https://github.com" 
+                              target="_blank" 
+                              className={socialPrimary}
+                              rel="noopener noreferrer"
+                              aria-label="View my github"
+                              title="GitHub"
+                            >
+                                <FaGithub className="h-6 w-6" />
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                              href="https://linkedIn.com" 
+                              target="_blank" 
+                              className={socialPrimary}
+                              rel="noopener noreferrer"
+                              aria-label="View my linkedin"
+                              title="linkedIn"
+                            >
+                                <FaLinkedin className="h-6 w-6" />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                              className={socialPrimary}
+                              href="mailto:gyo82v@gmail.com"
+                              aria-label="Send me an email"
+                              title="Email"
+                            >
+                               <FaEnvelope className="h-6 w-6" />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                              className={socialPrimary}
+                              href="/"
+                              aria-label="view my Portfolio website"
+                              title="Portfolio website"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                                <FaBriefcase className="h-6 w-6" />
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </section>
         </div>
