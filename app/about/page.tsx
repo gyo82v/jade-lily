@@ -2,7 +2,8 @@ import Image from "next/image"
 import { Review, Navlink } from "@/components"
 import { socialPrimary } from "@/components/styles/socialLinks"
 import { FaGithub, FaLinkedin, FaEnvelope, FaBriefcase } from "react-icons/fa";
-import { Separator } from "@/components/ui";
+import { Separator,IconSeparator} from "@/components/ui";
+import { GiLotusFlower } from "react-icons/gi";
 
 export default function AboutPage(){
     const bgStyle = `grad-primary shadow-lg rounded-lg`
@@ -44,10 +45,12 @@ export default function AboutPage(){
                             Our journey started in a small kitchen and has grown into a destination for
                             food lovers.
                         </p>
+                        <IconSeparator icon={<GiLotusFlower className="text-orange-700" />} />
                         <p >
                             Our mission is to enhance your dining experience with the finest dishes.
                             Our meals are crafted with care to ensure every bite is memorable.
                         </p>
+                        <IconSeparator icon={<GiLotusFlower className="text-orange-700" />} />
                         <p>
                             Our chefs are passionate about food and understand the art of creating exceptional
                             dining experiences.
@@ -98,18 +101,18 @@ export default function AboutPage(){
                 <div className={`${bgStyle} ${flex} md:gap-10 md:py-10 px-4 py-6 gap-6 lg:flex-1`}>
                     <div className={`${flex} md:flex-row md:items-center md:justify-center font-bold text-lg
                                              md:text-2xl md:gap-1 `}>
-                        <h2>Your table is waiting,</h2>
-                        <h2>Your meal is ready.</h2>
                     </div>
-                    <div className="w-full">
-                        <ul className="flex gap-6 w-full">
-                            <li className={liWrapLink}>
-                                <Navlink href="/sign-in" className="block">Join us</Navlink>
-                            </li>
-                            <li className={liWrapLink}>
-                                <Navlink href="/contact-us" className="block">Contact us</Navlink>
-                            </li>
-                        </ul>
+                    <div className="w-full" aria-labelledby="contact-heading">
+                        <h2 id="contact-heading" className="text-xl font-semibold ">
+                            Get in touch
+                        </h2>
+                        <p className="mt-3 ">
+                           Have a question about Jade Lily, want to collaborate, or just say hi? I’d love to hear
+                           from you. Use the contact form to send a message and I’ll get back to you within 48 hours.
+                        </p>
+                        <li className={liWrapLink}>
+                             <Navlink href="/contact-us" className="block">Contact us</Navlink>
+                        </li>
                     </div>
                 </div>
                 <div className={`grad-primary shadow-lg rounded-lg p-4 flex flex-col gap-3 lg:flex-1`} aria-labelledby="about-madeby">
