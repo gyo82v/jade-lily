@@ -49,45 +49,32 @@ export function LineWithDot({ className = "", label }: Props) {
  * 3) IconSeparator
  * Replace the dot with an icon (any react-icon). Example uses a small circle SVG by default.
  */
-export function IconSeparator({
-  className = "",
-  label,
-}: Props) {
+
+
+type IconSeparatorProps = {
+  icon?: React.ReactNode;
+  className?: string;
+};
+
+export function IconSeparator({ icon, className = "" }: IconSeparatorProps) {
   return (
-    <div className={`flex items-center my-4 ${className}`} aria-hidden="true">
-      <div className="flex-1 h-px bg-orange-300/60" />
-      <span className="mx-3 inline-flex items-center">
-        {/* default svg circle; replace with FaStar, FaCircle, etc. */}
-        <svg
-          width="8"
-          height="8"
-          viewBox="0 0 8 8"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="text-orange-400"
-          aria-hidden="true"
-        >
-          <circle cx="4" cy="4" r="4" fill="currentColor" />
-        </svg>
-        {label ? <span className="sr-only">{label}</span> : null}
-      </span>
-      <div className="flex-1 h-px bg-orange-300/60" />
+    <div
+      className={`flex items-center my-4 ${className}`}
+      aria-hidden="true"
+    >
+      <div className="flex-1 h-px bg-orange-700/70" />
+
+      {icon && (
+        <span className="mx-3 text-orange-400 flex items-center justify-center">
+          {icon}
+        </span>
+      )}
+
+      <div className="flex-1 h-px bg-orange-700/70" />
     </div>
   );
 }
 
-/**
- * 4) DoubleLine
- * Two thin lines with a small gap — elegant and understated.
- */
-export function DoubleLine({ className = "" }: Props) {
-  return (
-    <div className={`my-6 ${className}`} aria-hidden="true">
-      <div className="h-px bg-orange-200/60" />
-      <div className="h-px bg-orange-300/70 mt-1" />
-    </div>
-  );
-}
 
 /**
  * 5) GradientLine
