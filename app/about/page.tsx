@@ -1,17 +1,14 @@
 import Image from "next/image"
-import { Review, Navlink } from "@/components"
+import { Review } from "@/components"
 import { socialPrimary } from "@/components/styles/socialLinks"
 import { FaGithub, FaLinkedin, FaEnvelope, FaBriefcase } from "react-icons/fa";
 import { Separator,IconSeparator} from "@/components/ui";
 import { GiLotusFlower } from "react-icons/gi";
+import ContactUs from "./components/ContactUs";
 
 export default function AboutPage(){
     const bgStyle = `grad-primary shadow-lg rounded-lg`
     const flex = `flex flex-col`
-
-    const liWrapLink = `text-center border-2 border-orange-800 rounded-lg shadow-lg p-2 text-lg font-semibold 
-                        flex-1 hover:scale-105 active:scale-95 hover:shadow-xl hover:bg-orange-100
-                        transition-transform transition-shadow transition-colors duration-300 ease-in-out`
 
     return(
         <div className="md:w-10/12 md:mx-auto">
@@ -98,23 +95,7 @@ export default function AboutPage(){
                 </div>
             </section>
             <section className="p-4 flex flex-col gap-4 lg:flex-row ">
-                <div className={`${bgStyle} ${flex} md:gap-10 md:py-10 px-4 py-6 gap-6 lg:flex-1`}>
-                    <div className={`${flex} md:flex-row md:items-center md:justify-center font-bold text-lg
-                                             md:text-2xl md:gap-1 `}>
-                    </div>
-                    <div className="w-full" aria-labelledby="contact-heading">
-                        <h2 id="contact-heading" className="text-xl font-semibold ">
-                            Get in touch
-                        </h2>
-                        <p className="mt-3 ">
-                           Have a question about Jade Lily, want to collaborate, or just say hi? I’d love to hear
-                           from you. Use the contact form to send a message and I’ll get back to you within 48 hours.
-                        </p>
-                        <li className={liWrapLink}>
-                             <Navlink href="/contact-us" className="block">Contact us</Navlink>
-                        </li>
-                    </div>
-                </div>
+                <ContactUs />
                 <div className={`grad-primary shadow-lg rounded-lg p-4 flex flex-col gap-3 lg:flex-1`} aria-labelledby="about-madeby">
                     <h2 id="about-madeby" className="text-xl font-semibold mb-2">Built by Giorgio valle</h2>
                     <p>
