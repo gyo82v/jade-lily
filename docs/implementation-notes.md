@@ -12,7 +12,7 @@ Jade Lily implementation list:
             description and a link to create an account.
 - [✅] {Content}{About} in desktop screen, add an image/photo/logo in the rigth side of the 
         existing top image.
-- [Style] [About] desktop screens, fix the links section in the bottom of the page.
+- [✅] {Style}{About} desktop screens, fix the links section in the bottom of the page.
 - [Style] [About] desktop screens, the reviews column and the info column should be 
           horizontally aligne in the bottom.
 - [✅] {Style}{About} in the info column, add a separator element between each p tag.
@@ -61,7 +61,7 @@ Jade Lily implementation list:
             than the category filter above and it should be less important than the category filter.
 - [Content] [menuAndAccount] create a separator, for example a lily to separete the header navbar and the page 
             navbar.
-- [Fix] [About] fix the "join-us" link. if a user is logged in it shouldnt link to the sign in page
+- [✅] {Fix}{About} fix the "join-us" link. if a user is logged in it shouldnt link to the sign in page
 - [Fix] add a spinner component in every button that do an async operation
 - [Fix] fix the loading state of each page. at the moment there is only a big spinner in the left/center
         of the page.
