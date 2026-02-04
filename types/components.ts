@@ -1,11 +1,12 @@
 import type { ReactNode } from "react"
 
-export type NavlinkProps = {
-    href : string
-    isActive? : boolean
-    children : ReactNode
+export type NavlinkProps =
+  React.ComponentPropsWithoutRef<"a"> & {
+    href: string
+    isActive?: boolean
+    children: ReactNode
     className? : string
-}
+  }
 
 export type ReviewProps = {
     author : string
