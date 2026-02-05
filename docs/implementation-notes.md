@@ -13,8 +13,8 @@ Jade Lily implementation list:
 - [✅] {Content}{About} in desktop screen, add an image/photo/logo in the rigth side of the 
         existing top image.
 - [✅] {Style}{About} desktop screens, fix the links section in the bottom of the page.
-- [Style] [About] desktop screens, the reviews column and the info column should be 
-          horizontally aligne in the bottom.
+- [✅] {Style}{About} desktop screens, the reviews column and the info column should be 
+        horizontally aligned in the bottom.
 - [✅] {Style}{About} in the info column, add a separator element between each p tag.
 - [Style] [Header] Design the app title "jadeLily" with chatgpt.
 - [Content] Create some images with chatgpt to use as separator/placeholder/etc like and orange lily.
