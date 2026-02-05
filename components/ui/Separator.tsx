@@ -54,9 +54,48 @@ export function LineWithDot({ className = "", label }: Props) {
 type IconSeparatorProps = {
   icon?: React.ReactNode;
   className?: string;
+  
 };
 
-export function IconSeparator({ icon, className = "" }: IconSeparatorProps) {
+/*
+export type IconSeparatorProps = {
+  icon?: React.ReactElement | null;
+  className?: string;
+  lineClass?: string;
+  iconClass?: string;
+};*/
+
+/*
+export function IconSeparator({
+  icon = null,
+  className = "",
+  lineClass = "bg-orange-700/70",
+  iconClass = "text-orange-400",
+}: IconSeparatorProps) {
+  const iconWithClass =
+    icon && React.isValidElement(icon)
+      ? React.cloneElement(icon, {
+          className: `${(icon.props.className ?? "").toString()} ${iconClass}`.trim(),
+        })
+      : icon;
+
+  return (
+    <div className={`flex items-center my-4 ${className}`} aria-hidden="true">
+      <div className={`flex-1 h-px ${lineClass}`} />
+
+      {icon && (
+        <span className="mx-3 flex items-center justify-center" aria-hidden="true">
+          {iconWithClass}
+        </span>
+      )}
+
+      <div className={`flex-1 h-px ${lineClass}`} />
+    </div>
+  );
+}*/
+
+
+export function IconSeparator({ icon, className = "", }: IconSeparatorProps) {
   return (
     <div
       className={`flex items-center my-4 ${className}`}
@@ -74,6 +113,31 @@ export function IconSeparator({ icon, className = "" }: IconSeparatorProps) {
     </div>
   );
 }
+
+export function FooterIconSeparator({
+  icon,
+  className = "",
+}: IconSeparatorProps) {
+  return (
+    <div
+      className={`flex items-center my-8 w-full text-neutral-300 ${className}`}
+      aria-hidden="true"
+    >
+      <div className="flex-1 h-px bg-current opacity-50" />
+
+      {icon && (
+        <span className="mx-3 flex items-center justify-center">
+          {icon}
+        </span>
+      )}
+
+      <div className="flex-1 h-px bg-current opacity-50" />
+    </div>
+  );
+}
+
+
+
 
 
 /**
