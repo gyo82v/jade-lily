@@ -5,6 +5,9 @@ import { Navlink } from "@/components/navbars/Navlink";
 import { useAuth } from "@/firebase/authProvider";
 import { HiMenu, HiOutlineLogout, HiX } from "react-icons/hi";
 import { useState, useEffect, useRef } from "react";
+import HeaderLinks from "./HeaderLinks";
+import { pillStyle } from "@/components/styles";
+import { DefaultAvatar } from "@/components/ui";
 
 export default function Navbar() {
   const { user, profile } = useAuth();
@@ -50,60 +53,59 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen]);
 
-  // Backdrop click (mousedown to catch before focus changes)
   const onBackdropMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    // if click is outside panel -> close
     if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
       setIsOpen(false);
     }
   };
 
-  // Close when any link inside the panel is clicked.
-  // This uses event delegation so you don't need to add onClick to Navlink.
   const onPanelClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     const target = e.target as HTMLElement | null;
     if (!target) return;
-
-    // If an anchor (<a>) was clicked (or child of it), close the menu.
-    // This covers Next.js Link -> <a> and normal <a> elements.
     if (target.closest("a")) {
       setIsOpen(false);
     }
   };
 
-  const nav = `flex items-center`;
-  const ul = `flex`;
-  const desktopMenu = `hidden md:flex md:items-center`;
-  // mobileMenu class variable no longer needed for absolute dropdown
-
   return (
-    <nav className={nav}>
-      {/* Desktop menu (unchanged) */}
-      <div className={desktopMenu}>
-        <ul className={ul}>
+    <nav className="flex items-center" role="navigation" aria-label="Primary">
+      {/* Desktop menu */}
+      <div className="hidden md:flex md:items-center lg:mr-5 xl:mr-10 ">
+        <ul className="flex items-center gap-10 lg:gap-16 xl:gap-22">
           <li>
-            <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
+            <HeaderLinks href="/" isActive={pathname === "/"} className="">Home</HeaderLinks>
           </li>
           <li>
-            <Navlink href="/about" isActive={pathname.startsWith("/about")}>About</Navlink>
+            <HeaderLinks href="/about" isActive={pathname.startsWith("/about")}>About</HeaderLinks>
           </li>
           <li>
-            <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
+            <HeaderLinks href="/menu" isActive={pathname.startsWith("/menu")}>Menu</HeaderLinks>
           </li>
           {user ? (
             <>
               <li>
-                <Navlink href="/account">{profile?.displayName}</Navlink>
+                <HeaderLinks 
+                  href="/account" 
+                  className={`${pillStyle} text-sm`}
+                >
+                  <DefaultAvatar className="mr-2" aria-hidden="true" />
+                  {profile?.displayName}
+                </HeaderLinks>
               </li>
               <li>
-                <Navlink href="/sign-out" className="inline-flex items-center justify-center h-full">
+                <HeaderLinks 
+                  href="/sign-out" 
+                  className="inline-flex items-center justify-center h-full"
+                  aria-label="Sign out"
+                  title="Sign out"
+                >
                   <HiOutlineLogout className="h-5 w-5" />
-                </Navlink>
+                </HeaderLinks>
               </li>
             </>
           ) : (
             <li>
-              <Navlink href="/sign-in" isActive={pathname.startsWith("/sign-in")}>Sign in</Navlink>
+              <HeaderLinks href="/sign-in" isActive={pathname.startsWith("/sign-in")}>Sign in</HeaderLinks>
             </li>
           )}
         </ul>
@@ -185,117 +187,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-"use client"
-
-import { usePathname } from "next/navigation";
-import {Navlink} from "@/components/navbars/Navlink"
-import { useAuth } from "@/firebase/authProvider";
-import { HiMenu } from "react-icons/hi";
-import { HiOutlineLogout } from "react-icons/hi";
-import { useState, useEffect } from "react";
-
-
-export default function Navbar(){
-    const {user, profile} = useAuth()
-    const [isOpen, setIsOpen] = useState(false)
-    const pathname = usePathname()
-
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    useEffect(() => setIsOpen(false), [pathname])
-
-    const nav = `flex items-center `
-    const ul = `flex `
-    const desktopMenu = `hidden md:flex md:items-center `
-    const mobileMenu = `absolute right-20 top-20 bg-white shadow-md rounded-md mt-2`
-
-    return(
-        <nav className={nav}>
-            <div className={desktopMenu}>
-                <ul className={ul}>
-                   <li>
-                       <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
-                   </li>
-                   <li>
-                       <Navlink href="/about" isActive={pathname.startsWith("/about")}>About</Navlink>
-                   </li>
-                   <li>
-                       <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
-                   </li>
-                   { user ? 
-                   <>
-                      <li>
-                        <Navlink href="/account">{profile?.displayName}</Navlink>
-                      </li>
-                      <li>
-                        <Navlink href="/sign-out" className="inline-flex items-center justify-center h-full"><HiOutlineLogout className="h-5 w-5" /></Navlink>
-                      </li>
-                   </>
-                   :
-                   <>
-                     <li>
-                        <Navlink href="/sign-in" isActive={pathname.startsWith("/sign-in")}>Sign in</Navlink>
-                     </li>
-                   </>
-                   }
-                </ul>
-            </div>
-            <div className="md:hidden flex items-center">
-              <button className="mr-4" onClick={() => setIsOpen(!isOpen)}>
-                <HiMenu className="h-7 w-7" />
-              </button>
-              {
-                isOpen && 
-                  (
-                  <div className={mobileMenu}>
-                    <ul>
-                        <li>
-                            <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
-                        </li>
-                        <li>
-                            <Navlink href="/about" isActive={pathname.startsWith("/about")}>About</Navlink>
-                        </li>
-                        <li>
-                            <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
-                        </li>
-                        {
-                            user ? 
-                            <>
-                              <li>
-                                <Navlink href="/account">{profile?.displayName}</Navlink>
-                              </li>
-                              <li>
-                                <Navlink href="/sign-out" className="inline-flex items-center justify-center w-full"><HiOutlineLogout className="h-5 w-5" /></Navlink>
-                              </li>
-                            </>
-                            :
-                            <li>
-                                <Navlink href="/sign-in" isActive={pathname.startsWith("/sign-in")}>Sign in</Navlink>
-                            </li>
-                        }
-                    </ul>
-                  </div>
-                )
-              }
-            </div>
-        </nav>
-    )
-}
-*/

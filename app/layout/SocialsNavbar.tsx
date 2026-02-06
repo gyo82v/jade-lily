@@ -7,7 +7,7 @@ export default function SocialsNavbar(){
                     hover:scale-105 active:scale-95 hover:text-stone-400 
                     rounded-full `
     return(
-        <nav className="flex ">
+        <nav className="flex">
             <ul className="flex gap-4">
                 <li>
                     <a 

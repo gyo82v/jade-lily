@@ -6,7 +6,7 @@ export default function PersonalNavbar(){
                     rounded-full `
     return(
         <nav>
-            <ul className="flex gap-4">
+            <ul className="flex gap-4 xl:gap-5">
                 <li>
                     <a 
                       href="https://github.com" 
