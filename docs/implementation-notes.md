@@ -17,19 +17,19 @@ Jade Lily implementation list:
         horizontally aligned in the bottom.
 - [✅] {Style}{About} in the info column, add a separator element between each p tag.
 - [Style] [Header] Design the app title "jadeLily" with chatgpt.
-- [Content] Create some images with chatgpt to use as separator/placeholder/etc like and orange lily.
+- [✅] {Content} Create some images with chatgpt to use as separator/placeholder/etc like and orange lily.
 - [✅] {style}{not-found} style the page for mobile and desktop.
 - [✅] {fix}{menu} the instance when a dish does not exists. example :/menu/mains/do-not-exists.
 - [✅] {fix}{menu} fix the "back to the menu" link in the top of the page. it should bring the users 
         back to the previously visited page.
 - [✅] {fix}{menu} the button in the details page of each dish. if "Order now" it should add the item to
         the cart(if user is logged in, otherwise link to the log in page), otherwise the button should be disabled.
-- [Content] [Footer] in the copyright section add : @JadeLily -Portfolio Project. and add "Made by :" and 
-            links to github, linkedin and the portfolio.
+- [✅] {Content}{Footer} in the copyright section add : @JadeLily -Portfolio Project. and add "Made by :" and 
+        links to github, linkedin and the portfolio.
 - [✅] {Content}{About} at the bottom of the page add a "About the Project" section, with fields like: made by,
         "This app was built as a portfolio project", "Focus on databses, React...",links to github... etc.
 - [Style] [Header] Style the navbar for mobile.
-- [Style] [Header] Style the navbar for desktop.
+- [✅] {Style}{Header} Style the navbar for desktop.
 - [Style] [Menu] Style the menu navbar for mobile.
 - [Style] [Menu] Style the menu navbar for desktop.
 - [Fix] [Menu] fix the menu navbar so it highlights the current path.
