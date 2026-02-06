@@ -5,7 +5,7 @@ import { GiLotusFlower } from "react-icons/gi";
 
 export default function Footer(){
     const footer = `flex flex-col lg:flex-row items-center justify-between bg-neutral-800 text-neutral-300 
-                    border-t-4 border-neutral-700 text-lg py-4 w-full px-6 mt-10
+                    border-t-4 border-neutral-700 text-lg py-4 w-full px-6 
                     `
                 
     return(
@@ -17,7 +17,7 @@ export default function Footer(){
                 <SocialsNavbar />
             </div>
                 <FooterIconSeparator icon={<GiLotusFlower className="lg:hidden" />} className="md:hidden"/>
-            <div className="flex flex-col gap-4 items-center">
+            <div className="flex flex-col gap-4 items-center mb-1 xl:mr-2">
                 <p>Built by <span className="font-dancing">Giorgio Valle</span></p>
                 <PersonalNavbar />
             </div>
