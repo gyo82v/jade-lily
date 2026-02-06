@@ -12,7 +12,7 @@ export default function Reviews() {
         )
     })
     return (
-        <section className="md:flex-1 ">
+        <section className="md:flex-1 flex flex-col items-center ">
             <ul className="flex flex-col gap-5">
               {rewiesArr}
             </ul>

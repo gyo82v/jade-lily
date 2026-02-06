@@ -13,7 +13,7 @@ export default function AboutPage(){
                 <Infoes />
                 <Reviews />
             </div>
-            <div className="p-4 flex flex-col gap-4 lg:flex-row  ">
+            <div className="p-4 flex flex-col gap-4 lg:flex-row mb-10  ">
                 <ContactUs />
                 <BuiltBy />
             </div>
