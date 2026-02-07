@@ -1,16 +1,16 @@
 import Navbar from "./Navbar"
 import ClientProviders from "@/firebase/ClientProviders"
-import { JadeLilyWordmark, JadeLilyLogo } from "@/components/ui/JadeLilyLogo"
+import { GiJasmine} from "react-icons/gi";
 
 export default function Header(){
-    const header = `flex items-center justify-between px-4 py-6 w-full `
-    const h1 = `text-3xl font-bold 
-                text-transparent bg-clip-text 
-                bg-gradient-to-br from-orange-950 via-orange-600 to-orange-950`
+   
     return(
         <>
-        <header className={header} role="banner">
-            <JadeLilyLogo variant="dark" />
+        <header className={`flex items-center justify-between px-4 py-6 w-full`} role="banner">
+            <h1 className="font-playfair text-3xl font-bold flex items-center  ">
+                <GiJasmine className="text-yellow-500 h-12 w-12" aria-hidden="true" focusable="false" />
+                <span className="leading-none text-orange-800">JadeLily</span>
+            </h1>
             <ClientProviders>
                 <Navbar />
             </ClientProviders>
