@@ -16,7 +16,7 @@ Jade Lily implementation list:
 - [✅] {Style}{About} desktop screens, the reviews column and the info column should be 
         horizontally aligned in the bottom.
 - [✅] {Style}{About} in the info column, add a separator element between each p tag.
-- [Style] [Header] Design the app title "jadeLily" with chatgpt.
+- [✅] {Style}{Header} Design the app title "jadeLily" with chatgpt.
 - [✅] {Content} Create some images with chatgpt to use as separator/placeholder/etc like and orange lily.
 - [✅] {style}{not-found} style the page for mobile and desktop.
 - [✅] {fix}{menu} the instance when a dish does not exists. example :/menu/mains/do-not-exists.
