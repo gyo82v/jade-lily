@@ -1,10 +1,9 @@
 "use client"
 
 import { usePathname } from "next/navigation";
-import { Navlink } from "@/components/navbars/Navlink";
 import { useAuth } from "@/firebase/authProvider";
 import { HiMenu, HiOutlineLogout, HiX } from "react-icons/hi";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import HeaderLinks from "./HeaderLinks";
 import { pillStyle } from "@/components/styles";
 import { DefaultAvatar } from "@/components/ui";
@@ -14,6 +13,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const prevPathnameRef = useRef(pathname);
+  const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     if (prevPathnameRef.current !== pathname) {
@@ -34,6 +34,7 @@ export default function Navbar() {
     } else if (prevBodyOverflow.current !== null) {
       document.body.style.overflow = prevBodyOverflow.current;
       prevBodyOverflow.current = null;
+      toggleButtonRef.current?.focus();
     }
     return () => {
       if (prevBodyOverflow.current !== null) {
@@ -43,29 +44,65 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // Close on Escape
   useEffect(() => {
-    if (!isOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+  if (!isOpen) return;
+  const onKey = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setIsOpen(false);
+      return;
+    }
+    if (e.key !== "Tab" || !panelRef.current) return;
+
+    const focusable = Array.from(
+      panelRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), textarea, input, select'
+      )
+    ).filter((el) => el.offsetParent !== null);
+
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
+  window.addEventListener("keydown", onKey);
+  return () => window.removeEventListener("keydown", onKey);
   }, [isOpen]);
 
-  const onBackdropMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
-      setIsOpen(false);
-    }
-  };
 
-  const onPanelClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+  useEffect(() => {
+  if (isOpen) {
+    // small timeout to ensure DOM painted
+    setTimeout(() => {
+      // focus first focusable or panel root
+      const first = panelRef.current?.querySelector<HTMLElement>(
+        'a[href], button:not([disabled])'
+      );
+      (first ?? panelRef.current)?.focus();
+    }, 0);
+  }
+  }, [isOpen]);
+
+  const onBackdropMouseDown = useCallback<React.MouseEventHandler<HTMLDivElement>>((e) => {
+    if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+    setIsOpen(false);
+  }
+  }, []);
+
+  const onPanelClick = useCallback<React.MouseEventHandler<HTMLDivElement>>((e) => {
     const target = e.target as HTMLElement | null;
     if (!target) return;
-    if (target.closest("a")) {
-      setIsOpen(false);
-    }
-  };
+    if (target.closest("a")) setIsOpen(false);
+  }, []);
+
 
   return (
     <nav className="flex items-center" role="navigation" aria-label="Primary">
@@ -114,6 +151,7 @@ export default function Navbar() {
       {/* Mobile */}
       <div className="md:hidden flex items-center">
         <button
+          ref={toggleButtonRef}
           className="mr-4 p-2"
           onClick={() => setIsOpen((s) => !s)}
           aria-label="Toggle menu"
@@ -137,12 +175,14 @@ export default function Navbar() {
               id="mobile-menu"
               role="dialog"
               aria-modal="true"
+              aria-labelledby="mobile-menu-title"
               ref={panelRef}
               onClick={onPanelClick}
-              className="ml-auto relative w-[80%] max-w-xs h-full bg-white shadow-2xl rounded-l-lg p-4 transform transition-transform duration-300 ease-out"
+              className={`ml-auto relative w-[80%] max-w-xs h-full bg-white shadow-2xl 
+                          rounded-l-lg p-4 transform transition-transform duration-300 ease-out`}
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="text-lg font-semibold">Menu</div>
+                <div id="mobile-menu-title" className="text-lg font-semibold">Menu</div>
                 <button
                   aria-label="Close menu"
                   className="p-2"
@@ -154,29 +194,45 @@ export default function Navbar() {
 
               <ul className="space-y-2">
                 <li>
-                  <Navlink href="/" isActive={pathname === "/"}>Home</Navlink>
+                  <HeaderLinks href="/" isActive={pathname === "/"} variant="mobile">
+                    Home
+                  </HeaderLinks>
                 </li>
                 <li>
-                  <Navlink href="/about" isActive={pathname.startsWith("/about")}>About</Navlink>
+                  <HeaderLinks href="/about" isActive={pathname.startsWith("/about")} variant="mobile">
+                    About
+                  </HeaderLinks>
                 </li>
                 <li>
-                  <Navlink href="/menu" isActive={pathname.startsWith("/menu")}>Menu</Navlink>
+                  <HeaderLinks href="/menu" isActive={pathname.startsWith("/menu")} variant="mobile">
+                    Menu
+                  </HeaderLinks>
                 </li>
 
                 {user ? (
                   <>
                     <li>
-                      <Navlink href="/account">{profile?.displayName ?? "Account"}</Navlink>
+                      <HeaderLinks href="/account" variant="mobile">
+                        {profile?.displayName ?? "Account"}
+                      </HeaderLinks>
                     </li>
                     <li>
-                      <Navlink href="/sign-out" className="inline-flex items-center h-12">
+                      <HeaderLinks 
+                        href="/sign-out" 
+                        className="inline-flex items-center h-12" 
+                        variant="mobile" 
+                        aria-label="Sign out" 
+                        title="Sign out"
+                      >
                         <HiOutlineLogout className="h-5 w-5 mr-2" /> Sign out
-                      </Navlink>
+                      </HeaderLinks>
                     </li>
                   </>
                 ) : (
                   <li>
-                    <Navlink href="/sign-in" isActive={pathname.startsWith("/sign-in")}>Sign in</Navlink>
+                    <HeaderLinks href="/sign-in" isActive={pathname.startsWith("/sign-in")} variant="mobile">
+                      Sign in
+                    </HeaderLinks>
                   </li>
                 )}
               </ul>
