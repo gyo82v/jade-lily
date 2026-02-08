@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import {EB_Garamond, Dancing_Script, Quintessential, Parisienne} from "next/font/google"
+import {EB_Garamond, Dancing_Script, Quintessential} from "next/font/google"
 import type { RootLayoutProps } from "@/types";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
@@ -9,12 +9,6 @@ const quintessential = Quintessential({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-quintessential",
-  weight: ["400"]
-})
-const parisienne = Parisienne({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-parisienne",
   weight: ["400"]
 })
 
@@ -41,7 +35,8 @@ export default function RootLayout({children}:RootLayoutProps) {
                        ${ebGaramond.className}
                        ${dancingScript.variable} 
                        ${quintessential.variable} 
-                       ${parisienne.variable}`}>  
+                      `}
+                       >  
         <a href="#content" className="sr-only focus:not-sr-only p-2">Skip to content</a>
         <Header />
           <main id="content" className="flex-1 flex min-w-0 w-full">
