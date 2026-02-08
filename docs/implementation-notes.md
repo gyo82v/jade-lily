@@ -28,7 +28,7 @@ Jade Lily implementation list:
         links to github, linkedin and the portfolio.
 - [✅] {Content}{About} at the bottom of the page add a "About the Project" section, with fields like: made by,
         "This app was built as a portfolio project", "Focus on databses, React...",links to github... etc.
-- [Style] [Header] Style the navbar for mobile.
+- [✅] {Style}{Header} Style the navbar for mobile.
 - [✅] {Style}{Header} Style the navbar for desktop.
 - [Style] [Menu] Style the menu navbar for mobile.
 - [Style] [Menu] Style the menu navbar for desktop.
@@ -89,3 +89,5 @@ Jade Lily implementation list:
              on a hearth icon. the dish is added to firebase "users" collection and in the personal settings 
              a user can see his favouurite dishes. in the menu and account/menu add an extra filter for favourite dishes.
 - [Optional] [menu] add a search bar for the dishes by dish name.
+- [Optional] [Header] Improve the header navbar on mobile : add an avatar account at the top of the page,
+                      add socials links at the bottom of the page. improve animations when the panel close/open.
