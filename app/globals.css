@@ -71,6 +71,13 @@
     @apply bg-gradient-to-br from-orange-50 to-orange-100;
   }
 }
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+  }
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
 
 @layer components {
  
