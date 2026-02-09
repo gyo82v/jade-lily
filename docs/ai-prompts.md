@@ -1,28 +1,18 @@
-ok, thank you. i have rewroked a bit :
+perfect, thank you.
 
-  <>
-        <header className={`flex items-center justify-between px-4 py-6 w-full`} role="banner">
-            <h1 className="font-playfair text-3xl font-bold flex items-center  ">
-                <GiJasmine className="text-lime-300 h-12 w-12" aria-hidden="true" focusable="false" />
-                <span className="leading-none text-orange-800">JadeLily</span>
-            </h1>
-            <ClientProviders>
-                <Navbar />
-            </ClientProviders>
-        </header>
-        <div aria-hidden="true" className="w-full">
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-orange-200/40 to-transparent" />
-        </div>
-        </>
+i have a couple of questions to help me understand everything:
 
-just one big flower on the left. i think this is better.
+1 for the horizontal scrollbar :
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+should i add this in the layer utilities exactly like this ?
 
-problem i am not sure of the color of the text.
+2 about the colors of the links: the deafult text color of the entire app is orange-800.
+i use it almost in every text in the app
+using text-stone instead of orange is the best solution or i should keep with orange ?
 
-i would like to have the flower on lights pink tones.
-
-can you please siggest some colors that can be suitable for the text ?
-or a good combo text/icon ?
-
-the bg is orange-50 and the default text color of the app is orange 800
+2 what about the acitve bg color for the link ?
+it is better to make it amber or keep with oranges ?
+what about using a gradient ?
+for example : bg-gradient-to-br from-orange-200 to-orange-100
 

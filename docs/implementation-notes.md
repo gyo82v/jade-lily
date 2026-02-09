@@ -30,13 +30,13 @@ Jade Lily implementation list:
         "This app was built as a portfolio project", "Focus on databses, React...",links to github... etc.
 - [✅] {Style}{Header} Style the navbar for mobile.
 - [✅] {Style}{Header} Style the navbar for desktop.
-- [Style] [Menu] Style the menu navbar for mobile.
-- [Style] [Menu] Style the menu navbar for desktop.
-- [Fix] [Menu] fix the menu navbar so it highlights the current path.
+- [✅] {Style}{Menu} Style the menu navbar for mobile.
+- [✅] {Style}{Menu} Style the menu navbar for desktop.
+- [✅] {Fix}{Menu} fix the menu navbar so it highlights the current path.
 - [style] [Menu] Style the filter navbar for mobile.
 - [style] [Menu] Style the filter navbar for desktop.
 - [Fix] [Menu] fix the filter navbar so it highlights the current filter.
-- [Style] [Menu] Style the dish section for desktop.
+- [✅] {Style}{Menu} Style the dish section for desktop.
 - [Fix] [Menu/details] fix the menu details navbar so it highlights the current path.
 - [Style] [Menu/details] style the dish details default section.
 - [Style] [Menu/details] Style the dish details origin section.
@@ -66,6 +66,7 @@ Jade Lily implementation list:
 - [Fix] fix the loading state of each page. at the moment there is only a big spinner in the left/center
         of the page.
 - [fix] test and fix the console warning message about the "Largest Contentful Paint" detected.   
+- [Fix] the side scrollbar should be visible in desktop and not in mobile.
 - [Test] run the lighthouse test in google chrome.
 - [Test] test the global not-found page in production mode.
 - [A11y] [home] check the page for accessibility
