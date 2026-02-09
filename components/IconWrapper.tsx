@@ -1,3 +1,5 @@
+
+
 import type { IconWrapperProps } from "@/types"
 
 export function IconWrapper({className, type, children}:IconWrapperProps){
@@ -22,3 +24,4 @@ export function IconWrapper({className, type, children}:IconWrapperProps){
         </div>
     )
 }
+

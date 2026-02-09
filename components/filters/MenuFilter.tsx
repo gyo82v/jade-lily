@@ -1,3 +1,4 @@
+
 import Link from "next/link"
 import { renderIcon } from "@/lib/utilsIcons";
 import { IconWrapper } from "../IconWrapper";
@@ -9,10 +10,6 @@ type Props = {
 }
 
 export function MenuFilter({array, pathname, params}:Props){
-    const container = ``
-    const nav = ``
-    const ul = `flex gap-2`
-    const linkStl = ``
 
     const filtersArr = array.map((filter, i) => (
         <li key={i}>
@@ -25,14 +22,14 @@ export function MenuFilter({array, pathname, params}:Props){
     ))
 
     return(
-        <section className={container}>
-            <nav className={nav}>
-                <ul className={ul}>
+        <section >
+            <nav>
+                <ul className="flex gap-2">
                     {filtersArr}
                     {params && (
                         <li>
                             <IconWrapper className="p-2 rounded-full">
-                                <Link className={linkStl} href={pathname}>
+                                <Link  href={pathname}>
                                   {renderIcon()}
                                 </Link>
                             </IconWrapper>
