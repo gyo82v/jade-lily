@@ -33,9 +33,9 @@ Jade Lily implementation list:
 - [✅] {Style}{Menu} Style the menu navbar for mobile.
 - [✅] {Style}{Menu} Style the menu navbar for desktop.
 - [✅] {Fix}{Menu} fix the menu navbar so it highlights the current path.
-- [style] [Menu] Style the filter navbar for mobile.
-- [style] [Menu] Style the filter navbar for desktop.
-- [Fix] [Menu] fix the filter navbar so it highlights the current filter.
+- [✅] {Style}{Menu} Style the filter navbar for mobile.
+- [✅] {Style}{Menu} Style the filter navbar for desktop.
+- [✅] {Fix}{Menu} fix the filter navbar so it highlights the current filter.
 - [✅] {Style}{Menu} Style the dish section for desktop.
 - [Fix] [Menu/details] fix the menu details navbar so it highlights the current path.
 - [Style] [Menu/details] style the dish details default section.

@@ -1,18 +1,51 @@
-perfect, thank you.
+ok, thank you. i tried to update my components but the colors still were not 
+rendered. the icons yes.
 
-i have a couple of questions to help me understand everything:
+i will provide again my initial components, but this time i will 
+add additional information that i completely  forgot to add the first time.
 
-1 for the horizontal scrollbar :
-  .no-scrollbar::-webkit-scrollbar { display: none; }
-  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-should i add this in the layer utilities exactly like this ?
+MenuFilter :
 
-2 about the colors of the links: the deafult text color of the entire app is orange-800.
-i use it almost in every text in the app
-using text-stone instead of orange is the best solution or i should keep with orange ?
 
-2 what about the acitve bg color for the link ?
-it is better to make it amber or keep with oranges ?
-what about using a gradient ?
-for example : bg-gradient-to-br from-orange-200 to-orange-100
+import Link from "next/link"
+import { renderIcon } from "@/lib/utilsIcons";
+import { IconWrapper } from "../IconWrapper";
+
+type Props = {
+    array : string[]
+    pathname : string
+    params : string | string[] | undefined
+}
+
+export function MenuFilter({array, pathname, params}:Props){
+
+    const filtersArr = array.map((filter, i) => (
+        <li key={i}>
+            <IconWrapper type={filter} className="p-2 rounded-full">
+                <Link href={{pathname, query : {type : filter}}}>
+                    {renderIcon(filter)}
+                </Link>
+            </IconWrapper>
+        </li>
+    ))
+
+    return(
+        <section className="px-2 md:px-4 lg:px-6" >
+            <nav>
+                <ul className="flex gap-2">
+                    {filtersArr}
+                    {params && (
+                        <li>
+                            <IconWrapper className="p-2 rounded-full">
+                                <Link  href={pathname}>
+                                  {renderIcon()}
+                                </Link>
+                            </IconWrapper>
+                        </li>
+                    )}
+                </ul>
+            </nav>
+        </section>
+    )
+}
 
