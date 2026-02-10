@@ -15,7 +15,7 @@ export default async function MenuPage({value, pathname, params}:Props){
     const filtersArr = getFilterArray(data)
 
     return(
-        <div className="p-2 ">
+        <div className=" ">
             <MenuFilter array={filtersArr} pathname={pathname} params={activeType} />
             <DishList data={filteredDishes} /> 
         </div>
