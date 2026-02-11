@@ -37,11 +37,11 @@ Jade Lily implementation list:
 - [✅] {Style}{Menu} Style the filter navbar for desktop.
 - [✅] {Fix}{Menu} fix the filter navbar so it highlights the current filter.
 - [✅] {Style}{Menu} Style the dish section for desktop.
-- [Fix] [Menu/details] fix the menu details navbar so it highlights the current path.
-- [Style] [Menu/details] style the dish details default section.
-- [Style] [Menu/details] Style the dish details origin section.
-- [Style] [Menu/details] Style the dish details ingredient section.
-- [Style] [Menu/details] Style the page for desktop.
+- [✅] {Fix}{Menu/details} fix the menu details navbar so it highlights the current path.
+- [✅] {Style}{Menu/details} style the dish details default section.
+- [✅] {Style}{Menu/details} Style the dish details origin section.
+- [✅] {Style}{Menu/details} Style the dish details ingredient section.
+- [✅] {Style}{Menu/details} Style the page for desktop.
 - [✅] {images}{menu} replace the kiwi delight images with chatgpt.
 - [Style] [Account/dashbord] improve the style of each section.
 - [Style] [Account/settings] style the settings page for desktop.
@@ -59,8 +59,8 @@ Jade Lily implementation list:
         be visible only when one filter is selected.it should be the most important navbar.
 - [Content] [Account/menu] add a second filter navbar, that will filter tags. make it in a different style 
             than the category filter above and it should be less important than the category filter.
-- [Content] [menuAndAccount] create a separator, for example a lily to separete the header navbar and the page 
-            navbar.
+- [✅] {Content}{menuAndAccount} create a separator, for example a lily to separete the header navbar and the page 
+        navbar.
 - [✅] {Fix}{About} fix the "join-us" link. if a user is logged in it shouldnt link to the sign in page
 - [Fix] add a spinner component in every button that do an async operation
 - [Fix] fix the loading state of each page. at the moment there is only a big spinner in the left/center
@@ -71,8 +71,8 @@ Jade Lily implementation list:
 - [Test] test the global not-found page in production mode.
 - [A11y] [home] check the page for accessibility
 - [A11y] [About] check the page for accessibility
-- [A11y] [Menu] check the page for accessibility
-- [A11y] [Menu/details] check the page for accessibility
+- [✅] {A11y}{Menu} check the page for accessibility
+- [✅] {A11y}{Menu/details} check the page for accessibility
 - [A11y] [Account/dasboardAndSettings] check the page for accessibility
 - [A11y] [Account/menu] check the page for accessibility.
 - [A11Y] [Account/cartAndOrders] check the page for accessibility.
