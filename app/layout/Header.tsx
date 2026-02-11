@@ -1,6 +1,7 @@
 import Navbar from "./Navbar"
 import ClientProviders from "@/firebase/ClientProviders"
 import { GiJasmine} from "react-icons/gi";
+import HistoryTracker from "@/components/HistoryTracker";
 
 export default function Header(){
    
@@ -12,6 +13,7 @@ export default function Header(){
                 <span className="leading-none text-orange-800">JadeLily</span>
             </h1>
             <ClientProviders>
+                <HistoryTracker />
                 <Navbar />
             </ClientProviders>
         </header>
