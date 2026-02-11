@@ -1,29 +1,32 @@
-import type { DishProps } from "@/types"
-import { renderStars} from "@/lib/utilsIcons"
-import { renderTags } from "@/lib/utils"
+import type { DishProps } from "@/types";
+import { renderStars } from "@/lib/utilsIcons";
 
 type Props = {
-    data : DishProps | null
-}
+  data: DishProps | null;
+};
 
-export function DishDetails({data}:Props){
-    if(!data) return <p>Data not available</p>
+export function DishDetails({ data }: Props) {
+  if (!data) return <p>Data not available</p>;
 
-    const {rating, description, tags} = data
+  const { description, tags, rating } = data;
 
-    //tawilwind
+  return (
+    <section className="bg-white rounded-lg p-4 shadow-sm">
+      <div className="prose max-w-none">
+        <p className="italic text-stone-600">{description}</p>
 
-    const container = `
-                       flex flex-col gap-5`
-    const descriptionStl = `italic text-neutral-600 `
-    const tagsStl =  ``
-    //
+        {tags?.length ? (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {tags.map((t) => (
+              <span key={t} className="text-xs bg-orange-50 text-orange-800 px-2 py-1 rounded-full">
+                {t}
+              </span>
+            ))}
+          </div>
+        ) : null}
 
-    return(
-        <section className={container}>
-            <p className={descriptionStl}>{description}</p>
-            <p className={tagsStl}>{renderTags(tags)}</p>
-            {renderStars(rating)}
-        </section>
-    )
+        <div className="mt-4">{renderStars(rating)}</div>
+      </div>
+    </section>
+  );
 }

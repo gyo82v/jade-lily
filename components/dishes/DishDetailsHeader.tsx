@@ -1,38 +1,37 @@
-import Image from "next/image"
-import { DishDetailsNavbar } from "../navbars"
-import type { DishProps } from "@/types"
+
+import type { DishProps } from "@/types";
+import { DishDetailsNavbar } from "@/components/navbars/DishDetailsNavbar";
+
 type Props = {
-    data : DishProps |null
-}
+  data: DishProps | null;
+};
 
-export function DishDetailsHeader({data}:Props){
-    if(!data) return <p>No data available</p>
+export function DishDetailsHeader({ data }: Props) {
+  if (!data) return <p>No data available</p>;
 
-    const {slug, name, price, imageUrlFull, category, imageUrlThumb} = data
-    console.log("data header:", data)
-    //tailwind
+  const { name, price, category, slug } = data;
 
-    const nameDiv = `flex justify-between items-center text-2xl font-bold mt-4 mb-6`
+  return (
+    <header>
+      <div className="flex flex-row items-center justify-between gap-3">
+        <div>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-dancing font-bold leading-tight text-orange-800">
+            {name}
+          </h1>
+          <div className="mt-2 flex items-center gap-3">
+            <span className="text-sm text-stone-600">{category}</span>
+          </div>
+        </div>
 
-    //
-    return(
-        <header>
-            <div>
-                <figure>
-                    <Image
-                      src={imageUrlThumb || "default img here"}
-                      alt=""
-                      width="1024"
-                      height="768"
-                      className="rounded-lg shadow-lg h-60"
-                    />
-                </figure>
-                <div className={nameDiv}>
-                    <h1 className="font-dancing">{name}</h1>
-                    <p>£{price}</p>
-                </div>
-            </div>
-            <DishDetailsNavbar slug={slug} category={category} />
-        </header>
-    )
+        <div className="flex items-center gap-4">
+          <div className="text-xl md:text-2xl font-semibold text-orange-800">£{price}</div>
+        </div>
+      </div>
+
+      {/* Tabs / nav */}
+      <div className="mt-4">
+        <DishDetailsNavbar slug={slug} category={category} />
+      </div>
+    </header>
+  );
 }

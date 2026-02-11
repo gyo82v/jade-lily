@@ -1,4 +1,3 @@
-// components/dishes/DishCard.tsx
 import Image from "next/image";
 import Link from "next/link";
 import { renderIcon } from "@/lib/utilsIcons";
@@ -70,50 +69,3 @@ export function DishCard({ data, priority = false }: Props) {
     </li>
   );
 }
-
-
-
-
-
-/*
-import Image from "next/image"
-import Link from "next/link"
-import { renderIcon } from "@/lib/utilsIcons";
-import type { DishProps } from "@/types"
-import { IconWrapper } from "../IconWrapper";
-
-type Props = {
-    data : DishProps
-    priority?: boolean
-}
-
-export function DishCard({data, priority}:Props){
-    const {slug, imageUrlThumb, description, name, type, price, category} = data
-
-    return(
-        <article className={`p-2 rounded-lg text-orange-800 shadow-lg 
-                             bg-gradient-to-b from-orange-100 via-orange-50 to-orange-100`}>
-            <Link href={`/menu/${category}/${slug}`} className="flex flex-col gap-2 md:gap-3 lg:gap-4 xl:gap-5 ">
-                <figure>
-                    <Image 
-                      src={imageUrlThumb} 
-                      width={400} 
-                      height={400} 
-                      alt={description} 
-                      className="rounded-lg w-full shadow-lg"
-                      priority={priority}
-                    />
-                </figure>
-                <section>
-                    <div className="flex justify-between font-bold text-lg lg:text-xl mb-2 md:mb-3 lg:mb-4 xl:mb-5">
-                        <h1 className="font-dancing">{name}</h1>
-                        <p>£{price}</p>
-                    </div>
-                    <IconWrapper type={type} className="rounded-lg py-1 w-1/2">
-                        {renderIcon(type)}
-                    </IconWrapper>
-                </section>               
-            </Link>
-        </article>
-    )
-}*/
