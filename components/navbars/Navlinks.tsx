@@ -19,10 +19,18 @@ export function Navlinks({
 }: NavlinksProps) {
   const pathname = usePathname();
   const derivedActive =
+  typeof isActive === "boolean"
+    ? isActive
+    : href === "/account"
+      ? pathname === "/account"
+      : pathname === href || pathname.startsWith(`${href}/`);
+
+  /*
+  const derivedActive =
     typeof isActive === "boolean"
       ? isActive
       : pathname === href || (href !== "/" && pathname?.startsWith(href));
-
+*/
   /** desktop (original inline links) */
   const desktopBase = `inline-block px-1 py-0.5 text-sm font-medium rounded-md ${transitions} ${focusEffects} leading-none`;
   const desktopInactive = `text-orange-800 hover:text-orange-900`;
