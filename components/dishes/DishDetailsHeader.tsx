@@ -15,7 +15,7 @@ export function DishDetailsHeader({ data }: Props) {
     <header>
       <div className="flex flex-row items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-dancing font-bold leading-tight text-orange-800">
+          <h1 id="dish-page-title" className="text-2xl md:text-3xl lg:text-4xl font-dancing font-bold leading-tight text-orange-800">
             {name}
           </h1>
           <div className="mt-2 flex items-center gap-3">

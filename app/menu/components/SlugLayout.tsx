@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import type { DishProps } from "@/types";
+import ScrollToTopAndFocus from "@/components/ScrollToTopAndFocus";
 
 type Props = {
   slug: string;
@@ -64,10 +65,9 @@ export default async function SlugLayout({ slug, children }: Props) {
     }
   }
 
-  // Desktop fixed height for the details card area (tweak as necessary)
-  // The grid below is md:grid-cols-2; we set a desktop height so both columns match.
   return (
     <div className="p-4 flex flex-col items-center">
+      <ScrollToTopAndFocus />
       <div className="w-full max-w-5xl mb-4 flex justify-start">
         <BackLink fallbackHref={fallbackHref} label={label} />
       </div>

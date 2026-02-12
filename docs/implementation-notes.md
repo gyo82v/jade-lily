@@ -43,7 +43,7 @@ Jade Lily implementation list:
 - [✅] {Style}{Menu/details} Style the dish details ingredient section.
 - [✅] {Style}{Menu/details} Style the page for desktop.
 - [✅] {images}{menu} replace the kiwi delight images with chatgpt.
-- [Style] [Account/dashbord] improve the style of each section.
+- [✅] {Style}{Account/dashboard} improve the style of each section.
 - [Style] [Account/settings] style the settings page for desktop.
 - [Style] [Account/deleteAccount] style the form for desktop.
 - [Style] [Account/booktable] Style the form for desktop.
@@ -65,6 +65,8 @@ Jade Lily implementation list:
 - [Fix] add a spinner component in every button that do an async operation
 - [Fix] fix the loading state of each page. at the moment there is only a big spinner in the left/center
         of the page.
+- [✅] {Fix}{Menu} when the user clicks a dish that is at the bottom of the page, should be redirected to the
+        top of the dish ditails page and not the bottom
 - [fix] test and fix the console warning message about the "Largest Contentful Paint" detected.   
 - [Fix] the side scrollbar should be visible in desktop and not in mobile.
 - [Test] run the lighthouse test in google chrome.
