@@ -44,10 +44,10 @@ Jade Lily implementation list:
 - [✅] {Style}{Menu/details} Style the page for desktop.
 - [✅] {images}{menu} replace the kiwi delight images with chatgpt.
 - [✅] {Style}{Account/dashboard} improve the style of each section.
-- [Style] [Account/settings] style the settings page for desktop.
+- [✅] {Style}{Account/settings} style the settings page for desktop.
 - [Style] [Account/deleteAccount] style the form for desktop.
 - [Style] [Account/booktable] Style the form for desktop.
-- [Style] [Account/cart] Style the page for desktop.
+- [✅] {Style}{Account/cart} Style the page for desktop.
 - [Style] [Account/orders] Style the page for desktop.
 - [Style] [Account/cartAndOrders] Style the page in the case there are no items in the carts/orders.
                                   add messages to encourage customer to make orders.
@@ -69,13 +69,15 @@ Jade Lily implementation list:
         top of the dish ditails page and not the bottom
 - [fix] test and fix the console warning message about the "Largest Contentful Paint" detected.   
 - [Fix] the side scrollbar should be visible in desktop and not in mobile.
+- [Fix] [Footer] fix the layout of the footer for :md screens. Either add the separator or change
+                 to horizontal layout.
 - [Test] run the lighthouse test in google chrome.
 - [Test] test the global not-found page in production mode.
 - [A11y] [home] check the page for accessibility
 - [A11y] [About] check the page for accessibility
 - [✅] {A11y}{Menu} check the page for accessibility
 - [✅] {A11y}{Menu/details} check the page for accessibility
-- [A11y] [Account/dasboardAndSettings] check the page for accessibility
+- [✅] {A11y}{Account/dashboardAndSettings} check the page for accessibility
 - [A11y] [Account/menu] check the page for accessibility.
 - [A11Y] [Account/cartAndOrders] check the page for accessibility.
 - [A11y] [forms] check all the forms for accessibility : sign-in, sign-up, sign-out, add-credit,
@@ -94,3 +96,4 @@ Jade Lily implementation list:
 - [Optional] [menu] add a search bar for the dishes by dish name.
 - [Optional] [Header] Improve the header navbar on mobile : add an avatar account at the top of the page,
                       add socials links at the bottom of the page. improve animations when the panel close/open.
+- [Optional] [Account/settings] add a reset password option.
