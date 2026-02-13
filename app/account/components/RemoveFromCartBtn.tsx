@@ -1,4 +1,3 @@
-// components/RemoveFromCartButton.tsx
 "use client"
 
 import { useState, useCallback, memo } from "react";
