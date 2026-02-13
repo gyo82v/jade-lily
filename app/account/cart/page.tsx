@@ -1,10 +1,10 @@
+// app/account/cart/page.tsx
 import AccountCartPage from "../components/AccountCartPage"
 
 export default function CartPage() {
-    return (
-        <section className="w-11/12 my-4">
-            <h1 className="text-xl font-bold">Your cart</h1>
-            <AccountCartPage />
-        </section>
-    )
+  return (
+    <section className="w-full max-w-2xl mx-auto my-6 px-4">
+      <AccountCartPage />
+    </section>
+  )
 }
