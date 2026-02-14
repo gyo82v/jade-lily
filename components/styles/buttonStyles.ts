@@ -1,5 +1,5 @@
 export const primaryButtonStyles = `
-  bg-gradient-to-br from-pink-100 via-orange-200 to-rose-300 
+  grad-peach
   py-2 px-4 font-bold text-lg shadow-lg rounded-lg 
   text-center w-full
   transition-transform transition-shadow transition-colors duration-300 ease-in-out
