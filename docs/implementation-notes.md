@@ -69,8 +69,8 @@ Jade Lily implementation list:
         top of the dish ditails page and not the bottom
 - [fix] test and fix the console warning message about the "Largest Contentful Paint" detected.   
 - [Fix] the side scrollbar should be visible in desktop and not in mobile.
-- [Fix] [Footer] fix the layout of the footer for :md screens. Either add the separator or change
-                 to horizontal layout.
+- [✅] {Fix}{Footer} fix the layout of the footer for :md screens. Either add the separator or change
+        to horizontal layout.
 - [Test] run the lighthouse test in google chrome.
 - [Test] test the global not-found page in production mode.
 - [A11y] [home] check the page for accessibility

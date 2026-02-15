@@ -4,7 +4,7 @@ import { FooterIconSeparator } from "@/components/ui"
 import { GiLotusFlower } from "react-icons/gi";
 
 export default function Footer(){
-    const footer = `flex flex-col lg:flex-row items-center justify-between bg-neutral-800 text-neutral-300 
+    const footer = `flex flex-col md:flex-row items-center justify-between bg-neutral-800 text-neutral-300 
                     border-t-4 border-neutral-700 text-lg py-4 w-full px-6 
                     `
                 
