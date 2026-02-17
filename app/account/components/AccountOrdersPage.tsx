@@ -7,8 +7,9 @@ import { Button } from "@/components";
 import { useAuth } from "@/firebase/authProvider";
 import RemoveFromOrdersBtn from "./RemoveFromOrdersBtn";
 import OrderProcessingCard from "@/components/ui/OrderProcessingCard";
-import {FaReceipt} from "react-icons/fa";
-import { FaShoppingCart, FaUtensils } from "react-icons/fa";
+import {FaReceipt, FaUtensils} from "react-icons/fa";
+import { FiXCircle, FiPackage, FiFileText, FiClock, FiShoppingBag } from "react-icons/fi";
+
 
 type Order = {
   id: string;
@@ -38,7 +39,11 @@ export default function AccountOrdersPage() {
       />
 
       {/* Orders list (dimmed while processing visible) */}
-      <div className={`${isProcessingVisible ? "opacity-60 pointer-events-none select-none" : ""} transition-opacity`}>
+      <div className={`${isProcessingVisible ? "opacity-60 pointer-events-none select-none" : ""} transition-opacity flex flex-col gap-1 lg:gap-3 xl:gap-4`}>
+        <div className="flex items-center gap-3">
+          <FiShoppingBag className="h-6 w-6 text-orange-800" aria-hidden="true" />
+          <h1 className="text-lg font-semibold ">Yours orders:</h1>
+        </div>
         {orders.length > 0 ? (
           <>
             <section className="flex flex-col gap-4 my-4">
@@ -65,8 +70,9 @@ export default function AccountOrdersPage() {
               ))}
             </section>
 
-            <div className="mt-4">
-              <Button onClick={() => clearPastOrders(user.uid)} className="w-full md:w-auto">
+            <div className="mt-4 md:mx-auto md:w-10/12 xl:w-8/12">
+              <Button onClick={() => clearPastOrders(user.uid)} className="w-full inline-flex items-center justify-center gap-2 ">
+                <FiXCircle className="h-4 w-4" aria-hidden="true" />
                 Clear all
               </Button>
             </div>
