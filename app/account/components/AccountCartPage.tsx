@@ -51,8 +51,8 @@ export default function AccountCartPage() {
   }
 
   return (
-    <div className="w-full">
-      <div className="mb-4 flex items-center gap-3">
+    <div className="w-full flex flex-col gap-1 lg:gap-3 xl:gap-4">
+      <div className="mb-6 flex items-center gap-3">
         <FaShoppingCart className="h-6 w-6 text-orange-800" aria-hidden="true" />
         <h2 className="text-lg font-semibold">Your cart</h2>
         <span className="ml-auto text-sm text-stone-600">

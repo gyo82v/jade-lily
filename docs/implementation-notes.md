@@ -48,12 +48,12 @@ Jade Lily implementation list:
 - [Style] [Account/deleteAccount] style the form for desktop.
 - [Style] [Account/booktable] Style the form for desktop.
 - [✅] {Style}{Account/cart} Style the page for desktop.
-- [Style] [Account/orders] Style the page for desktop.
-- [Style] [Account/cartAndOrders] Style the page in the case there are no items in the carts/orders.
-                                  add messages to encourage customer to make orders.
+- [✅] {Style}{Account/orders} Style the page for desktop.
+- [✅] {Style}{Account/cartAndOrders} Style the page in the case there are no items in the carts/orders.
+        add messages to encourage customer to make orders.
 - [Style] [account/menu] style the dishes section for desktop.
 - [Style] [Account/menu] style the effects for each dish, for mobile and desktop.
-- [Fix] [Account/orders] add a confirmation message when all or a single order are deleted.
+- [✅] {Fix}{Account/orders} add a confirmation message when all or a single order are deleted.
 - [Fix] [Account/menu] fix the menu category navbar to use icons instead of text.
 - [Fix] [Account/menu] fix the menu category navbar to highlight the current path, the reset button should 
         be visible only when one filter is selected.it should be the most important navbar.
@@ -65,6 +65,8 @@ Jade Lily implementation list:
 - [Fix] add a spinner component in every button that do an async operation
 - [Fix] fix the loading state of each page. at the moment there is only a big spinner in the left/center
         of the page.
+- [Fix][Account/cart] when placing an order add a message when there are not enough credit to complete the 
+       transaction;
 - [✅] {Fix}{Menu} when the user clicks a dish that is at the bottom of the page, should be redirected to the
         top of the dish ditails page and not the bottom
 - [fix] test and fix the console warning message about the "Largest Contentful Paint" detected.   
@@ -79,15 +81,15 @@ Jade Lily implementation list:
 - [✅] {A11y}{Menu/details} check the page for accessibility
 - [✅] {A11y}{Account/dashboardAndSettings} check the page for accessibility
 - [A11y] [Account/menu] check the page for accessibility.
-- [A11Y] [Account/cartAndOrders] check the page for accessibility.
+- [✅] {A11y}{Account/cartAndOrders} check the page for accessibility.
 - [A11y] [forms] check all the forms for accessibility : sign-in, sign-up, sign-out, add-credit,
          book-table, delete-accout, contact-us
 - [Clean] Clean tailwind variables from components
 - [Clean] Clean types form components, declare the type in the types folder.
-- [Optional] [Account/orders] add a status/track of the current order. example : a bar showing :
-            preparing => in transit => completed. when a user clicks on the button "order now" in the 
-            cart page it should redirect the user to the order page with the tracking of the order 
-            and a message "thank you for you order".
+- [✅] {Optional}{Account/orders} add a status/track of the current order. example : a bar showing :
+        preparing => in transit => completed. when a user clicks on the button "order now" in the 
+        cart page it should redirect the user to the order page with the tracking of the order 
+        and a message "thank you for you order".
 - [Optional] [Account/orders] instead of rendering a simple orders list, each order should be clickable and 
             display : items, quantity, total, status, order date, order number.
 - [Optional] Add a favourite dishes system. the user can like a dish in the dis details page, clicking 

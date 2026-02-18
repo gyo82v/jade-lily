@@ -8,6 +8,7 @@ import Link from "next/link"
 import { transitions, disabledEffects, focusEffects } from "@/components/styles"
 import { useAuth } from "@/firebase/authProvider"
 import AddToCartBtn from "./AddToCartBtn"
+import AccountMenuFilters from "../menu/layout/AccountMenuFilters"
 
 type Props = {
     category? : string
@@ -16,6 +17,8 @@ type Props = {
 export default function AccountMenuPage({category}:Props){
     const [dishes, setDishes] = useState<DishProps[]>([])
     const {user, loading} = useAuth()
+    const filtersArr = [...new Set(dishes.map(dish => dish.type))]
+    console.log("Filter array: ", filtersArr)
     
     useEffect(() => {
         async function fetchData(){
@@ -38,6 +41,7 @@ export default function AccountMenuPage({category}:Props){
 
     const container = `flex gap-2 p-4 bg-gradient-to-br from-orange-100 to-orange-50 
                        shadow-lg rounded-lg w-full`
+    console.log("menu dihses: ", dishes)
 
     const dishesArr = dishes?.map(dish => {
         return (
@@ -72,8 +76,12 @@ export default function AccountMenuPage({category}:Props){
 
 
     return (
-        <section className="flex flex-col gap-5 my-10 w-11/12 mx-auto">
+        <div>
+            <AccountMenuFilters filtersArr={filtersArr} />
+            <section className="flex flex-col gap-5 my-10 w-11/12 mx-auto">
+                {dishesArr}
+            </section>
             {dishesArr}
-        </section>
+        </div>
     )
 }
