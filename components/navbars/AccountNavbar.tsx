@@ -35,7 +35,7 @@ export function AccountNavbar() {
       </div>
 
       {/* Mobile: scrollable compact strip */}
-      <div className="md:hidden ">
+      <div className="md:hidden border-2 border-orange-700 ">
         <div className="overflow-x-auto no-scrollbar">
           <div className="flex gap-7 px-4 py-3 mx-auto w-max">
             {items.map((it) => (
