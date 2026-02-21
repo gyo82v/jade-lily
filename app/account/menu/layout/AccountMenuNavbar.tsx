@@ -27,10 +27,10 @@ export default function AccountMenuNavbar() {
   const pillActive = `bg-gradient-to-br from-orange-200 to-orange-100 text-amber-900 shadow-sm`;
 
   return (
-    <nav aria-label="Menu categories" className="w-full py-3 md:py-4 lg:py-5  border-2 border-blue-400 ">
+    <nav aria-label="Menu categories" className="w-full py-3 md:py-4 lg:py-5  ">
       {/* Mobile: horizontally scrollable pills */}
-      <div className="md:hidden flex items-center justify-center border-2 border-blue-400">
-        <div className="overflow-x-auto no-scrollbar ">
+      <div className="md:hidden flex items-center justify-center ">
+        <div>
           <ul role="tablist" className="inline-flex gap-2">
             {items.map((it) => {
               const active = isActive(it.href);
