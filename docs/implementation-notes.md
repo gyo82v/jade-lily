@@ -54,11 +54,11 @@ Jade Lily implementation list:
 - [Style] [account/menu] style the dishes section for desktop.
 - [Style] [Account/menu] style the effects for each dish, for mobile and desktop.
 - [✅] {Fix}{Account/orders} add a confirmation message when all or a single order are deleted.
-- [Fix] [Account/menu] fix the menu category navbar to use icons instead of text.
-- [Fix] [Account/menu] fix the menu category navbar to highlight the current path, the reset button should 
+- [✅] {Fix}{Account/menu} fix the menu category navbar to use icons instead of text.
+- [✅] {Fix}{Account/menu} fix the menu category navbar to highlight the current path, the reset button should 
         be visible only when one filter is selected.it should be the most important navbar.
-- [Content] [Account/menu] add a second filter navbar, that will filter tags. make it in a different style 
-            than the category filter above and it should be less important than the category filter.
+- [✅] {Content}{Account/menu} add a second filter navbar, that will filter tags. make it in a different style 
+        than the category filter above and it should be less important than the category filter.
 - [✅] {Content}{menuAndAccount} create a separator, for example a lily to separete the header navbar and the page 
         navbar.
 - [✅] {Fix}{About} fix the "join-us" link. if a user is logged in it shouldnt link to the sign in page
