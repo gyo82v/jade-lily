@@ -14,7 +14,7 @@ type Props = {
     className? : string
 }
 
-function AddToCartBtn({userId, dish, amount = 1}:Props){
+function AddToCartBtn({className, userId, dish, amount = 1}:Props){
     const {addToCart} = useAuth()
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
@@ -34,10 +34,10 @@ function AddToCartBtn({userId, dish, amount = 1}:Props){
     }, [userId, dish, amount,addToCart, isLoading])
 
     return(
-        <AccountActionBtn onClick={handleClick} aria-label="add to cart">
+        <AccountActionBtn onClick={handleClick} aria-label="add to cart" className={className}>
             { 
               isLoading ?
-              <Spinner /> : isSuccess ?
+              <Spinner className="h-6 w-6" /> : isSuccess ?
               <HiCheck className="h-6 w-6" /> :
               <HiPlus className="h-6 w-6" />
             }
