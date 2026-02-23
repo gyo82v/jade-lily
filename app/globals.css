@@ -18,41 +18,44 @@
     box-sizing: border-box;
   }
 
-  /* Apply custom styles to html, body, and the root element */
-  html, body, #__next {
-    @apply m-0 p-0 bg-orange-50;
-    line-height: 1.5;
-    font-weight: 400;
-    /* Hide scrollbar (Firefox and IE) */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  /* Hide scrollbar for WebKit */
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Ensure images and buttons behave as expected */
-  img {
-    @apply max-w-full h-auto;
-  }
-  button {
-    @apply cursor-pointer;
-  }
+html, body, #__next {
+  @apply m-0 p-0 bg-orange-50;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
+/* Keep defaults */
+img {
+  @apply max-w-full h-auto;
+}
+button {
+  @apply cursor-pointer;
+}
+}
 
 @layer utilities {
-  /* hide horizontal scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
+
+/* MOBILE FIRST: hide scrollbar */
+  .scrollbar-hide {
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE/Edge */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;                /* WebKit */
+  }
+
+  /* DESKTOP (md+) ONLY: restore scrollbar */
+  @media (min-width: 768px) {
+    .scrollbar-default {
+      scrollbar-width: auto;
+      -ms-overflow-style: auto;
+    }
+
+    .scrollbar-default::-webkit-scrollbar {
+      display: block;
+    }
+  }
 .font-dancing {
     font-family: var(--font-dancing-script), ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
 }
