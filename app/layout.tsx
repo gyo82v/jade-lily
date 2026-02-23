@@ -32,17 +32,22 @@ export default function RootLayout({children}:RootLayoutProps) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body className={`min-h-screen flex flex-col antialiased text-orange-800 
+                         overflow-x-hidden
                        ${ebGaramond.className}
                        ${dancingScript.variable} 
                        ${quintessential.variable} 
                       `}
                        >  
         <a href="#content" className="sr-only focus:not-sr-only p-2">Skip to content</a>
+        <div className={`flex flex-col min-h-screen
+    overflow-y-auto overflow-x-hidden
+    scrollbar-hide md:scrollbar-default`}>
         <Header />
           <main id="content" className="flex-1 flex min-w-0 w-full">
             {children}
           </main>
         <Footer />
+        </div>
       </body>
     </html>
   );
