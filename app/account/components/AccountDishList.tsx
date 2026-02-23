@@ -15,11 +15,9 @@ export default function AccountDishList({ dishes, userId }: Props) {
     );
   }
 
-  // Mobile: vertical list (one per row) using stacked <li>
-  // md+: grid layout for denser desktop presentation.
   return (
     <section className="w-11/12 mx-auto my-10">
-      <ul className="flex flex-col gap-3 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6">
+      <ul className="flex flex-col gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6">
         {dishes.map((dish) => (
           <AccountDishCard key={dish.id} dish={dish} userId={userId} />
         ))}
@@ -28,24 +26,3 @@ export default function AccountDishList({ dishes, userId }: Props) {
   );
 }
 
-/*
-import type { DishProps } from "@/types"
-import AccountDishCard from "./AccountDishCard"
-
-type Props = {
-    dishes : DishProps[]
-    userId : string
-}
-
-
-export default function AccountDishList({dishes, userId}:Props){
-    const dishesArr = dishes?.map(dish => <AccountDishCard key={dish.id} dish={dish} userId={userId} />)
-    return(
-        <section className="flex flex-col gap-5 my-10 w-11/12 mx-auto">
-            <ul>
-                {dishesArr}
-            </ul>
-        </section>
-    )
-}
-    */
