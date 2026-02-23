@@ -51,8 +51,8 @@ Jade Lily implementation list:
 - [✅] {Style}{Account/orders} Style the page for desktop.
 - [✅] {Style}{Account/cartAndOrders} Style the page in the case there are no items in the carts/orders.
         add messages to encourage customer to make orders.
-- [Style] [account/menu] style the dishes section for desktop.
-- [Style] [Account/menu] style the effects for each dish, for mobile and desktop.
+- [✅] {Style}{Account/menu} style the dishes section for desktop.
+- [✅] {Style}{Account/menu} style the effects for each dish, for mobile and desktop.
 - [✅] {Fix}{Account/orders} add a confirmation message when all or a single order are deleted.
 - [✅] {Fix}{Account/menu} fix the menu category navbar to use icons instead of text.
 - [✅] {Fix}{Account/menu} fix the menu category navbar to highlight the current path, the reset button should 
@@ -80,7 +80,7 @@ Jade Lily implementation list:
 - [✅] {A11y}{Menu} check the page for accessibility
 - [✅] {A11y}{Menu/details} check the page for accessibility
 - [✅] {A11y}{Account/dashboardAndSettings} check the page for accessibility
-- [A11y] [Account/menu] check the page for accessibility.
+- [✅] {A11y}{Account/menu} check the page for accessibility.
 - [✅] {A11y}{Account/cartAndOrders} check the page for accessibility.
 - [A11y] [forms] check all the forms for accessibility : sign-in, sign-up, sign-out, add-credit,
          book-table, delete-accout, contact-us
