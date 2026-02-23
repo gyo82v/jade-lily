@@ -5,10 +5,13 @@ import {memo} from "react"
 
 type Props = React.ComponentPropsWithoutRef<"button">
 
-function AccountActionBtn({children ,...rest}:Props){
+function AccountActionBtn({className="h-10 w-10 hover:scale-115", children ,...rest}:Props){
     
     return(
-        <button className={`${primaryAccountButtonStyle} ${defaultTransition} h-10 w-10 hover:scale-115`} {...rest} >
+        <button 
+          className={`${primaryAccountButtonStyle} ${defaultTransition}
+                      ${className} `} {...rest} 
+        >
             {children}
         </button>
     )
