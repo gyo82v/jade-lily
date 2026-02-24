@@ -22,6 +22,13 @@ html, body, #__next {
   @apply m-0 p-0 bg-orange-50;
   line-height: 1.5;
   font-weight: 400;
+   scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;              /* Chrome / Safari */
 }
 
 /* Keep defaults */
@@ -43,18 +50,6 @@ button {
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;                /* WebKit */
-  }
-
-  /* DESKTOP (md+) ONLY: restore scrollbar */
-  @media (min-width: 768px) {
-    .scrollbar-default {
-      scrollbar-width: auto;
-      -ms-overflow-style: auto;
-    }
-
-    .scrollbar-default::-webkit-scrollbar {
-      display: block;
-    }
   }
 .font-dancing {
     font-family: var(--font-dancing-script), ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
