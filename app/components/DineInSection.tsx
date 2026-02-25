@@ -1,7 +1,99 @@
-export function DineInSection(){
-    return(
-        <section>
-            <p>dine in here</p>
-        </section>
-    )
+// app/components/home/DineInSection.tsx
+import Image from 'next/image'
+import Link from 'next/link'
+
+export function DineInSection() {
+  return (
+    <section
+      aria-labelledby="dinein-heading"
+      className="relative py-16"
+    >
+      {/* Full-bleed background layer (visually spans viewport width) */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        {/* Make the image visually full-bleed using w-screen + centering transform */}
+        <div className="absolute left-1/2 right-1/2 -translate-x-1/2 w-screen h-full">
+          <Image
+            src="/dine-in-bg.png"
+            alt="" // decorative
+            fill
+            priority={false}
+            className="object-cover filter blur-sm scale-105"
+          />
+        </div>
+
+        {/* overlay to improve contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/30 to-transparent z-10" />
+      </div>
+
+      {/* Content wrapper (keeps text constrained and readable) */}
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-2 items-center">
+          {/* Left: copy */}
+          <div className="text-white">
+            <h2 id="dinein-heading" className="text-3xl sm:text-4xl font-bold leading-tight">
+              A relaxed place to enjoy great food
+            </h2>
+
+            <p className="mt-4 text-lg text-orange-100 max-w-2xl">
+              Step into Jade Lily for a warm, inviting atmosphere — from cozy corners for quiet conversations
+              to energetic tables for celebrations. Our staff are friendly and attentive, ensuring fast service
+              without feeling rushed.
+            </p>
+
+            <div className="mt-6 space-y-4 text-orange-100">
+              <p className="flex gap-3 items-start">
+                <strong className="min-w-[120px] text-white">Atmosphere:</strong>
+                Comfortable seating, soft lighting, and quiet nooks for intimate dining.
+              </p>
+
+              <p className="flex gap-3 items-start">
+                <strong className="min-w-[120px] text-white">Service:</strong>
+                Attentive team focused on speed and hospitality — orders handled quickly, with care.
+              </p>
+
+              <p className="flex gap-3 items-start">
+                <strong className="min-w-[120px] text-white">Quiet corners:</strong>
+                Ask for a quiet table when reserving and we’ll do our best to accommodate.
+              </p>
+            </div>
+
+            {/* CTA */}
+            <div className="mt-8">
+              <Link
+                href="/account/reservations"
+                className="inline-block rounded-md bg-white text-orange-600 px-5 py-3 font-semibold shadow hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
+              >
+                Reserve a table
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: optional testimonial / highlights */}
+          <aside className="text-orange-50">
+            <div className="bg-white/6 p-6 rounded-lg border border-white/10">
+              <blockquote className="text-sm italic leading-relaxed">
+                “Lovely atmosphere — the perfect mix of calm and cozy. Service was fast and friendly.”
+              </blockquote>
+
+              <div className="mt-4 text-xs">
+                — Sample review (portfolio demo)
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-4">
+              <div className="bg-white/6 p-4 rounded-lg">
+                <h4 className="text-sm font-medium text-white">Private seating</h4>
+                <p className="mt-1 text-xs">Small, quiet tables available on request.</p>
+              </div>
+
+              <div className="bg-white/6 p-4 rounded-lg">
+                <h4 className="text-sm font-medium text-white">Quick service</h4>
+                <p className="mt-1 text-xs">Efficient kitchen workflow for timely orders.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  )
 }
