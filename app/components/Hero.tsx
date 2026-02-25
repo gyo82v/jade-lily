@@ -17,13 +17,12 @@ export function Hero() {
           className="object-cover" 
           priority 
         />
-        <div className={`absolute inset-0 bg-gradient-to-t from-orange-900/80 via-orange-800/40 
-                         to-transparent z-10 pointer-events-none`} />
+        
      </div>
 
       {/* Content container */}
-      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[50vh] flex items-center border-2 border-purple-500">
-        <div className="py-16 sm:py-24 border-2 border-green-500 flex flex-col gap-4">
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[46vh] flex items-center ">
+        <div className="py-14 sm:py-24 flex flex-col gap-8">
           <h1
             id="hero-heading"
             className={`text-white text-3xl sm:text-4xl md:text-5xl 
@@ -38,11 +37,11 @@ export function Hero() {
           </p>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-wrap gap-4 border-2 border-sky-500">
+          <div className="mt-8 flex flex-wrap gap-4 ">
             <Link
               href="/menu"
               className={`inline-flex items-center rounded-md bg-white
-                        text-orange-600 px-5 py-3 font-semibold shadow-md
+                        text-orange-800 px-5 py-3 font-semibold shadow-md
                          hover:opacity-95 ${focusEffects}`}
             >
               View menu
@@ -60,6 +59,3 @@ export function Hero() {
     </section>
   )
 }
-
-export default Hero
-
