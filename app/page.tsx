@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import ClientProviders from "@/firebase/ClientProviders"
 import { 
@@ -17,10 +16,12 @@ export default function Home() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <Hero />
       <ActionState />
-      <DishSlider />
+      <Suspense fallback={<div className="h-48 bg-gray-100 rounded animate-pulse" aria-hidden="true" />}>
+        <DishSlider />
+      </Suspense>
       <ValuePoints />
       <DineInSection />
-      <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-start">
+      <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-stretch">
         <ClientProviders>
           <CreateAccountCard />
         </ClientProviders>
