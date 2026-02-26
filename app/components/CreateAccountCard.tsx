@@ -28,11 +28,11 @@ export function CreateAccountCard() {
         <div className="mt-6 flex-1 flex flex-col justify-center gap-4">
           {user ? (
             // Logged-in view
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 lg:gap-8">
               <div className="flex items-center gap-4">
-                <MdPerson className="w-8 h-8 text-orange-800" aria-hidden={true} />
+                <MdPerson className="w-8 h-8 text-orange-800 lg:h-10 lg:w-10" aria-hidden={true} />
                 <div>
-                  <div className="text-sm font-medium text-gray-900">
+                  <div className="text-sm font-medium text-gray-900 lg:text-lg">
                     {profile?.displayName ?? 'Member'}
                   </div>
                   <div className="text-xs text-gray-500">{profile?.email ?? '—'}</div>
@@ -40,9 +40,9 @@ export function CreateAccountCard() {
               </div>
 
               <div className="flex items-center gap-4">
-                <MdAccountBalanceWallet className="w-6 h-6 text-orange-800" aria-hidden={true} />
+                <MdAccountBalanceWallet className="w-8 h-8 text-orange-800 lg:w-10 lg:h-10" aria-hidden={true} />
                 <div>
-                  <div className="text-sm font-medium text-gray-900">
+                  <div className="text-sm font-medium text-gray-900 lg:text-lg">
                     {typeof profile?.jadeLilyCredit !== 'undefined'
                       ? `${profile.jadeLilyCredit} JadeLily credit`
                       : 'No credits yet'}
