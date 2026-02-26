@@ -17,7 +17,7 @@ export function LocationHours() {
         <div className="mt-4 grid gap-4">
           {/* Location */}
           <div className="flex items-start gap-3">
-            <MdLocationOn className="w-6 h-6 text-orange-600 flex-shrink-0" aria-hidden="true" />
+            <MdLocationOn className="w-6 h-6 text-orange-800 flex-shrink-0" aria-hidden="true" />
             <div>
               <div className="text-sm font-medium text-gray-900">Concept location</div>
               <address className="not-italic text-sm text-gray-600 mt-1">
@@ -28,7 +28,7 @@ export function LocationHours() {
                 {/* Could be linked to a real map in a real project */}
                 <a
                   href="https://www.google.com/maps/@51.5062558,-0.0865993,17.37z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D"
-                  className="text-sm text-orange-600 hover:underline"
+                  className="text-sm text-orange-800 hover:underline"
                   rel="noopener noreferrer"
                   target='_blank'
                   aria-label="View location (demo)"
@@ -41,7 +41,7 @@ export function LocationHours() {
 
           {/* Hours */}
           <div className="flex items-start gap-3">
-            <MdAccessTime className="w-6 h-6 text-orange-600 flex-shrink-0" aria-hidden="true" />
+            <MdAccessTime className="w-6 h-6 text-orange-800 flex-shrink-0" aria-hidden="true" />
             <div>
               <div className="text-sm font-medium text-gray-900">Opening hours</div>
               <ul className="mt-1 text-sm text-gray-600 space-y-0.5">
