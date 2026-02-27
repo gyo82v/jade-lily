@@ -1,15 +1,15 @@
 Jade Lily implementation list:
 
-- [Content] [Home] instead of having three links, build three different section for each
-            link. Each with a title, description, link and background.
-- [Content] [Home] add a dine in section: it should include a description of the dine in 
-            atmosphere, staff, fast service, quiet corners, background pic.
-- [Content] [Home] add a favorite dishes section. include at least 3 dishes with image, title
-            and description. use an automatic slider to show each dish.
-- [Content] [Home] add a "value points" section at the end of the page. Include something like :
-            fresh igredients, friendly staff, authentic recipes etc.. each with a title and description.
-- [Content] [Home] add a "create an account section" in the bottom of the page with a title, 
-            description and a link to create an account.
+- [✅] {Content}{Home} instead of having three links, build three different section for each
+        link. Each with a title, description, link and background.
+- [✅] {Content}{Home} add a dine in section: it should include a description of the dine in 
+        atmosphere, staff, fast service, quiet corners, background pic.
+- [✅] {Content}{Home} add a favorite dishes section. include at least 3 dishes with image, title
+        and description. use an automatic slider to show each dish.
+- [✅] {Content}{Home} add a "value points" section at the end of the page. Include something like :
+        fresh igredients, friendly staff, authentic recipes etc.. each with a title and description.
+- [✅] {Content}{Home} add a "create an account section" in the bottom of the page with a title, 
+        description and a link to create an account.
 - [✅] {Content}{About} in desktop screen, add an image/photo/logo in the rigth side of the 
         existing top image.
 - [✅] {Style}{About} desktop screens, fix the links section in the bottom of the page.
@@ -75,9 +75,10 @@ Jade Lily implementation list:
 - [✅] {Fix}{Footer} fix the layout of the footer for :md screens. Either add the separator or change
         to horizontal layout.
 - [Image][homepage] add a background image in the homepage, in the dine in section.
+- [Image][Homepage] find a better image for the hero section in the homepage.
 - [Test] run the lighthouse test in google chrome.
 - [Test] test the global not-found page in production mode.
-- [A11y] [home] check the page for accessibility
+- [✅] {A11y}{Home} check the page for accessibility
 - [A11y] [About] check the page for accessibility
 - [✅] {A11y}{Menu} check the page for accessibility
 - [✅] {A11y}{Menu/details} check the page for accessibility
