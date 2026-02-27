@@ -1,6 +1,5 @@
 export const sliderData = [
     {
-        available : true,
         category : "mains",
         description : `Succulent salmon steak topped with juicy shrimp,
                        finished with lemon and fresh herbs. A delightful combination that’s
@@ -18,7 +17,6 @@ export const sliderData = [
         type : "Regular"
     },
     {
-        available : true,
         category : "sides",
         description : `A reasonable portion of classic fries, perfectly seasoned
                        and crisp. This timeless side dish is a must-have for any meal.`,
@@ -34,7 +32,6 @@ export const sliderData = [
         type : "Starter"
     },
     {
-        available : true,
         category : "mains",
         description : `Traditional lasagna layered with a rich and savory bolognese sauce.
                        This comforting dish is a favorite for its hearty flavors and cheesy goodness.`,
@@ -51,7 +48,6 @@ export const sliderData = [
         type : "Regular"
     },
     {
-        available : true,
         category : "sides",
         description : `A classic feta cheese salad with fresh lettuce, crunchy onion,
                        juicy tomatoes, and olives. A delightful mix of flavors and textures
@@ -69,7 +65,6 @@ export const sliderData = [
         type : "Salad"
     },
     {
-        available : true,
         category : "desserts",
         description : `A classic premium tiramisu with layers of coffee-soaked ladyfingers,
                        rich mascarpone cream, and a dusting of cocoa powder. An Italian dessert classic.`,
@@ -87,7 +82,6 @@ export const sliderData = [
         type : "Choco"
     },
     {
-        available : true,
         category : "desserts",
         description : `A chocolate and cream gelato with three alternating layers
                        of chocolate and cream, topped with a dusting of chocolate.
