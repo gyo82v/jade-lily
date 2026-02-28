@@ -55,7 +55,7 @@ export function DineInSection() {
           </div>
 
           {/* Right: testimonial / highlights */}
-          <aside className="text-orange-50">
+          <aside className="text-orange-50 hidden lg:block">
             <div className="bg-white/6 p-6 rounded-lg border border-white/10">
               <blockquote className="text-sm italic leading-relaxed">
                 “Lovely atmosphere — the perfect mix of calm and cozy. Service was fast and friendly.”

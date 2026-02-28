@@ -7,8 +7,8 @@ import { useActionState, useRef } from "react";
 
 export function ContactUsForm(){
     const formRef = useRef<HTMLFormElement>(null);
-    const formStyle = `bg-gradient-to-br from-orange-100 to-orange-50 shadow-md rounded-lg 
-                       px-4 py-8 mt-10`
+    const formStyle = `grad-primary shadow-md rounded-lg max-w-lg w-full
+                       px-4 py-8 mt-10 md:px-8`
     const [status, submitAction, isPending] = useActionState((prev:string | null, formData:FormData) => {
       const name = (formData.get("name") as string) ?? "";
       const email = (formData.get("email") as string) ?? "";
@@ -19,7 +19,7 @@ export function ContactUsForm(){
       if (!email || !/^\S+@\S+\.\S+$/.test(email)) return "Please provide a valid email.";
       if (!subject.trim()) return "Please provide a subject.";
       if (!message.trim()) return "Please write a message.";
-      
+
       formRef.current?.reset();
 
       return "success";
@@ -32,7 +32,7 @@ export function ContactUsForm(){
             </p>
             {status === "success" && (
               <div role="status" aria-live="polite" className="text-green-600 font-semibold text-center">
-                 Message sent successfully. Thank you for contacting us!
+                Thank you for contacting us! (demo, no message was sent)
              </div>
             )}
             <div className="flex flex-col gap-2 mb-6">

@@ -44,7 +44,7 @@ export function CreateAccountCard() {
                 <div>
                   <div className="text-sm font-medium text-gray-900 lg:text-lg">
                     {typeof profile?.jadeLilyCredit !== 'undefined'
-                      ? `${profile.jadeLilyCredit} JadeLily credit`
+                      ? `${profile.jadeLilyCredit}£  JadeLily credit`
                       : 'No credits yet'}
                   </div>
                   <div className="text-xs text-gray-500">Credits are demo data for this portfolio.</div>

@@ -25,8 +25,8 @@ export function ReservationForm(){
         router.replace(`/account/settings?reserved=1&date=${exactDate}&time=${exactTime}`)
         return null
     }, null)
-    const formStyle = `bg-gradient-to-br from-orange-100 to-orange-50 shadow-md rounded-lg 
-                       px-4 py-8 mt-10 `
+    const formStyle = `grad-primary max-w-xl shadow-md rounded-lg 
+                       px-4 py-8 mt-10 w-full md:px-8 `
     function todayString() {
         const d = new Date();
         return d.toISOString().split("T")[0];
