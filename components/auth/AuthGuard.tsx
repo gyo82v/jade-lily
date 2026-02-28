@@ -3,7 +3,6 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/firebase/authProvider";
-import { Spinner } from "@/components/ui";
 
 type Props = {
   children: React.ReactNode;
@@ -23,7 +22,6 @@ export default function AuthGuard({ children, redirectTo = "/sign-in" }: Props) 
   if (loading || !user) {
     return (
       <div className="min-h-screen flex items-center justify-center p-8">
-        <Spinner />
         <p>Checking authentication…</p>
       </div>
     );
