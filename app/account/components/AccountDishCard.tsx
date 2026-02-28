@@ -11,9 +11,10 @@ import type { DishProps } from "@/types";
 type Props = {
   dish: DishProps;
   userId: string;
+  priority?: boolean;
 };
 
-export default function AccountDishCard({ dish, userId }: Props) {
+export default function AccountDishCard({ dish, userId, priority = false }: Props) {
   const imgSrc =
     dish.imageUrlThumb || dish.imageUrlFull || "/images/placeholder.png";
 
@@ -47,6 +48,7 @@ export default function AccountDishCard({ dish, userId }: Props) {
               alt={dish.name}
               fill
               sizes="(max-width: 768px) 112px, (max-width: 1024px) 320px, 400px"
+              priority={priority}
               className="
                 object-cover w-full h-full
                 transition-transform duration-300

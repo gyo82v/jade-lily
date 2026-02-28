@@ -21,7 +21,7 @@ export default function DeleteAccountPage() {
             return "Something went wrong."
         }
     }, null)
-    const containerStyle = `bg-gradient-to-br from-orange-100 to-orange-50 shadow-md rounded-lg
+    const containerStyle = `grad-primary shadow-md rounded-lg max-w-xl
                             p-4 flex flex-col w-11/12 mt-16`
     return(
     <form action={submitAction} className={containerStyle}>
