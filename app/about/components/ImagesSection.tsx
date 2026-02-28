@@ -10,6 +10,7 @@ export default function ImagesSection(){
                     height={1024} 
                     alt={`Jade Lily Restaurant garden dining area with tables and chairs.`} 
                     className="md:h-120" 
+                    priority
                 />
             </figure>
              <figure className="hidden lg:flex lg:flex-2">
