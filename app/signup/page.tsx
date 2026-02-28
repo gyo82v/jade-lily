@@ -7,10 +7,10 @@ export default function SignupPage() {
 
   return (
     <ClientProviders>
-        <section className="p-4 mx-auto max-w-lg mt-14 flex flex-col w-full">
+        <section className="grad-primary md:mt-20 h-110 mb-10 shadow-lg w-11/12 p-4 mx-auto max-w-lg mt-14 flex flex-col ">
             <h1 className="text-xl font-bold">Create new account</h1>
             <SignupForm />
-            <p className="text-center">
+            <p className="text-center mt-4">
               Already have an account?
               <Link href="/sign-in" className={link}>Sign in now</Link>
             </p>
