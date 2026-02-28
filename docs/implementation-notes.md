@@ -45,8 +45,8 @@ Jade Lily implementation list:
 - [✅] {images}{menu} replace the kiwi delight images with chatgpt.
 - [✅] {Style}{Account/dashboard} improve the style of each section.
 - [✅] {Style}{Account/settings} style the settings page for desktop.
-- [Style] [Account/deleteAccount] style the form for desktop.
-- [Style] [Account/booktable] Style the form for desktop.
+- [✅] {Style}{Account/deleteAccount} style the form for desktop.
+- [✅] {Style}{Account/booktable} Style the form for desktop.
 - [✅] {Style}{Account/cart} Style the page for desktop.
 - [✅] {Style}{Account/orders} Style the page for desktop.
 - [✅] {Style}{Account/cartAndOrders} Style the page in the case there are no items in the carts/orders.
@@ -62,16 +62,17 @@ Jade Lily implementation list:
 - [✅] {Content}{menuAndAccount} create a separator, for example a lily to separete the header navbar and the page 
         navbar.
 - [✅] {Fix}{About} fix the "join-us" link. if a user is logged in it shouldnt link to the sign in page
-- [Fix] add a spinner component in every button that do an async operation
-- [Fix] fix the loading state of each page. at the moment there is only a big spinner in the left/center
+- [✅] {Style}{SignOut} style the signout component for mobile and desktop
+- [✅] {Fix} add a spinner component in every button that do an async operation
+- [✅] {Fix} fix the loading state of each page. at the moment there is only a big spinner in the left/center
         of the page.
-- [Fix][Account/cart] when placing an order add a message when there are not enough credit to complete the 
-       transaction;
+- [✅] {Fix}{Account/cart} when placing an order add a message when there are not enough credit to complete the 
+        transaction;
 - [✅] {Fix}{Menu} when the user clicks a dish that is at the bottom of the page, should be redirected to the
         top of the dish ditails page and not the bottom
-- [fix] test and fix the console warning message about the "Largest Contentful Paint" detected.   
+- [✅] {Fix} test and fix the console warning message about the "Largest Contentful Paint" detected.   
 - [Fix] the side scrollbar should be visible in desktop and not in mobile.
-- [Fix] [Signup] the signup page should not be available for logged in users;
+- [✅] {Fix}{Signup/Sign-in} the signup/sign-in page should not be available for logged in users;
 - [✅] {Fix}{Footer} fix the layout of the footer for :md screens. Either add the separator or change
         to horizontal layout.
 - [Image][homepage] add a background image in the homepage, in the dine in section.
@@ -85,7 +86,7 @@ Jade Lily implementation list:
 - [✅] {A11y}{Account/dashboardAndSettings} check the page for accessibility
 - [✅] {A11y}{Account/menu} check the page for accessibility.
 - [✅] {A11y}{Account/cartAndOrders} check the page for accessibility.
-- [A11y] [forms] check all the forms for accessibility : sign-in, sign-up, sign-out, add-credit,
+- [✅] {A11y}{forms} check all the forms for accessibility : sign-in, sign-up, sign-out, add-credit,
          book-table, delete-accout, contact-us
 - [Clean] Clean tailwind variables from components
 - [Clean] Clean types form components, declare the type in the types folder.
@@ -102,3 +103,4 @@ Jade Lily implementation list:
 - [Optional] [Header] Improve the header navbar on mobile : add an avatar account at the top of the page,
                       add socials links at the bottom of the page. improve animations when the panel close/open.
 - [Optional] [Account/settings] add a reset password option.
+- [Optional] [password/inputs] add the icon in the right of the input to allow to see the password.

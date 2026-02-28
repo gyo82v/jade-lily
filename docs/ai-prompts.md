@@ -1,34 +1,30 @@
-perfect thank you.
-tha component is already almost completes.
-the only issue is the hegit of the component that in desktops is not 
-the same as the LocationHours component. it is way smaller in both cases, either with logged in 
-users or no users.
+ok, thank you.
 
-here is the page.tsx :
-<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Hero />
-      <ActionState />
-      <Suspense fallback={<div className="h-48 bg-gray-100 rounded animate-pulse" aria-hidden="true" />}>
-        <DishSlider />
-      </Suspense>
-      <ValuePoints />
-      <DineInSection />
-      <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-stretch">
-        <ClientProviders>
-          <CreateAccountCard />
+i have an AuthGuard that will give access to the user.
+
+for example here in the /account layout :
+
+  <ClientProviders>
+            <AuthGuard>
+                <div className="flex flex-col items-center mx-auto w-full md:px-6 lg:px-10 xl:px-16">
+                    <AccountNavbar />
+                    <div aria-hidden="true" className="w-full">
+                      <div className="hidden md:block max-w-5xl mx-auto px-6">
+                        <div className="h-px bg-gradient-to-r from-transparent via-orange-200/40 to-transparent" />
+                      </div>
+                      <div className="md:hidden">
+                       <div className="h-px bg-gradient-to-r from-transparent via-orange-200/40 to-transparent" />
+                      </div>
+                    </div>
+                    <div className="flex flex-col flex-1 items-center w-full ">
+                        {children}
+                    </div>
+                </div>
+            </AuthGuard>
         </ClientProviders>
-        <LocationHours />
-      </div>
-    </div>
-
-    how can we make both components take up the same height ?
 
 
+and then in any of the childre components :
 
-
-
-
-
-
-
-   
+import { useAuth } from "@/firebase/authProvider";
+const {user, profile, loading } = useAuth();
