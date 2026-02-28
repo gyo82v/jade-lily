@@ -39,6 +39,7 @@ export function DishCard({ data, priority = false }: Props) {
               fill
               className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
               priority={priority}
+              sizes="(max-width: 768px) 112px, (max-width: 1024px) 320px, 400px"
             />
           </figure>
 
