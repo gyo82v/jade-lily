@@ -15,6 +15,7 @@ export default function SocialsNavbar(){
                       target="_blank" 
                       className={aStyle}
                       rel="noopener noreferrer"
+                      title="Facebook"
                     >
                         <FaFacebook />
                     </a>
@@ -25,6 +26,7 @@ export default function SocialsNavbar(){
                       target="_blank" 
                       rel="noopener noreferrer"
                       className={aStyle}
+                      title="instagram"
                     >
                         <FaInstagram />
                     </a>
@@ -35,6 +37,7 @@ export default function SocialsNavbar(){
                       target="_blank" 
                       rel="noopener noreferrer"
                       className={aStyle}
+                      title="TikTok"
                     >
                         <FaTiktok />
                     </a>
@@ -45,6 +48,7 @@ export default function SocialsNavbar(){
                       target="_blank" 
                       rel="noopener noreferrer"
                       className={aStyle}
+                      title="Twitter"
                     >
                         <FaXTwitter />
                     </a>

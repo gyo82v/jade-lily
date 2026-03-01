@@ -71,16 +71,16 @@ Jade Lily implementation list:
 - [✅] {Fix}{Menu} when the user clicks a dish that is at the bottom of the page, should be redirected to the
         top of the dish ditails page and not the bottom
 - [✅] {Fix} test and fix the console warning message about the "Largest Contentful Paint" detected.   
-- [Fix] the side scrollbar should be visible in desktop and not in mobile.
+- [✅] {Fix} the side scrollbar should be visible in desktop and not in mobile.
 - [✅] {Fix}{Signup/Sign-in} the signup/sign-in page should not be available for logged in users;
 - [✅] {Fix}{Footer} fix the layout of the footer for :md screens. Either add the separator or change
         to horizontal layout.
 - [Image][homepage] add a background image in the homepage, in the dine in section.
 - [Image][Homepage] find a better image for the hero section in the homepage.
-- [Test] run the lighthouse test in google chrome.
+- [✅] {Test} run the lighthouse test in google chrome.
 - [Test] test the global not-found page in production mode.
 - [✅] {A11y}{Home} check the page for accessibility
-- [A11y] [About] check the page for accessibility
+- [✅] {A11y}{About} check the page for accessibility
 - [✅] {A11y}{Menu} check the page for accessibility
 - [✅] {A11y}{Menu/details} check the page for accessibility
 - [✅] {A11y}{Account/dashboardAndSettings} check the page for accessibility
