@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { focusEffects, transitions } from "./styles";
 
 type TextAreaElProps = React.ComponentPropsWithoutRef<"textarea"> & {
   label?: string;
@@ -29,10 +30,8 @@ export function TextAreaEl({
   const baseStyle = `
     w-full rounded-md border border-orange-300 bg-orange-50 px-3 py-2
     text-sm shadow-sm placeholder:text-orange-300
-    transition-all duration-200 ease-in-out
     hover:border-orange-400 hover:shadow-md
-    focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-400
-    focus:bg-orange-100
+    ${focusEffects} ${transitions}
     disabled:cursor-not-allowed disabled:opacity-50
   `;
 

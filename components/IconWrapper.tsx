@@ -1,13 +1,5 @@
-import React from "react";
 import { transitions, focusEffects } from "@/components/styles";
-
-export type IconWrapperProps = {
-  className?: string;
-  type?: string | undefined;
-  children: React.ReactNode;
-  interactive?: boolean;
-  active?: boolean;
-};
+import type { IconWrappersProps } from "@/types";
 
 export function IconWrapper({
   className = "",
@@ -15,7 +7,7 @@ export function IconWrapper({
   children,
   interactive = false,
   active = false,
-}: IconWrapperProps) {
+}: IconWrappersProps) {
   const gradientAndText =
     type === "Vegetarian"
       ? "from-green-200 via-green-300 to-green-500 text-green-800"

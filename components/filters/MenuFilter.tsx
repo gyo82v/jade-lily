@@ -5,16 +5,11 @@ import { renderIcon } from "@/lib/utilsIcons";
 import { IconWrapper } from "../IconWrapper";
 import type { FC } from "react";
 import { FiRefreshCw } from "react-icons/fi";
-
-type Props = {
-  array: string[];
-  pathname: string;
-  params: string | string[] | undefined;
-};
+import type { MenuFiltersProps } from "@/types";
 
 const MOBILE_TWO_ROW_THRESHOLD = 6;
 
-export const MenuFilter: FC<Props> = ({ array, pathname, params }) => {
+export const MenuFilter: FC<MenuFiltersProps> = ({ array, pathname, params }) => {
   const activeParam =
     Array.isArray(params) && params.length > 0
       ? String(params[0])

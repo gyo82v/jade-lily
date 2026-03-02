@@ -1,15 +1,11 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/firebase/authProvider";
+import type { AuthProps } from "@/types";
 
-type Props = {
-  children: React.ReactNode;
-  redirectTo?: string;
-};
-
-export default function AuthGuard({ children, redirectTo = "/sign-in" }: Props) {
+export default function AuthGuard({ children, redirectTo = "/sign-in" }: AuthProps) {
   const { user, loading } = useAuth();
   const router = useRouter();
 

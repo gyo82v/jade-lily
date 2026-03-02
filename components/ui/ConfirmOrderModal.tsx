@@ -1,20 +1,9 @@
-// components/ui/ConfirmOrderModal.tsx
 "use client";
 
-import React, { useEffect, useRef, KeyboardEvent } from "react";
+import { useEffect, useRef, KeyboardEvent } from "react";
 import { Button } from "@/components";
 import { FiX } from "react-icons/fi";
-
-type Props = {
-  open: boolean;
-  title?: string;
-  children?: React.ReactNode;
-  confirmLabel?: string;
-  cancelLabel?: string;
-  isLoading?: boolean;
-  onClose: () => void;
-  onConfirm: () => Promise<void> | void;
-};
+import type { ModalConfirmOrderProps } from "@/types";
 
 export default function ConfirmOrderModal({
   open,
@@ -25,7 +14,7 @@ export default function ConfirmOrderModal({
   isLoading = false,
   onClose,
   onConfirm,
-}: Props) {
+}: ModalConfirmOrderProps) {
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const previouslyFocused = useRef<Element | null>(null);
 
@@ -99,7 +88,8 @@ export default function ConfirmOrderModal({
         ref={dialogRef}
         tabIndex={-1}
         onKeyDown={onKeyDown}
-        className="relative z-10 max-w-2xl w-full mx-4 md:mx-0 bg-white rounded-lg shadow-2xl p-4 md:p-6 focus:outline-none"
+        className={`relative z-10 max-w-2xl w-full mx-4 md:mx-0
+                  bg-white rounded-lg shadow-2xl p-4 md:p-6 focus:outline-none`}
       >
         <div className="flex items-start justify-between gap-4">
           <h3 id="confirm-dialog-title" className="text-lg font-semibold text-orange-800">

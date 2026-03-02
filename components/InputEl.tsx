@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { focusEffects, transitions } from "./styles";
 
 type InputElProps = React.ComponentPropsWithoutRef<"input"> & {
   label?: string;
@@ -19,11 +20,9 @@ export function InputEl({label, error, describedby, className = "", id, ...rest}
   const baseStyle = `
     w-full rounded-md border border-orange-300 bg-orange-50 px-3 py-2
     text-sm shadow-sm placeholder:text-orange-300
-    transition-all duration-200 ease-in-out
     hover:border-orange-400 hover:shadow-md
-    focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-400
-    focus:bg-orange-100
     disabled:cursor-not-allowed disabled:opacity-50
+    ${focusEffects} ${transitions} focus:bg-orange-100
   `;
 
   const errorStyle = error
@@ -61,30 +60,3 @@ export function InputEl({label, error, describedby, className = "", id, ...rest}
     </div>
   );
 }
-
-
-
-
-
-
-
-/*
-"use client"
-type InputElProps = React.ComponentPropsWithoutRef<"input"> & {
-  label?: string;
-  error?: string;
-};
-
-
-export function InputEl({label, error, type, name, id, className="", ...rest}: InputElProps){
-    const inputId = id || name;
-
-    const style = `border border-orange-300 rounded-md p-2 w-full shadow-md bg-orange-50
-                   focus:outline-none focus:ring-2 focus:ring-orange-300 focus:bg-orange-100 
-                   focus:shadow-xl focus:scale-105 focus:text-lg 
-                   transition-transform transition-colors transition-shadow duration-300 ease-in-out
-                   hover:border-orange-400 hover:shadow-lg `;
-    return(
-        <input className={`${style} ${className}`} type={type} name={name} id={id} {...rest} />
-    )
-}*/

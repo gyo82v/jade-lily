@@ -1,8 +1,4 @@
-type DefaultAvatarProps = {
-  className?: string;
-};
-
-export function DefaultAvatar({ className = "" }: DefaultAvatarProps) {
+export function DefaultAvatar({ className = "" }: {className? : string}) {
   return (
     <svg
       viewBox="0 0 24 24"

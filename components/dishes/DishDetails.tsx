@@ -1,11 +1,7 @@
 import type { DishProps } from "@/types";
 import { renderStars } from "@/lib/utilsIcons";
 
-type Props = {
-  data: DishProps | null;
-};
-
-export function DishDetails({ data }: Props) {
+export function DishDetails({ data }: {data : DishProps | null}) {
   if (!data) return <p>Data not available</p>;
 
   const { description, tags, rating } = data;

@@ -7,9 +7,7 @@ import { useState, useCallback} from "react"
 import { HiCheck } from "react-icons/hi";
 import { Button } from "../Button"
 
-type Props = {data : DishProps}
-
-export function DishDetailsFooter({data}:Props){
+export function DishDetailsFooter({data}:{data: DishProps}){
     const {user, addToCart} = useAuth()
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)

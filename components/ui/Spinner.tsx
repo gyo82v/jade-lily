@@ -1,7 +1,4 @@
-type Props = {
-    className?: string;
-}   
-export function Spinner({className=""}: Props){
+export function Spinner({className=""}: {className? : string}){
     return(
     <svg
       className={`animate-spin ${className}`}

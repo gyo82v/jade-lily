@@ -1,18 +1,14 @@
 "use client"
 
-import { ReactNode, useEffect } from "react"
+import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/firebase/authProvider"
-
-type Props = {
-  children: ReactNode
-  redirectTo?: string
-}
+import type {AuthProps} from "@/types"
 
 export default function GuestAuth({
   children,
   redirectTo = "/account",
-}: Props) {
+}: AuthProps) {
   const { user, loading } = useAuth()
   const router = useRouter()
 

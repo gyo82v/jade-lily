@@ -31,15 +31,16 @@ export function AddCreditForm() {
         }
     }, null)
 
-    const formStyle = `bg-gradient-to-br from-orange-100 to-orange-50 shadow-md rounded-lg 
-                       px-4 py-8 mt-10`
-
     return(
         <>
         <p id="add-credit-help" className="sr-only">
            Enter an amount and payment details to add credit to your account.
         </p>
-        <form action={submitAction} className={formStyle} aria-describedby="add-credit-help">
+        <form 
+          action={submitAction} 
+          className="grad-primary shadow-md rounded-lg px-4 py-8 mt-10" 
+          aria-describedby="add-credit-help"
+        >
             <div className="flex flex-col gap-2">
                 <InputEl 
                   label="Credit Amount:" 

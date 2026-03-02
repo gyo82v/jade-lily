@@ -1,16 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { renderIcon } from "@/lib/utilsIcons";
-import type { DishProps } from "@/types";
 import { IconWrapper } from "../IconWrapper";
 import { transitions, focusEffects } from "@/components/styles";
+import type { DishCardProps } from "@/types";
 
-type Props = {
-  data: DishProps;
-  priority?: boolean;
-};
-
-export function DishCard({ data, priority = false }: Props) {
+export function DishCard({ data, priority = false }: DishCardProps) {
   const { slug, imageUrlThumb, description, name, type, price, category } = data;
   const titleId = `dish-title-${slug}`;
 

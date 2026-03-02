@@ -4,7 +4,7 @@ import { renderStars } from "@/lib/utilsIcons";
 export function Review({author, rating, children, date=""}:ReviewProps){
 
     return(
-        <article className="bg-gradient-to-br from-orange-100 to-orange-50 rounded-lg shadow-lg 
+        <article className="grad-primary rounded-lg shadow-lg 
                             p-4 flex flex-col gap-5 max-w-140">
             <header>{renderStars(rating)}</header>
             <p className="italic text-sm">

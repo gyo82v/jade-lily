@@ -1,16 +1,11 @@
-
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { transitions, focusEffects } from "@/components/styles";
+import type { DishDetailsNavbarProps } from "@/types";
 
-type Props = {
-  slug: string;
-  category?: string | null;
-};
-
-export function DishDetailsNavbar({ slug, category }: Props) {
+export function DishDetailsNavbar({ slug, category }: DishDetailsNavbarProps) {
   const pathname = usePathname() ?? "";
   const base = category ? `/menu/${category}/${slug}` : `/menu/${slug}`;
 
@@ -32,7 +27,8 @@ export function DishDetailsNavbar({ slug, category }: Props) {
                 aria-current={isActive ? "page" : undefined}
                 role="tab"
                 className={`inline-flex items-center px-3 py-1.5 rounded-full ${transitions} ${focusEffects} ${
-                  isActive ? "bg-amber-200 text-amber-900 font-semibold" : "text-stone-700 hover:bg-stone-50"
+                  isActive ? "bg-amber-200 text-amber-900 font-semibold" :
+                             "text-stone-700 hover:bg-stone-50"
                 }`}
               >
                 {t.label}

@@ -7,8 +7,6 @@ import { useActionState, useRef } from "react";
 
 export function ContactUsForm(){
     const formRef = useRef<HTMLFormElement>(null);
-    const formStyle = `grad-primary shadow-md rounded-lg max-w-lg w-full
-                       px-4 py-8 mt-10 md:px-8`
     const [status, submitAction, isPending] = useActionState((prev:string | null, formData:FormData) => {
       const name = (formData.get("name") as string) ?? "";
       const email = (formData.get("email") as string) ?? "";
@@ -26,7 +24,12 @@ export function ContactUsForm(){
 
     }, null)
     return(
-        <form ref={formRef} className={formStyle} action={submitAction} aria-describedby="contact-help">
+        <form 
+          ref={formRef} 
+          className="grad-primary shadow-md rounded-lg max-w-lg w-full px-4 py-8 mt-10 md:px-8" 
+          action={submitAction} 
+          aria-describedby="contact-help"
+        >
             <p id="contact-help" className="sr-only">
                Fill in the form to send us a message. All fields are required.
             </p>
@@ -39,7 +42,12 @@ export function ContactUsForm(){
                 <InputEl label="Name:" type="text" name="name" id="name-input" disabled={isPending}/>
                 <InputEl label="Email:" type="email" name="email" id="email-input" disabled={isPending} />
                 <InputEl label="Subject:" type="text" name="subject" id="subject-input" disabled={isPending} />
-                <TextAreaEl label="Message:" name="message" disabled={isPending} placeholder="Write your message here..."/>
+                <TextAreaEl 
+                  label="Message:" 
+                  name="message" 
+                  disabled={isPending} 
+                  placeholder="Write your message here..."
+                />
             </div>
 
              {status && status !== "success" && (

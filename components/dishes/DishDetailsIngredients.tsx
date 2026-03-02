@@ -1,10 +1,6 @@
+import type { DishDetailsIngredientsProps } from "@/types";
 
-type Props = {
-  ingredients?: string;
-  allergies?: string;
-};
-
-export function DishDetailsIngredients({ ingredients, allergies }: Props) {
+export function DishDetailsIngredients({ ingredients, allergies }: DishDetailsIngredientsProps) {
   return (
     <section className="bg-white rounded-lg p-4 shadow-sm">
       <h2 className="text-lg font-semibold mb-2">Ingredients</h2>

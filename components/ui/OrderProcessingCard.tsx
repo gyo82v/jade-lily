@@ -3,14 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components";
 import { FaSpinner, FaCheckCircle } from "react-icons/fa";
-
-type Props = {
-  visible: boolean;
-  onClose: () => void;
-  storageKey?: string;
-  durationMs?: number;
-  autoDismissMs?: number;
-};
+import type { OrderProcessingCardProps } from "@/types";
 
 const DEFAULT_STORAGE_KEY = "jade_processing_order";
 const DEFAULT_DURATION = 30_000;
@@ -22,7 +15,7 @@ export default function OrderProcessingCard({
   storageKey = DEFAULT_STORAGE_KEY,
   durationMs = DEFAULT_DURATION,
   autoDismissMs = DEFAULT_AUTO_DISMISS,
-}: Props) {
+}: OrderProcessingCardProps) {
   const [progress, setProgress] = useState<number>(0);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
 

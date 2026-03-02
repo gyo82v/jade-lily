@@ -1,11 +1,6 @@
+import type { NavbarPropsNew } from "@/types"
 
-type Props = {
-    className? : string
-    children : React.ReactNode
-    classNameUl? : string
-}
-
-export function Navbar({children, className, classNameUl}: Props){
+export function Navbar({children, className, classNameUl}: NavbarPropsNew){
     const nav = `max-w-full overflow-x-auto overflow-y-hidden scrollbar-hide`
     const ul = `inline-flex whitespace-nowrap min-w-max `
     return(

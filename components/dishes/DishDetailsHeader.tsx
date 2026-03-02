@@ -1,12 +1,7 @@
-
 import type { DishProps } from "@/types";
 import { DishDetailsNavbar } from "@/components/navbars/DishDetailsNavbar";
 
-type Props = {
-  data: DishProps | null;
-};
-
-export function DishDetailsHeader({ data }: Props) {
+export function DishDetailsHeader({ data }: {data : DishProps | null}) {
   if (!data) return <p>No data available</p>;
 
   const { name, price, category, slug } = data;
@@ -15,7 +10,11 @@ export function DishDetailsHeader({ data }: Props) {
     <header>
       <div className="flex flex-row items-center justify-between gap-3">
         <div>
-          <h1 id="dish-page-title" className="text-2xl md:text-3xl lg:text-4xl font-dancing font-bold leading-tight text-orange-800">
+          <h1 
+            id="dish-page-title" 
+            className={`text-2xl md:text-3xl lg:text-4xl font-dancing
+                        font-bold leading-tight text-orange-800`}
+          >
             {name}
           </h1>
           <div className="mt-2 flex items-center gap-3">

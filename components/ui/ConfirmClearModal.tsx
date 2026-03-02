@@ -1,20 +1,9 @@
-// components/ui/ConfirmClearModal.tsx
 "use client";
 
-import React, { useEffect, useRef, KeyboardEvent } from "react";
+import { useEffect, useRef, KeyboardEvent } from "react";
 import { Button } from "@/components";
 import { FiX, FiAlertTriangle } from "react-icons/fi";
-
-type Props = {
-  open: boolean;
-  title?: string;
-  children?: React.ReactNode;
-  confirmLabel?: string;
-  cancelLabel?: string;
-  isLoading?: boolean;
-  onClose: () => void;
-  onConfirm: () => Promise<void> | void;
-};
+import type { ModalConfirmClearProps } from "@/types";
 
 export default function ConfirmClearModal({
   open,
@@ -25,7 +14,7 @@ export default function ConfirmClearModal({
   isLoading = false,
   onClose,
   onConfirm,
-}: Props) {
+}: ModalConfirmClearProps) {
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const previouslyFocused = useRef<Element | null>(null);
 
@@ -83,7 +72,8 @@ export default function ConfirmClearModal({
         ref={dialogRef}
         tabIndex={-1}
         onKeyDown={onKeyDown}
-        className="relative z-10 max-w-md w-full mx-4 bg-white rounded-lg shadow-2xl p-4 md:p-6 focus:outline-none"
+        className={`relative z-10 max-w-md w-full mx-4 bg-white rounded-lg
+                    shadow-2xl p-4 md:p-6 focus:outline-none`}
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">

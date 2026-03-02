@@ -1,4 +1,3 @@
-// components/BackLink.tsx (replace your current file with this)
 "use client";
 
 import React from "react";
@@ -20,27 +19,12 @@ function isAccountMenu(path: string) {
   return path.startsWith("/account") && path.includes("/menu");
 }
 
-/**
- * Return the "base" category path (no query, no extra child)
- * Example: "/menu/desserts?type=fruits" -> "/menu/desserts"
- */
 function categoryBase(path: string): string | null {
   const m = path.match(/^\/menu(\/[^/?]+)?/);
   if (!m) return null;
   return m[0];
 }
 
-/**
- * Find the best previous path in session history.
- * Preference:
- * 1) category entries that include query (e.g. /menu/desserts?type=fruits)
- * 2) category entries without query (e.g. /menu/desserts)
- * 3) account menu pages
- * 4) any /menu or /account path
- *
- * Additionally: if we would return a category-without-query,
- * search earlier entries for a same-category entry that *does* include a query and prefer it.
- */
 function findBestPrevious(currentPath: string): string | null {
   if (typeof window === "undefined") return null;
   try {
@@ -157,57 +141,3 @@ export function BackLink({ fallbackHref, label = "Back to menu" }: Props) {
     </Link>
   );
 }
-
-
-
-
-/*
-"use client"
-
-import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FiArrowLeft } from 'react-icons/fi';
-import { pillStyle } from "./styles";
-
-type Props = {
-    fallbackHref: string;
-    label?: string;
-}
-
-export function BackLink({fallbackHref, label = "Back to menu"}: Props){
-    const router = useRouter();
-
-    function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
-        if(e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return 
-        e.preventDefault();
-
-        try{
-            const ref = document.referrer || "";
-            if(ref && ref.startsWith(window.location.origin)){
-                const refPath = new URL(ref).pathname
-                if(refPath.startsWith("/menu") || refPath.startsWith("/account")){
-                    router.back();
-                    return;
-                }   
-            }
-        }catch(err){
-            console.error("Error processing referrer:", err);
-        }
-        router.push(fallbackHref)
-    }
-    
-    return(
-        <Link
-          href={fallbackHref} 
-          onClick={handleClick}
-          aria-label={label}
-          className={`${pillStyle} hover:-translate-x-1`}
-        >
-          <FiArrowLeft className="h-4 w-4" aria-hidden="true" />
-          <span>{label}</span>
-        </Link>
-    )
-}
-
-*/
