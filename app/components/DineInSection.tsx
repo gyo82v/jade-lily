@@ -1,23 +1,23 @@
-// app/components/home/DineInSection.tsx
 import Link from 'next/link'
-import React from 'react'
+import { focusEffects } from '@/components/styles'
 
 export function DineInSection() {
   return (
     <section
       aria-labelledby="dinein-heading"
-      className="relative py-16 bg-[url('/dine-in-bg.png')] bg-cover bg-center bg-no-repeat"
+      className="relative py-16 bg-[url('/table.png')] bg-cover bg-center bg-no-repeat"
       style={{ backgroundColor: 'rgba(0,0,0,0.25)' }} // fallback color while image loads
     >
       {/* subtle overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none" />
+      <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/30
+                       to-transparent pointer-events-none `} />
 
       {/* Content wrapper (constrained) */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-2 items-center">
           {/* Left: copy */}
           <div className="text-white">
-            <h2 id="dinein-heading" className="text-3xl sm:text-4xl font-bold leading-tight">
+            <h2 id="dinein-heading" className="mt-8 sm:mt-0 text-3xl sm:text-4xl text-stone-900 sm:text-white font-black sm:font-bold leading-tight">
               A relaxed place to enjoy great food
             </h2>
 
@@ -47,7 +47,8 @@ export function DineInSection() {
             <div className="mt-8">
               <Link
                 href="/account/reservations"
-                className="inline-block rounded-md bg-white text-orange-800 px-5 py-3 font-semibold shadow hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
+                className={`inline-block rounded-md bg-white text-orange-800 px-5 py-3
+                            font-semibold shadow hover:opacity-95 ${focusEffects}`}
               >
                 Reserve a table
               </Link>
@@ -83,5 +84,3 @@ export function DineInSection() {
     </section>
   )
 }
-
-export default DineInSection

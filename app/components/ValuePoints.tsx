@@ -12,7 +12,8 @@ export function ValuePoints() {
           {valuePointsData.map(({ id, title, description, Icon }) => (
             <li
               key={id}
-              className="grad-primary rounded-lg p-4 flex items-start gap-4 shadow-sm hover:shadow-md transition-shadow duration-150"
+              className={`grad-primary rounded-lg p-4 flex items-start gap-4
+                          shadow-sm hover:shadow-md transition-shadow duration-150`}
             >
               <div className="flex-shrink-0">
                 <Icon className="w-8 h-8 text-orange-800" aria-hidden={true} />

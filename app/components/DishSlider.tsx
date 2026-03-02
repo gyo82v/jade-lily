@@ -3,30 +3,21 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
-import { sliderData as SLIDER_DATA } from '@/data/sliderData' // adjust path if needed
-
-type Dish = {
-  name: string
-  description?: string
-  origin?: string
-  imageUrlFull?: string
-  price?: number
-  type?: string
-  category?: string
-}
+import { sliderData as SLIDER_DATA } from '@/data/sliderData' 
+import type { SliderDish } from '@/types'
+import { focusEffects } from '@/components/styles'
 
 const AUTOPLAY_MS = 3500
 const SCROLL_END_DEBOUNCE = 120
 
 export function DishSlider() {
-  const data: Dish[] = SLIDER_DATA ?? []
+  const data: SliderDish[] = SLIDER_DATA ?? []
   const n = data.length
   const scrollerRef = useRef<HTMLDivElement | null>(null)
   const autoplayRef = useRef<number | null>(null)
   const scrollEndTimer = useRef<number | null>(null)
   const pauseRef = useRef(false)
   const [current, setCurrent] = useState(0) // normalized 0..n-1
-  const [ready, setReady] = useState(false)
 
   // Build slides: [last, ...data, first] so we can loop seamlessly
   const slides = n > 0 ? [data[n - 1], ...data, data[0]] : []
@@ -149,7 +140,6 @@ export function DishSlider() {
     // set to first real slide (index 1) AFTER next paint so layout is ready
     const t = window.setTimeout(() => {
       jumpToSlideIndex(1)
-      setReady(true)
       // slight extra tick to set correct current
       setTimeout(() => setCurrent(0), 50)
     }, 40)
@@ -208,11 +198,19 @@ export function DishSlider() {
         <h2 className="text-xl font-semibold text-gray-900">Favorite dishes</h2>
 
         <div className="flex items-center gap-2">
-          <button onClick={goPrev} aria-label="Previous" className="p-2 rounded-md bg-white shadow hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500">
+          <button 
+            onClick={goPrev} 
+            aria-label="Previous" 
+            className={`"p-2 rounded-md bg-white shadow hover:bg-gray-50 ${focusEffects}`}
+          >
             <MdChevronLeft className="w-6 h-6 text-gray-700" />
           </button>
 
-          <button onClick={goNext} aria-label="Next" className="p-2 rounded-md bg-white shadow hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500">
+          <button 
+            onClick={goNext} 
+            aria-label="Next" 
+            className={`"p-2 rounded-md bg-white shadow hover:bg-gray-50 ${focusEffects}`}
+          >
             <MdChevronRight className="w-6 h-6 text-gray-700" />
           </button>
         </div>
@@ -231,11 +229,22 @@ export function DishSlider() {
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {slides.map((dish, idx) => (
-            <div key={idx} className="snap-start flex-shrink-0 w-full box-border p-2" style={{ scrollSnapAlign: 'start' }}>
-              <article className="grad-primary rounded-lg shadow-sm overflow-hidden h-full flex flex-col min-w-0">
+            <div 
+              key={idx} 
+              className="snap-start flex-shrink-0 w-full box-border p-2" 
+              style={{ scrollSnapAlign: 'start' }}
+            >
+              <article className={`"grad-primary rounded-lg shadow-sm overflow-hidden
+                                    h-full flex flex-col min-w-0"`}>
                 <div className={imageWrapperClass}>
                   {dish.imageUrlFull ? (
-                    <Image src={dish.imageUrlFull} alt={dish.name} fill sizes="(max-width: 640px) 100vw, 800px" className="object-cover" />
+                    <Image 
+                      src={dish.imageUrlFull} 
+                      alt={dish.name} 
+                      fill 
+                      sizes="(max-width: 640px) 100vw, 800px" 
+                      className="object-cover" 
+                    />
                   ) : (
                     <div className="bg-gray-100 w-full h-full" />
                   )}
@@ -243,10 +252,14 @@ export function DishSlider() {
 
                 <div className="p-4 flex-1 flex flex-col min-w-0">
                   <h3 className="text-base font-semibold text-gray-900 line-clamp-1">{dish.name}</h3>
-                  <p className="mt-2 text-sm text-gray-600 flex-1 line-clamp-3">{dish.description ?? dish.origin}</p>
+                  <p className="mt-2 text-sm text-gray-600 flex-1 line-clamp-3">
+                    {dish.description ?? dish.origin}
+                  </p>
                   <div className="mt-3 flex items-center justify-between text-sm text-gray-500">
                     <div>{dish.type ?? dish.category}</div>
-                    <div className="font-medium text-gray-900">{typeof dish.price === 'number' ? `€${dish.price}` : ''}</div>
+                    <div className="font-medium text-gray-900">
+                      {typeof dish.price === 'number' ? `€${dish.price}` : ''}
+                    </div>
                   </div>
                 </div>
               </article>

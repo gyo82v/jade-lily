@@ -40,7 +40,10 @@ export function CreateAccountCard() {
               </div>
 
               <div className="flex items-center gap-4">
-                <MdAccountBalanceWallet className="w-8 h-8 text-orange-800 lg:w-10 lg:h-10" aria-hidden={true} />
+                <MdAccountBalanceWallet 
+                  className="w-8 h-8 text-orange-800 lg:w-10 lg:h-10" 
+                  aria-hidden={true} 
+                />
                 <div>
                   <div className="text-sm font-medium text-gray-900 lg:text-lg">
                     {typeof profile?.jadeLilyCredit !== 'undefined'
