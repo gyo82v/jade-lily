@@ -5,16 +5,10 @@ import { BackLink } from "@/components";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import type { ReactNode } from "react";
-import type { DishProps } from "@/types";
+import type { DishProps, SlugLayoutProps } from "@/types";
 import ScrollToTopAndFocus from "@/components/ScrollToTopAndFocus";
 
-type Props = {
-  slug: string;
-  children: ReactNode;
-};
-
-export default async function SlugLayout({ slug, children }: Props) {
+export default async function SlugLayout({ slug, children }: SlugLayoutProps) {
   const data: DishProps | null = await getItemBySlug(slug);
   if (!data) notFound();
 
@@ -74,7 +68,7 @@ export default async function SlugLayout({ slug, children }: Props) {
 
       <div className="w-full max-w-5xl">
         {/* Card container: grid with two columns on md+, fixed height on md+ */}
-        <div className="rounded-lg shadow-xl p-0 bg-transparent bg-gradient-to-br from-orange-100 to-orange-50">
+        <div className="rounded-lg shadow-xl p-0 bg-transparent grad-primary">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:h-[520px]">
             {/* LEFT: Image — always use imageUrlFull */}
             <div className="order-1 md:order-1">
