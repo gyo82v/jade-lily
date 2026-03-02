@@ -75,7 +75,7 @@ Jade Lily implementation list:
 - [✅] {Fix}{Signup/Sign-in} the signup/sign-in page should not be available for logged in users;
 - [✅] {Fix}{Footer} fix the layout of the footer for :md screens. Either add the separator or change
         to horizontal layout.
-- [Image][homepage] add a background image in the homepage, in the dine in section.
+- [✅][homepage] {Image}{Homepage} add a background image in the homepage, in the dine in section.
 - [Image][Homepage] find a better image for the hero section in the homepage.
 - [✅] {Test} run the lighthouse test in google chrome.
 - [Test] test the global not-found page in production mode.
@@ -88,8 +88,8 @@ Jade Lily implementation list:
 - [✅] {A11y}{Account/cartAndOrders} check the page for accessibility.
 - [✅] {A11y}{forms} check all the forms for accessibility : sign-in, sign-up, sign-out, add-credit,
          book-table, delete-accout, contact-us
-- [Clean] Clean tailwind variables from components
-- [Clean] Clean types form components, declare the type in the types folder.
+- [✅] {Clean} Clean tailwind variables from components
+- [✅] {Clean}Clean types form components, declare the type in the types folder.
 - [✅] {Optional}{Account/orders} add a status/track of the current order. example : a bar showing :
         preparing => in transit => completed. when a user clicks on the button "order now" in the 
         cart page it should redirect the user to the order page with the tracking of the order 
