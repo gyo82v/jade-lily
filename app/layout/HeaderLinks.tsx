@@ -25,13 +25,15 @@ export default function HeaderLinks({
       : pathname === href || (href !== "/" && pathname?.startsWith(href));
 
   // Desktop base
-  const desktopBase = `inline-block px-1 py-0.5 text-sm md:text-base lg:text-lg font-medium rounded-md ${transitions} ${focusEffects} leading-none`;
+  const desktopBase = `inline-block px-1 py-0.5 text-sm md:text-base lg:text-lg
+                       font-medium rounded-md ${transitions} ${focusEffects} leading-none`;
 
   const desktopInactive = `text-orange-800 hover:text-orange-900`;
   const desktopActive = `text-orange-900 underline decoration-orange-300 decoration-2 font-semibold`;
 
   // Mobile base: full-width, left-aligned, larger touch target
-  const mobileBase = `block w-full text-left px-4 py-3 rounded-md text-base font-medium ${transitions} ${focusEffects}`;
+  const mobileBase = `block w-full text-left px-4 py-3 rounded-md text-base font-medium
+                      ${transitions} ${focusEffects}`;
   const mobileInactive = `text-orange-800 hover:text-orange-900`;
   const mobileActive = `bg-orange-50 text-orange-900 font-semibold`;
 
