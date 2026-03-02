@@ -22,7 +22,9 @@ export default function AccountMenuNavbar() {
     return pathname.startsWith(href);
   }
 
-  const pillBase = `inline-flex items-center justify-center whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium transition-transform transition-colors duration-200 ease-in-out ${/* motion-reduce preserved elsewhere */ ""}`;
+  const pillBase = `inline-flex items-center justify-center whitespace-nowrap
+                    rounded-full px-3 py-1.5 text-sm font-medium transition-transform
+                    transition-colors duration-200 ease-in-out`;
   const pillInactive = `text-stone-700 bg-transparent ring-1 ring-stone-100 hover:bg-stone-50`;
   const pillActive = `bg-gradient-to-br from-orange-200 to-orange-100 text-amber-900 shadow-sm`;
 

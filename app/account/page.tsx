@@ -42,7 +42,12 @@ export default function AccountPage() {
               Manage your profile & preferences
             </p>
 
-            {email && <p className="mt-3 text-xs text-stone-500">Signed in as <span className="font-mono">{email}</span></p>}
+            {email && 
+            <p className="mt-3 text-xs text-stone-500">Signed in as 
+            <span className="font-mono">
+              {email}
+            </span>
+            </p>}
           </div>
 
           <div className="flex items-center justify-between">
@@ -63,8 +68,14 @@ export default function AccountPage() {
             <p className="text-lg font-semibold">Order online</p>
             <p className="mt-1 text-sm text-stone-600">Browse the menu and place an order</p>
             <ul className="mt-3 text-sm text-stone-600 space-y-1">
-              <li>{cartCount > 0 ? `You have ${cartCount} item${cartCount > 1 ? "s" : ""} in your cart` : "No items in cart"}</li>
-              <li>{ordersCount > 0 ? `You have ${ordersCount} past order${ordersCount > 1 ? "s" : ""}` : "No past orders"}</li>
+              <li>
+                {cartCount > 0 ? `You have ${cartCount} item${cartCount > 1 ? "s" : ""} in your cart` :
+                                 "No items in cart"}
+              </li>
+              <li>
+                {ordersCount > 0 ? `You have ${ordersCount} past order${ordersCount > 1 ? "s" : ""}` :
+                                   "No past orders"}
+              </li>
             </ul>
           </div>
 
@@ -83,7 +94,9 @@ export default function AccountPage() {
           <div>
             <p className="text-lg font-semibold">Your cart</p>
             <p className="mt-1 text-sm text-stone-600">
-              {cartCount > 0 ? `${cartCount} item${cartCount > 1 ? "s" : ""} waiting for checkout` : "Your cart is empty"}
+              {cartCount > 0 ?
+               `${cartCount} item${cartCount > 1 ? "s" : ""} waiting for checkout` :
+                "Your cart is empty"}
             </p>
           </div>
 

@@ -5,16 +5,9 @@ import AccountActionBtn from "./AccountActionBtn"
 import { HiPlus, HiCheck } from "react-icons/hi";
 import { useAuth } from "@/firebase/authProvider";
 import { Spinner } from "@/components/ui";
-import type { DishForCart } from "@/types";
+import type { CartBtn } from "@/types";
 
-type Props = {
-    userId : string
-    dish : DishForCart
-    amount? : number
-    className? : string
-}
-
-function AddToCartBtn({className, userId, dish, amount = 1}:Props){
+function AddToCartBtn({className, userId, dish, amount = 1}:CartBtn){
     const {addToCart} = useAuth()
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)

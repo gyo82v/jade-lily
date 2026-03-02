@@ -2,18 +2,12 @@
 
 import { useEffect, useState} from "react"
 import { getItems } from "@/firebase/dishCollectionClient"
-import type { DishProps } from "@/types"
+import type { DishProps, AccountMenuProps } from "@/types"
 import { useAuth } from "@/firebase/authProvider"
 import { MenuFilter } from "@/components/filters"
 import AccountDishList from "./AccountDishList"
 
-type Props = {
-    category? : string
-    pathname : string
-    params : Record<string, string | string[] | undefined>
-}
-
-export default function AccountMenuPage({category, params, pathname}:Props){
+export default function AccountMenuPage({category, params, pathname}:AccountMenuProps){
     const [dishes, setDishes] = useState<DishProps[]>([])
     const {user, loading} = useAuth()
     const filtersArr = [...new Set(dishes.map(dish => dish.type))]

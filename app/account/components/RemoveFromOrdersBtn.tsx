@@ -6,15 +6,9 @@ import AccountActionBtn from "./AccountActionBtn";
 import { Spinner } from "@/components/ui";
 import { useAuth } from "@/firebase/authProvider";
 import { MdDelete } from "react-icons/md";
+import type { OrdersRemoveBtn } from "@/types";
 
-
-type Props = {
-  userId: string;
-  orderId: string;
-  className?: string;
-};
-
-function RemoveFromOrdersBtn({ userId, orderId }: Props) {
+function RemoveFromOrdersBtn({ userId, orderId }: OrdersRemoveBtn) {
   const { removePastOrder } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 

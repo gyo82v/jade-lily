@@ -10,12 +10,7 @@ import OrderProcessingCard from "@/components/ui/OrderProcessingCard";
 import ConfirmClearModal from "@/components/ui/ConfirmClearModal";
 import { FaReceipt, FaUtensils } from "react-icons/fa";
 import { FiXCircle, FiShoppingBag } from "react-icons/fi";
-
-type Order = {
-  id: string;
-  dateLabel: string;
-  price: number | string;
-};
+import type { AccountOrder } from "@/types";
 
 export default function AccountOrdersPage() {
   const { user, profile, clearPastOrders } = useAuth();
@@ -33,10 +28,10 @@ export default function AccountOrdersPage() {
 
   if (!user) return <p>Loading...</p>;
 
-  const orders = (profile?.jadeLilyPastOrders ?? []) as Order[];
+  const orders = (profile?.jadeLilyPastOrders ?? []) as AccountOrder[];
 
   async function handleClearConfirm() {
-    if (isClearing) return;
+    if (!user || isClearing) return;
     setIsClearing(true);
     setClearError(null);
     try {
@@ -90,10 +85,13 @@ export default function AccountOrdersPage() {
               {orders.map((order) => (
                 <article
                   key={order.id}
-                  className={`flex gap-4 px-4 py-4 md:py-6 bg-white items-center shadow-lg rounded-lg w-full hover:shadow-xl`}
+                  className={`flex gap-4 px-4 py-4 md:py-6 bg-white items-center
+                              shadow-lg rounded-lg w-full hover:shadow-xl`}
                 >
                   <div
-                    className={`flex-shrink-0 w-16 h-16 rounded-md bg-orange-50 flex items-center justify-center text-orange-800 font-medium overflow-hidden`}
+                    className={`flex-shrink-0 w-16 h-16 rounded-md bg-orange-50
+                                flex items-center justify-center text-orange-800
+                                font-medium overflow-hidden`}
                   >
                     <div className="flex flex-col items-center justify-center gap-1">
                       <FaUtensils className="h-5 w-5" aria-hidden="true" />
@@ -131,7 +129,7 @@ export default function AccountOrdersPage() {
           <section className="rounded-lg p-6 grad-primary shadow-md">
             <div className="flex flex-col md:flex-row md:items-center gap-4">
               <div className="flex items-center gap-3">
-                <FaReceipt className="h-8 w-8 text-orange-700" aria-hidden="true" />
+                <FaReceipt className="h-8 w-8 text-orange-800" aria-hidden="true" />
                 <div>
                   <p className="font-semibold text-lg">No past orders</p>
                   <p className="text-sm text-stone-600">You don’t have any past orders yet.</p>

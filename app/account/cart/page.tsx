@@ -1,4 +1,3 @@
-// app/account/cart/page.tsx
 import AccountCartPage from "../components/AccountCartPage"
 
 export default function CartPage() {

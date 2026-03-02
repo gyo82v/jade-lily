@@ -20,10 +20,8 @@ export default function AccountDishCard({ dish, userId, priority = false }: Prop
 
   const cardBase = `
     group flex flex-row md:flex-col items-stretch overflow-hidden rounded-lg
-    grad-primary text-orange-800
-    shadow-lg ${transitions} ${disabledEffects}
-    hover:shadow-xl 
-  `;
+    grad-primary text-orange-800 hover:shadow-xl
+    shadow-lg ${transitions} ${disabledEffects}`;
 
   return (
     <li className="h-full">

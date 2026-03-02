@@ -5,15 +5,9 @@ import AccountActionBtn from "./AccountActionBtn";
 import { Spinner } from "@/components/ui";
 import { useAuth } from "@/firebase/authProvider";
 import { MdDelete } from "react-icons/md";
+import type { CartRemoveBtn } from "@/types";
 
-
-type Props = {
-  userId: string;
-  cartItemId: string;
-  className?: string;
-};
-
-function RemoveFromCartButtonComp({ userId, cartItemId }: Props) {
+function RemoveFromCartButtonComp({ userId, cartItemId }: CartRemoveBtn) {
   const { removeItemFromCart } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
