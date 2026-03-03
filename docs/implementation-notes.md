@@ -75,8 +75,8 @@ Jade Lily implementation list:
 - [✅] {Fix}{Signup/Sign-in} the signup/sign-in page should not be available for logged in users;
 - [✅] {Fix}{Footer} fix the layout of the footer for :md screens. Either add the separator or change
         to horizontal layout.
-- [✅][homepage] {Image}{Homepage} add a background image in the homepage, in the dine in section.
-- [Image][Homepage] find a better image for the hero section in the homepage.
+- [✅] {Image}{Homepage} add a background image in the homepage, in the dine in section.
+- [✅] {Image}{homepage} find a better image for the hero section in the homepage.
 - [✅] {Test} run the lighthouse test in google chrome.
 - [Test] test the global not-found page in production mode.
 - [✅] {A11y}{Home} check the page for accessibility
@@ -94,8 +94,6 @@ Jade Lily implementation list:
         preparing => in transit => completed. when a user clicks on the button "order now" in the 
         cart page it should redirect the user to the order page with the tracking of the order 
         and a message "thank you for you order".
-- [Optional] [Account/orders] instead of rendering a simple orders list, each order should be clickable and 
-            display : items, quantity, total, status, order date, order number.
 - [Optional] Add a favourite dishes system. the user can like a dish in the dis details page, clicking 
              on a hearth icon. the dish is added to firebase "users" collection and in the personal settings 
              a user can see his favouurite dishes. in the menu and account/menu add an extra filter for favourite dishes.
@@ -103,4 +101,4 @@ Jade Lily implementation list:
 - [Optional] [Header] Improve the header navbar on mobile : add an avatar account at the top of the page,
                       add socials links at the bottom of the page. improve animations when the panel close/open.
 - [Optional] [Account/settings] add a reset password option.
-- [Optional] [password/inputs] add the icon in the right of the input to allow to see the password.
+- [✅]  {Optional}{Password/inputs} add the icon in the right of the input to allow to see the password.

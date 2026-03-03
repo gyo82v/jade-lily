@@ -23,7 +23,7 @@ export default function BuiltBy(){
             <ul className="flex items-center gap-3 ">
                 <li>
                     <a 
-                      href="https://github.com" 
+                      href="https://github.com/gyo82v" 
                       target="_blank" 
                       className={socialPrimary}
                       rel="noopener noreferrer"
@@ -35,7 +35,7 @@ export default function BuiltBy(){
                 </li>
                 <li>
                     <a 
-                      href="https://linkedIn.com" 
+                      href="https://www.linkedin.com/in/giorgio-valle-051842353" 
                       target="_blank" 
                       className={socialPrimary}
                       rel="noopener noreferrer"

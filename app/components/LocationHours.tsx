@@ -21,13 +21,13 @@ export function LocationHours() {
             <div>
               <div className="text-sm font-medium text-gray-900">Concept location</div>
               <address className="not-italic text-sm text-gray-600 mt-1">
-                The Queens walk<br />
-                London, Uk (demo)
+                The Tuscan walk<br />
+                Tuscany, Italy (demo)
               </address>
               <div className="mt-2">
                 {/* Could be linked to a real map in a real project */}
                 <a
-                  href="https://www.google.com/maps/@51.5062558,-0.0865993,17.37z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D"
+                  href="https://www.google.com/maps/@43.2269774,10.7296901,12z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
                   className="text-sm text-orange-800 hover:underline"
                   rel="noopener noreferrer"
                   target='_blank'

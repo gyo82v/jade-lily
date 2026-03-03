@@ -9,7 +9,7 @@ export default function PersonalNavbar(){
             <ul className="flex gap-4 xl:gap-5">
                 <li>
                     <a 
-                      href="https://github.com" 
+                      href="https://github.com/gyo82v" 
                       target="_blank" 
                       className={` ${aStyle}`}
                       rel="noopener noreferrer"
@@ -21,7 +21,7 @@ export default function PersonalNavbar(){
                 </li>
                 <li>
                     <a 
-                      href="https://linkedIn.com" 
+                      href="https://www.linkedin.com/in/giorgio-valle-051842353" 
                       target="_blank" 
                       className={` ${aStyle}`}
                       rel="noopener noreferrer"
