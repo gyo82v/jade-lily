@@ -44,7 +44,7 @@ export default function PersonalNavbar(){
                 <li>
                     <a
                       className={`${aStyle}`}
-                      href="/"
+                      href="https://gyoportfolio.netlify.app/"
                       aria-label="view my Portfolio website"
                       title="Portfolio website"
                       target="_blank"
