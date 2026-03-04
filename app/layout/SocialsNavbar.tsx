@@ -1,6 +1,4 @@
-import { FaInstagram, FaFacebook, FaTiktok, } from "react-icons/fa";
-import {FaXTwitter} from "react-icons/fa6";
-
+import { FaInstagram, FaTiktok, } from "react-icons/fa";
 
 export default function SocialsNavbar(){
     const aStyle = `transition-transform transition-colors duration-300 ease-in-out 
@@ -11,18 +9,7 @@ export default function SocialsNavbar(){
             <ul className="flex gap-4">
                 <li>
                     <a 
-                      href="https://facebook.com" 
-                      target="_blank" 
-                      className={aStyle}
-                      rel="noopener noreferrer"
-                      title="Facebook"
-                    >
-                        <FaFacebook />
-                    </a>
-                </li>
-                <li>
-                    <a 
-                      href="https://instagram.com" 
+                      href="https://www.instagram.com/jadelilyapp/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className={aStyle}
@@ -33,24 +20,13 @@ export default function SocialsNavbar(){
                 </li>
                 <li>
                     <a 
-                      href="https://tiktok.com" 
+                      href="https://www.tiktok.com/@jadelilyapp" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className={aStyle}
                       title="TikTok"
                     >
                         <FaTiktok />
-                    </a>
-                </li>
-                <li>
-                    <a 
-                      href="https://twitter.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={aStyle}
-                      title="Twitter"
-                    >
-                        <FaXTwitter />
                     </a>
                 </li>
             </ul>
