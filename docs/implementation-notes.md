@@ -78,7 +78,7 @@ Jade Lily implementation list:
 - [✅] {Image}{Homepage} add a background image in the homepage, in the dine in section.
 - [✅] {Image}{homepage} find a better image for the hero section in the homepage.
 - [✅] {Test} run the lighthouse test in google chrome.
-- [Test] test the global not-found page in production mode.
+- [✅] {Test} test the global not-found page in production mode.
 - [✅] {A11y}{Home} check the page for accessibility
 - [✅] {A11y}{About} check the page for accessibility
 - [✅] {A11y}{Menu} check the page for accessibility
